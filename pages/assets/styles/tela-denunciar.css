@@ -1,0 +1,72 @@
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding: 15px;
+}
+
+.topo h1 {
+  font-size: 30px;
+}
+
+.icon-voltar {
+  position: absolute;
+  left: 15px;
+  background: white;
+  border: none;
+  font-size: 22px;
+}
+
+.pergunta {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.pergunta p {
+  font-size: 22px;
+}
+
+.palavra-vermelha {
+  color: red;
+}
+
+textarea {
+  width: 341px;
+  height: 134px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 18px;
+}
+
+select {
+  padding: 12px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.anexar-arquivo img {
+  width: 121px;
+  height: 30px;
+}
+
+.rodape {
+  text-align: end;
+}
+
+.enviar {
+  background-color: white;
+  color: red;
+  padding: 10px 25px;
+  font-size: 25px;
+  border-radius: 10px;
+}
