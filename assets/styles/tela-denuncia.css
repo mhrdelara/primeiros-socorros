@@ -1,0 +1,64 @@
+.cabecalho {
+  color: black;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+.cabecalho h1 {
+  font-size: 30px;
+}
+
+.icon-fechar {
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  background: white;
+  border: none;
+  color: red;
+  font-size: 20px;
+}
+
+.parte-vermelha {
+  background-color: red;
+  color: white;
+  padding: 30px;
+}
+
+.parte-vermelha .titulo {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.parte-vermelha .texto {
+  font-size: 18px;
+}
+
+.lista {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lista li {
+  height: 105px;
+  padding: 0 25px;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.lista li:hover {
+  background: white;
+}
+
+.lista .outro {
+  color: red;
+}
+
+.icone {
+  font-size: 20px;
+  color: black;
+}
