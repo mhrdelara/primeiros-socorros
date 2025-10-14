@@ -1,0 +1,32 @@
+.modal2{
+    z-index: 99999;
+    position: fixed;
+    top: 178px;
+    left: 6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 345px;
+    height: 557px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    display: none;
+}
+  
+.back-modal2{
+    z-index: 999;
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    background-color: rgba(0, 0, 0, 0.56);
+    top: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+  
+.disable{
+display:none
+}

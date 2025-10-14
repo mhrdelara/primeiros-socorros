@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../assets/styles/tela-inicial/tela-inicial.css">
     <link rel="shortcut icon" href="../assets/images/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css">
+    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css">
+    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-excluir-conta.css">
+    <link rel="stylesheet" href="../assets/styles/tela-modal/">
     <script src="../assets/scripts/modal.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +30,7 @@
 
     <div class="modal disable">
         <div class="header-modal">
-            <img src="../assets/images/icons/IMG_20250623_223429_557.webp" alt="">
+            <img src="../assets/images/icons/IMG_20250623_223429_557.webp" alt="Foto de perfil">
         </div>
 
         <div class="dad-card">
@@ -42,7 +45,7 @@
             <a href="./tela-postagem.html" id="post-content">
                 <div class="card">
                     <h1>Postar conteúdo</h1>
-                    <img src="../assets/images/icons/camera.svg" alt="Câmera de Fotos">
+                    <img src="../assets/images/icons/camera.svg" alt="Postagem de conteúdos">
                 </div>
             </a>
 
@@ -53,7 +56,7 @@
             <a href="./tela-alterar-usuario.html" id="edit-account">
                 <div class="card">
                     <h1>Editar conta</h1>
-                    <img src="../assets/images/icons/editar-conta.svg" alt="">
+                    <img src="../assets/images/icons/editar-conta.svg" alt="Editar conta">
                 </div>
             </a>
 
@@ -61,10 +64,10 @@
 
         <div class="dad-card">
 
-            <button id="delete-account">
+            <button id="delete-account" onclick="showModalDelete()">
                 <div class="card">
                     <h1>Excluir conta</h1>
-                    <img src="../assets/images/icons/excluir-conta.svg" alt="">
+                    <img src="../assets/images/icons/excluir-conta.svg" alt="Excluir conta">
                 </div>
             </button>
 
@@ -72,16 +75,17 @@
 
         <div class="dad-card">
 
-            <button id="exit">
+            <button id="exit" onclick="showModalExit()">
                 <div id="card1">
                     <h1>Sair</h1>
-                    <img src="../assets/images/icons/exit.svg" alt="">
+                    <img src="../assets/images/icons/exit.svg" alt="Sair da conta">
                 </div>
+                
             </button>
 
         </div>
-
     </div>
+
     <div class="back-modal disable" onclick="closeModal()">
     </div>
 

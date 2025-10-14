@@ -1,14 +1,12 @@
-function closeModal(){
-  let bkModal = document.querySelector(".back-modal")
+function showModal(){
   let modal = document.querySelector(".modal")
-  
-  bkModal.classList.add("disable")
-  modal.classList.add("disable")
+  let bkModal = document.querySelector(".back-modal")
+
+  bkModal.classList.toggle("disable")
+  modal.classList.toggle("disable")
+
 }
 
-function showModal(){
-  let bkModal = document.querySelector(".back-modal")
-  let modal = document.querySelector(".modal")
-  modal.classList.remove("disable")
-  bkModal.classList.remove("disable")
+function closeModal(){
+  showModal()
 }
