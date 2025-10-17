@@ -59,13 +59,16 @@ header{
     color: rgba(230, 46, 27, 1);
 }
 
-.dad-card{
+main{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-#card{
+.card{
+    padding: 7px;
+    padding-left: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -76,8 +79,32 @@ header{
     -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
     -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
     flex-direction: column;
-    padding: 10px;
-    margin-bottom: 17px;
+    margin-bottom: 19px;
+}
+
+.card h1{
+    font-size: 14px;
+}
+
+.card p{
+    font-size: 12px;
+}
+
+
+#card{
+    padding: 7px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    flex-direction: column;
+    margin-bottom: 19px;
 }
 
 #card h1{
@@ -89,7 +116,8 @@ header{
 }
 
 .card1{
-    padding: 10px;
+    padding: 7px;
+    padding-left: 10px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -100,26 +128,46 @@ header{
     -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
     -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
     flex-direction: column;
-    margin-bottom: 17px;
+    margin-bottom: 19px;
 }
 
 .card1 h1{
     font-size: 14px;
 }
 
-.upload{
+.card1{
+    padding: 7px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    flex-direction: column;
+    margin-bottom: 19px;
+}
+
+.card1 h1{
+    font-size: 14px;
+}
+
+.upload1{
     border-radius: 50px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 120px;
-    height: 30px;
+    width: 140px;
+    height: 40px;
     background: rgba(26, 115, 232, 1);
 }
 
-.upload p{
+.upload1 p{
     color: white;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #dad-document{
@@ -153,4 +201,61 @@ header{
 #document p{
     font-size: 12px;
     color: rgba(102, 102, 102, 1);
+}
+
+.file-upload{
+    padding: 7px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+    flex-direction: column;
+    margin-bottom: 19px;
+}
+
+.file-upload h1{
+    font-size: 14px;
+}
+
+
+
+
+a{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 101px;
+}
+
+#concluir{
+    background: rgb(230, 217, 200);
+    width: 170px;
+    height: 44px;
+    border-radius: 100px;
+    border: none;
+    text-decoration: none;
+    color: none;
+}
+
+#concluir p{
+    background: rgb(230, 217, 200);
+    font-size: 15px;
+    border-radius: 100px;
+}
+
+
+
+#upload{
+    display: none;
+}
+
+input[type="file"] {
+    display: none;
 }

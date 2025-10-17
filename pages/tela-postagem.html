@@ -11,17 +11,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Tela postagem</title>
+    <title>Postar conteúdos</title>
 </head>
 <body>
     <header>
         <div id="dad-icons">
             <a href="./index.html" id="dad-arrow">
-                <img id="arrow" src="../assets/images/icons/arrow_back.svg" alt="">
+                <img id="arrow" src="../assets/images/icons/arrow_back.svg" alt="Voltar página">
             </a>
     
             <div id="dad-logo">
-                <img id="logo" src="../assets/images/logo/Atitude Vital.png" alt="">
+                <img id="logo" src="../assets/images/logo/Atitude Vital.png" alt="Logo">
             </div>
         </div>
     </header>
@@ -32,40 +32,48 @@
         </div>
     </div>
 
-    <div class="dad-card">
-        <div id="card">
-            <h1>Título:</h1>
-            <p>Título do Material</p>
-        </div>
+    <main>
+    <div class="card">
+        <h1>Título:</h1>
+        <p>Título do material</p>
     </div>
 
-    <div class="dad-card">
-        <div class="card1">
-            <h1>Videoaula:</h1>
-            <div class="upload">
-                <img src="../assets/images/icons/upload.svg" alt="">
-                <p>Upload</p>
-            </div>
-        </div>
+    <div class="card">
+        <h1>Descrição</h1>
+        <p>Descrição do material</p>
     </div>
 
-    <div class="dad-card">
-        <div class="card1">
-            <h1>Material:</h1>
-            <div class="upload">
-                <img src="../assets/images/icons/upload.svg" alt="">
-                <p>Upload</p>
-            </div>
+    <label for="video" class="file-upload">
+        <h1>Videoaula:</h1>
+        <div class="upload1">
+            <img src="../assets/images/icons/upload.svg" alt="Upload">
+            <p>Upload</p>
         </div>
-    </div>
+    </label>
 
-    <div id="dad-document">
-        <div id="son-document">
-            <div id="document">
-                <p>Arraste o documento aqui</p>
-            </div>
+    <input class="disable" type="file" id="video" accept=".mp4" name="video">
+    
+
+    <label for="pdf" class="file-upload">
+        <h1>Material:</h1>
+        <div class="upload1">
+            <img src="../assets/images/icons/upload.svg" alt="Upload">
+            <p>Upload</p>
         </div>
-    </div>
+    </label>
+
+    <input class="disable" type="file" id="pdf" accept=".pdf" name="pdf">
+    </main>
+
+
+
+
+
+    <a href="./index.html" id="dad-concluir">
+        <div id="concluir">
+            <p>Concluído</p>
+        </div>
+    </a>
 
 </body>
 </html>
