@@ -96,29 +96,35 @@ main{
     
 }
 
-#concluir{
-    background: rgb(230, 217, 200);
-    width: 170px;
-    height: 44px;
-    border-radius: 100px;
-    border: none;
-}
-
 .input{
     height: 20px;
     border: none;
     background: none;
 }
 
-#concluir p{
-    background: rgb(230, 217, 200);
-    font-size: 15px;
-    border-radius: 100px;
-}
-
 #dad-concluir{
     background-color: white;
     display: flex;
     justify-content: center;
-    margin-top: 22px;
+    align-items: center;
+    margin-top: 39px;
+}
+
+#concluir{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(230, 217, 200);
+    width: 170px;
+    height: 44px;
+    border-radius: 100px;
+    border: none;
+    text-decoration: none;
+    color: black;
+}
+
+#concluir p{
+    background: rgb(230, 217, 200);
+    font-size: 15px;
+    border-radius: 100px;
 }
