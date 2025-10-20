@@ -1,141 +1,151 @@
 <!DOCTYPE html>
 <html lang="PT-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles/main.css">
-    <link rel="stylesheet" href="../assets/styles/layout.css">
-    <link rel="stylesheet" href="../assets/styles/tela-inicial/tela-inicial.css">
-    <link rel="shortcut icon" href="../assets/images/icons/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css">
-    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css">
-    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-excluir-conta.css">
-    <link rel="stylesheet" href="../assets/styles/tela-modal/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="stylesheet" href="../assets/styles/layout.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-inicial/tela-inicial.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
+    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-modal/tela-excluir-conta.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/tela-modal/" />
     <script src="../assets/scripts/modal.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Tela inicial</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <img src="../assets/images/logo/Atitude Vital.png" alt="Logo">
-        <div class="header-down">
-            <button class="login-logout">
-                <p>Inscrever-se <span>ou</span> entrar</p>
-            </button>
-        </div>
+      <img src="../assets/images/logo/Atitude Vital.png" alt="Logo" />
+      <div class="header-down">
+        <button class="login-logout">
+          <p>Inscrever-se <span>ou</span> entrar</p>
+        </button>
+      </div>
     </header>
 
     <div class="modal disable">
-        <div class="header-modal">
-            <img src="../assets/images/icons/IMG_20250623_223429_557.webp" alt="Foto de perfil">
+      <div class="header-modal">
+        <img
+          src="../assets/images/icons/IMG_20250623_223429_557.webp"
+          alt="Foto de perfil"
+        />
+      </div>
+
+      <div class="dad-card">
+        <div id="card">
+          <h1>Nome de usuário</h1>
+          <p>@joaosilva</p>
         </div>
+      </div>
 
-        <div class="dad-card">
-            <div id="card">
-                <h1>Nome de usuário</h1>
-                <p>@joaosilva</p>
-            </div>
-        </div>
+      <div class="dad-card">
+        <a href="./tela-postagem.html" id="post-content">
+          <div class="card">
+            <h1>Postar conteúdo</h1>
+            <img
+              src="../assets/images/icons/camera.svg"
+              alt="Postagem de conteúdos"
+            />
+          </div>
+        </a>
+      </div>
 
-        <div class="dad-card">
+      <div class="dad-card">
+        <a href="./tela-alterar-usuario.html" id="edit-account">
+          <div class="card">
+            <h1>Editar conta</h1>
+            <img
+              src="../assets/images/icons/editar-conta.svg"
+              alt="Editar conta"
+            />
+          </div>
+        </a>
+      </div>
 
-            <a href="./tela-postagem.html" id="post-content">
-                <div class="card">
-                    <h1>Postar conteúdo</h1>
-                    <img src="../assets/images/icons/camera.svg" alt="Postagem de conteúdos">
-                </div>
-            </a>
+      <div class="dad-card">
+        <button id="delete-account" onclick="showModalDelete()">
+          <div class="card">
+            <h1>Excluir conta</h1>
+            <img
+              src="../assets/images/icons/excluir-conta.svg"
+              alt="Excluir conta"
+            />
+          </div>
+        </button>
+      </div>
 
-        </div>
-
-        <div class="dad-card">
-
-            <a href="./tela-alterar-usuario.html" id="edit-account">
-                <div class="card">
-                    <h1>Editar conta</h1>
-                    <img src="../assets/images/icons/editar-conta.svg" alt="Editar conta">
-                </div>
-            </a>
-
-        </div>
-
-        <div class="dad-card">
-
-            <button id="delete-account" onclick="showModalDelete()">
-                <div class="card">
-                    <h1>Excluir conta</h1>
-                    <img src="../assets/images/icons/excluir-conta.svg" alt="Excluir conta">
-                </div>
-            </button>
-
-        </div>
-
-        <div class="dad-card">
-
-            <button id="exit" onclick="showModalExit()">
-                <div id="card1">
-                    <h1>Sair</h1>
-                    <img src="../assets/images/icons/exit.svg" alt="Sair da conta">
-                </div>
-                
-            </button>
-
-        </div>
+      <div class="dad-card">
+        <button id="exit" onclick="showModalExit()">
+          <div id="card1">
+            <h1>Sair</h1>
+            <img src="../assets/images/icons/exit.svg" alt="Sair da conta" />
+          </div>
+        </button>
+      </div>
     </div>
 
-    <div class="back-modal disable" onclick="closeModal()">
-    </div>
+    <div class="back-modal disable" onclick="closeModal()"></div>
 
     <div class="dad-shearch">
-            <div class="shearch">
-                <div class="son-shearch">
-                    <p>Pesquisar...</p>
-                    <img src="../assets/images/icons/microfone.svg" alt="Microfone">
-                </div>
-            </div>
-        
-            <button id="opcoes" onclick="showModal()">
-                <img src="../assets/images/icons/barra.svg" alt="Opções">
-            </button>
+      <div class="shearch">
+        <div class="son-shearch">
+          <p>Pesquisar...</p>
+          <img src="../assets/images/icons/microfone.svg" alt="Microfone" />
+        </div>
+      </div>
+
+      <button id="opcoes" onclick="showModal()">
+        <img src="../assets/images/icons/barra.svg" alt="Opções" />
+      </button>
     </div>
 
     <div class="dad-box">
-        <div class="box">
-            <div class="dad-informations">
-                <h2 class="title">INFORMAÇÕES</h2>
-            </div>
-
-            <div class="dad-text">
-                <p>Números de emergência no Brasil:</p>
-                <ul>
-                    <li>Polícia Militar: 190</li>
-                    <li>Bombeiros: 193</li>
-                    <li>SAMU: 192</li>
-                    <li>CVV: 188</li>
-                </ul>
-            </div>
+      <div class="box">
+        <div class="dad-informations">
+          <h2 class="title">INFORMAÇÕES</h2>
         </div>
+
+        <div class="dad-text">
+          <p>Números de emergência no Brasil:</p>
+          <ul>
+            <li>Polícia Militar: 190</li>
+            <li>Bombeiros: 193</li>
+            <li>SAMU: 192</li>
+            <li>CVV: 188</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="dad-temas">
-        <div class="temas">
-            <p>Temas mais procurados</p>
-        </div>
+      <div class="temas">
+        <p>Temas mais procurados</p>
+      </div>
     </div>
 
     <div class="dad-quadrado">
-        <div class="son-quadrado">
-            <div class="quadrado-video">
-                
-            </div>
-            <p>Reanimação</p>
-        </div>
+      <div class="son-quadrado">
+        <div class="quadrado-video"></div>
+        <p>Reanimação</p>
+      </div>
     </div>
-
-    
-
-</body>
+  </body>
 </html>
