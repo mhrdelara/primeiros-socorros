@@ -16,12 +16,14 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
-    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
     <link
       rel="stylesheet"
       href="../assets/styles/tela-modal/tela-excluir-conta.css"
     />
-    <link rel="stylesheet" href="../assets/styles/tela-modal/" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-modal/tela-sair-conta.css"
+    />
     <script src="../assets/scripts/modal.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,11 +37,37 @@
     <header>
       <img src="../assets/images/logo/Atitude Vital.png" alt="Logo" />
       <div class="header-down">
-        <button class="login-logout">
+        <a href="./tela-cadastro" id="login-logout">
           <p>Inscrever-se <span>ou</span> entrar</p>
-        </button>
+        </a>
       </div>
     </header>
+
+    <div class="confirm-modal-delete disable">
+      <div class="modal-content-delete">
+        <div class="delete-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-delete">
+          <button id="btnSimDelete"><p>Sim</p></button>
+          <button id="btnNaoDelete"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="confirm-modal-exit disable">
+      <div class="modal-content-exit">
+        <div class="exit-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-exit">
+          <button id="btnSimExit"><p>Sim</p></button>
+          <button id="btnNaoExit"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
 
     <div class="modal disable">
       <div class="header-modal">
