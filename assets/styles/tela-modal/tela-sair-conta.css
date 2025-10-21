@@ -1,4 +1,15 @@
-.confirm-modal-delete {
+.back-modal-exit {
+  z-index: 99999;
+  width: 345px;
+  height: 557px;
+  position: fixed;
+  top: 178px;
+  left: 6vw;
+  background: rgba(0, 0, 0, 0.46);
+  border-radius: 5px;
+}
+
+.confirm-modal-exit {
   z-index: 999999;
   position: fixed;
   display: flex;
@@ -10,9 +21,10 @@
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 5px;
+  left: 7vw;
 }
 
-.modal-content-delete {
+.modal-content-exit {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +36,7 @@
   border-radius: 5px;
 }
 
-.delete-square {
+.exit-square {
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -37,7 +49,7 @@
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-.frame-btn-delete {
+.frame-btn-exit {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,7 +57,7 @@
   height: 46px;
 }
 
-#btnSimDelete {
+#btnSimExit {
   border: none;
   border-radius: 50px;
   width: 117px;
@@ -54,13 +66,14 @@
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-#btnSimDelete p {
+#btnSimExit p {
   color: rgba(230, 46, 27, 1);
   font-size: 16px;
 }
 
-#btnNaoDelete {
+#btnNaoExit {
   border: none;
+  background: rgba(230, 46, 27, 1);
   border-radius: 50px;
   width: 117px;
   height: 46px;
@@ -68,8 +81,8 @@
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-#btnNaoDelete p {
-  color: rgba(230, 46, 27, 1);
+#btnNaoExit p {
+  color: white;
   font-size: 16px;
 }
 

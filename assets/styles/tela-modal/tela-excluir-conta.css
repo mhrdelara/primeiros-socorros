@@ -1,3 +1,14 @@
+.back-modal-delete {
+  z-index: 99999;
+  width: 345px;
+  height: 557px;
+  position: fixed;
+  top: 178px;
+  left: 6vw;
+  background: rgba(0, 0, 0, 0.46);
+  border-radius: 5px;
+}
+
 .confirm-modal-delete {
   z-index: 999999;
   position: fixed;
@@ -10,6 +21,7 @@
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 5px;
+  left: 7vw;
 }
 
 .modal-content-delete {
@@ -45,7 +57,7 @@
   height: 46px;
 }
 
-#btnSim {
+#btnSimDelete {
   border: none;
   border-radius: 50px;
   width: 117px;
@@ -54,13 +66,14 @@
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-#btnSim p {
+#btnSimDelete p {
   color: rgba(230, 46, 27, 1);
   font-size: 16px;
 }
 
-#btnNao {
+#btnNaoDelete {
   border: none;
+  background: rgba(230, 46, 27, 1);
   border-radius: 50px;
   width: 117px;
   height: 46px;
@@ -68,8 +81,8 @@
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-#btnNao p {
-  color: rgba(230, 46, 27, 1);
+#btnNaoDelete p {
+  color: rgb(255, 255, 255);
   font-size: 16px;
 }
 

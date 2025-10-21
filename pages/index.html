@@ -43,7 +43,8 @@
       </div>
     </header>
 
-    <div class="confirm-modal-delete disable">
+    <div class="back-modal-delete"></div>
+    <div class="confirm-modal-delete">
       <div class="modal-content-delete">
         <div class="delete-square">
           <p>Excluir conta?</p>
@@ -56,7 +57,8 @@
       </div>
     </div>
 
-    <div class="confirm-modal-exit disable">
+    <div class="back-modal-exit"></div>
+    <div class="confirm-modal-exit">
       <div class="modal-content-exit">
         <div class="exit-square">
           <p>Excluir conta?</p>
@@ -69,7 +71,15 @@
       </div>
     </div>
 
-    <div class="modal disable">
+    <div class="mensage-modal-delete">
+      <div class="mensage-delete">
+        <div class="mensage">
+          <p>Conta excluída com sucesso</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
       <div class="header-modal">
         <img
           src="../assets/images/icons/IMG_20250623_223429_557.webp"
@@ -134,8 +144,8 @@
 
     <div class="dad-shearch">
       <div class="shearch">
-        <div class="son-shearch">
-          <p>Pesquisar...</p>
+        <input type="text" placeholder="pesquisar" class="pesquisar" />
+        <div class="mic">
           <img src="../assets/images/icons/microfone.svg" alt="Microfone" />
         </div>
       </div>
@@ -169,11 +179,37 @@
       </div>
     </div>
 
-    <div class="dad-quadrado">
+    <main>
       <div class="son-quadrado">
         <div class="quadrado-video"></div>
         <p>Reanimação</p>
       </div>
-    </div>
+
+      <div class="son-quadrado">
+        <div class="quadrado-video"></div>
+        <p>Ferimentos</p>
+      </div>
+
+      <div class="son-quadrado">
+        <div class="quadrado-video"></div>
+        <p>Engasgo</p>
+      </div>
+
+      <div class="son-quadrado">
+        <div class="quadrado-video"></div>
+        <p>AVC</p>
+      </div>
+
+      <div class="son-quadrado">
+        <div class="quadrado-video"></div>
+        <p>Crise de Ansie.</p>
+      </div>
+    </main>
+
+    <script defer>
+      addEventListener("DOMContentLoaded", () => {
+        closeAllModals();
+      });
+    </script>
   </body>
 </html>
