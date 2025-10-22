@@ -46,7 +46,7 @@ header img {
   font-weight: 400;
 }
 
-.dad-shearch {
+.dad-search {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -59,21 +59,24 @@ header img {
   height: 100%;
   border: none;
   border-radius: 500px;
-  padding-left: 20px;
+  font-size: 14px;
+}
+
+.pesquisar::placeholder {
+  color: rgba(230, 46, 27, 1);
 }
 
 .pesquisar:focus {
-  border: none;
+  outline: none;
 }
 
-.shearch {
-  padding-right: 15px;
+.search {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 45px;
-  width: 80vw;
+  width: 75.57vw;
   background-color: rgba(245, 245, 243, 1);
   border-radius: 100px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -81,19 +84,14 @@ header img {
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-.son-shearch {
-  display: flex;
-  justify-content: space-between;
-  width: 260px;
-}
-
-.shearch p {
+.search p {
   font-size: 14px;
   color: rgba(230, 46, 27, 1);
 }
 
-.shearch img {
-  fill: rgba(230, 46, 27, 1);
+.mic {
+  display: flex;
+  width: 3.82vw;
 }
 
 .dad-box {
