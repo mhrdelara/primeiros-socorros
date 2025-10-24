@@ -11,6 +11,10 @@
       href="../assets/styles/tela-inicial/tela-inicial.css"
     />
     <link
+      rel="stylesheet"
+      href="../assets/styles/tela-modal/tela-excluir-mensagem.css"
+    />
+    <link
       rel="shortcut icon"
       href="../assets/images/icons/favicon.ico"
       type="image/x-icon"
@@ -43,7 +47,7 @@
       </div>
     </header>
 
-    <div class="back-modal-delete"></div>
+    <div class="back-modal-delete" onclick="closeAllModals()"></div>
     <div class="confirm-modal-delete">
       <div class="modal-content-delete">
         <div class="delete-square">
@@ -51,13 +55,15 @@
         </div>
 
         <div class="frame-btn-delete">
-          <button id="btnSimDelete"><p>Sim</p></button>
+          <button id="btnSimDelete" onclick="showModalMensage()">
+            <p>Sim</p>
+          </button>
           <button id="btnNaoDelete"><p>Não</p></button>
         </div>
       </div>
     </div>
 
-    <div class="back-modal-exit"></div>
+    <div class="back-modal-exit" onclick="closeAllModals()"></div>
     <div class="confirm-modal-exit">
       <div class="modal-content-exit">
         <div class="exit-square">
@@ -72,10 +78,8 @@
     </div>
 
     <div class="mensage-modal-delete">
-      <div class="mensage-delete">
-        <div class="mensage">
-          <p>Conta excluída com sucesso</p>
-        </div>
+      <div class="mensage">
+        <p>Conta excluída com sucesso</p>
       </div>
     </div>
 
@@ -140,7 +144,7 @@
       </div>
     </div>
 
-    <div class="back-modal disable" onclick="closeModal()"></div>
+    <div class="back-modal disable" onclick="closeAllModals()"></div>
 
     <div class="dad-search">
       <div class="search">

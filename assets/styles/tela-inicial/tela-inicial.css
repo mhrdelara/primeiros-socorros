@@ -1,7 +1,7 @@
 header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
-  height: 18.78vh;
+  height: 20vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -14,7 +14,7 @@ header img {
 }
 
 .header-down {
-  padding-right: 1.0178vw;
+  padding-right: 4px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -63,6 +63,36 @@ header img {
   font-size: 14px;
 }
 
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 5.5vh;
+  width: 76vw;
+  background-color: rgba(245, 245, 243, 1);
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+}
+
+.search input {
+  font-size: 4vw;
+  color: rgba(230, 46, 27, 1);
+}
+
+#opcoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+}
+
+#opcoes img {
+  width: 5vw;
+}
+
 .pesquisar::placeholder {
   color: rgba(230, 46, 27, 1);
 }
@@ -71,28 +101,14 @@ header img {
   outline: none;
 }
 
-.search {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 5.283vh;
-  width: 75.575vw;
-  background-color: rgba(245, 245, 243, 1);
-  border-radius: 100px;
-  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-}
-
-.search p {
-  font-size: 14px;
-  color: rgba(230, 46, 27, 1);
-}
-
 .mic {
   display: flex;
-  width: 3.82vw;
+  width: 4vw;
+}
+
+.mic img {
+  display: flex;
+  width: 4vw;
 }
 
 .dad-box {

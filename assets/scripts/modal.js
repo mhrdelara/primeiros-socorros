@@ -1,6 +1,7 @@
 let modalAberto = false;
 let modalDeleteAberto = false;
 let modalExitAberto = false;
+let modalMensageAberto = false;
 
 function showModal() {
   modalAberto = true;
@@ -80,6 +81,26 @@ function closeModalExit() {
   bkModalExit.classList.add("disable");
 }
 
+function showModalMensage() {
+  let modal = document.querySelector(".mensage-modal-delete");
+  let modalForClose = document.querySelector(".confirm-modal-delete");
+
+  if (!modalForClose.classList.contains("disable")) {
+    modalForClose.classList.add("disable");
+  }
+  if (modal.classList.contains("disable")) {
+    modal.classList.remove("disable");
+  }
+}
+
+function closeModalMensage() {
+  modalMensageAberto = false;
+  let modal = document.querySelector(".confirm-modal-delete");
+  let bkModalExit = document.querySelector(".back-modal-delete");
+  modal.classList.add("disable");
+  bkModalExit.classList.add("disable");
+}
+
 addEventListener("DOMContentLoaded", () => {
   document.querySelector("#btnSimDelete").addEventListener("click", () => {
     showModalMensage();
@@ -89,7 +110,7 @@ addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelector("#btnSimExit").addEventListener("click", () => {
-    closeModalExit();
+    closeAllModals();
   });
 
   document.querySelector("#btnNaoExit").addEventListener("click", () => {
@@ -106,18 +127,19 @@ addEventListener("DOMContentLoaded", () => {
 
 function closeAllModals() {
   let backModalExit = document.querySelector(".back-modal-exit");
-  let confModalDelete = document.querySelector(".confirm-modal-delete");
+  let confirmModalDelete = document.querySelector(".confirm-modal-delete");
+  let confirmModalExit = document.querySelector(".confirm-modal-exit");
   let modal = document.querySelector(".modal");
   let msgModalDelete = document.querySelector(".mensage-modal-delete");
-  let msgModalExit = document.querySelector(".confirm-modal-exit");
+
   let backModal = document.querySelector(".back-modal");
   let backModalDelete = document.querySelector(".back-modal-delete");
 
   if (!backModalExit.classList.contains("disable")) {
     backModalExit.classList.add("disable");
   }
-  if (!confModalDelete.classList.contains("disable")) {
-    confModalDelete.classList.add("disable");
+  if (!confirmModalDelete.classList.contains("disable")) {
+    confirmModalDelete.classList.add("disable");
   }
   if (!modal.classList.contains("disable")) {
     modal.classList.add("disable");
@@ -125,8 +147,8 @@ function closeAllModals() {
   if (!msgModalDelete.classList.contains("disable")) {
     msgModalDelete.classList.add("disable");
   }
-  if (!msgModalExit.classList.contains("disable")) {
-    msgModalExit.classList.add("disable");
+  if (!confirmModalExit.classList.contains("disable")) {
+    confirmModalExit.classList.add("disable");
   }
   if (!backModal.classList.contains("disable")) {
     backModal.classList.add("disable");
