@@ -82,7 +82,7 @@ function closeModalExit() {
 
 addEventListener("DOMContentLoaded", () => {
   document.querySelector("#btnSimDelete").addEventListener("click", () => {
-    closeModalDelete();
+    showModalMensage();
   });
   document.querySelector("#btnNaoDelete").addEventListener("click", () => {
     closeModalDelete();
