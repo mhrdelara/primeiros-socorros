@@ -26,9 +26,9 @@ header img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40.46vw;
+  width: 40vw;
   text-decoration: none;
-  height: 2.3888vh;
+  height: 3.5vh;
   background-color: rgba(230, 46, 27, 1);
   border-radius: 44px;
   border: 0px;
@@ -40,7 +40,7 @@ header img {
 #login-logout p {
   color: rgb(255, 255, 255);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 3vw;
 }
 
 #login-logout span {
@@ -121,8 +121,8 @@ header img {
 .box {
   display: flex;
   flex-direction: column;
-  width: 281px;
-  height: 226px;
+  width: 72vw;
+  height: 25vh;
   background: rgba(245, 245, 239, 1);
   align-items: center;
 }
@@ -132,9 +132,9 @@ header img {
   margin-bottom: 10px;
   justify-content: center;
   align-items: center;
-  width: 169px;
+  width: 43vw;
   transform: translateY(-50%);
-  height: 40px;
+  height: 5vh;
   background: rgba(245, 245, 243, 1);
   border-radius: 45px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -142,25 +142,26 @@ header img {
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-.box h2 {
+.dad-informations h2 {
+  font-size: 4vw;
   color: rgba(230, 46, 27, 1);
-  font-size: 16px;
-  font-style: normal;
   font-weight: 400;
 }
 
 .dad-text {
   flex-direction: column;
-  width: 281px;
+  width: 72vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .dad-text p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 4vw;
+}
+
+.dad-text li {
+  font-size: 4vw;
 }
 
 .dad-temas {
@@ -168,50 +169,50 @@ header img {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 40px;
-  margin-bottom: 21px;
+  margin-bottom: 5vh;
 }
 
 .temas {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 283px;
-  height: 40px;
+  width: 72vw;
+  height: 5vh;
   background: rgba(245, 245, 243, 1);
-  border-radius: 45px;
+  border-radius: 50px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
 .temas p {
   color: rgba(230, 46, 27, 1);
+  font-size: 4vw;
 }
 
 main {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-left: 9vw;
+  align-items: flex-start;
   flex-direction: column;
   width: 100vw;
   gap: 32px;
 }
 
 .son-quadrado {
-  width: 323px;
+  width: 75vw;
   display: flex;
   gap: 23px;
   align-items: center;
 }
 
 .son-quadrado p {
-  font-size: 24px;
+  font-size: 6vw;
   text-align: left;
 }
 
 .quadrado-video {
-  width: 100px;
-  height: 100px;
+  width: 25vw;
+  height: 25vw;
   background: rgba(217, 217, 217, 1);
 }
 

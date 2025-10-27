@@ -20,13 +20,13 @@
 .modal {
   z-index: 999;
   position: fixed;
-  top: 178px;
-  left: 6vw;
+  top: 22vh;
+  left: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 345px;
-  height: 557px;
+  width: 90vw;
+  height: 65vh;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 5px;
