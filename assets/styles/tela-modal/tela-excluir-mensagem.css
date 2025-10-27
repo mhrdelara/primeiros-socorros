@@ -4,13 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 336px;
-  height: 293px;
+  width: 85vw;
+  height: 35vh;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 5px;
   left: 7.5vw;
-  top: 36.5vh;
+  top: 30vh;
 }
 
 .mensage {
@@ -19,10 +19,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 293px;
-  height: 46px;
+  width: 75vw;
+  height: 5.5vh;
   color: rgba(230, 46, 27, 1);
   background: rgba(245, 245, 243, 1);
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+}
+
+.mensage p {
+  font-size: 4vw;
 }

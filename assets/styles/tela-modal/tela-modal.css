@@ -1,7 +1,7 @@
 .header-modal {
   background: rgba(245, 245, 239, 1);
-  width: 345px;
-  height: 116px;
+  width: 90vw;
+  height: 14vh;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
 .header-modal img {
   transform: translateY(50%);
   flex-direction: column;
-  width: 102px;
+  width: 25vw;
   border-radius: 100px;
   border: 3px solid white;
 }
@@ -20,7 +20,7 @@
 .modal {
   z-index: 999;
   position: fixed;
-  top: 22vh;
+  top: 15vh;
   left: 5vw;
   display: flex;
   flex-direction: column;
@@ -59,8 +59,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 250px;
-  height: 57px;
+  width: 63vw;
+  height: 7vh;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -75,8 +75,8 @@
   justify-content: flex-start;
   gap: 10px;
   align-items: center;
-  width: 250px;
-  height: 57px;
+  width: 63vw;
+  height: 7vh;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -84,22 +84,26 @@
   padding: 10px;
 }
 
+.card img {
+  width: 5vw;
+}
+
 #card h1 {
-  font-size: 14px;
+  font-size: 4vw;
 }
 
 #card p {
-  font-size: 12px;
+  font-size: 3vw;
 }
 
 #card1 h1 {
-  font-size: 14px;
+  font-size: 4vw;
   color: rgba(230, 46, 27, 1);
 }
 
 .card h1 {
   color: black;
-  font-size: 14px;
+  font-size: 4vw;
 }
 
 #post-content {
@@ -132,11 +136,15 @@
   justify-content: flex-start;
   gap: 10px;
   align-items: center;
-  width: 250px;
-  height: 57px;
+  width: 63vw;
+  height: 7vh;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   padding: 10px;
+}
+
+#card1 img {
+  width: 5vw;
 }
