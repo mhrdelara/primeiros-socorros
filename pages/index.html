@@ -29,6 +29,8 @@
       href="../assets/styles/tela-modal/tela-sair-conta.css"
     />
     <script src="../assets/scripts/modal.js" defer></script>
+    <script src="../assets/scripts/mic.js" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -148,10 +150,20 @@
 
     <div class="dad-search">
       <div class="search">
-        <input type="text" placeholder="Pesquisar..." class="pesquisar" />
-        <div class="mic">
-          <img src="../assets/images/icons/microfone.svg" alt="Microfone" />
-        </div>
+        <input
+          type="text"
+          placeholder="Pesquisar..."
+          class="pesquisar"
+          id="pesquisar"
+        />
+        <button id="mic-btn" class="mic">
+          <img
+            class="mutado"
+            id="mutado"
+            src="../assets/images/icons/microfone-mutado.svg"
+            alt="Microfone"
+          />
+        </button>
       </div>
 
       <button id="opcoes" onclick="showModal()">

@@ -54,15 +54,6 @@ header img {
   margin-bottom: 48px;
 }
 
-.pesquisar {
-  width: 80%;
-  background: rgba(245, 245, 243, 1);
-  height: 100%;
-  border: none;
-  border-radius: 500px;
-  font-size: 14px;
-}
-
 .search {
   display: flex;
   flex-direction: row;
@@ -70,6 +61,7 @@ header img {
   align-items: center;
   height: 5.5vh;
   width: 76vw;
+  gap: 20px;
   background-color: rgba(245, 245, 243, 1);
   border-radius: 100px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -80,6 +72,21 @@ header img {
 .search input {
   font-size: 4vw;
   color: rgba(230, 46, 27, 1);
+}
+
+.pesquisar {
+  width: 70%;
+  background: rgba(245, 245, 243, 1);
+  height: 100%;
+  border: none;
+}
+
+.pesquisar::placeholder {
+  color: rgba(230, 46, 27, 1);
+}
+
+.pesquisar:focus {
+  outline: none;
 }
 
 #opcoes {
@@ -93,17 +100,11 @@ header img {
   width: 5vw;
 }
 
-.pesquisar::placeholder {
-  color: rgba(230, 46, 27, 1);
-}
-
-.pesquisar:focus {
-  outline: none;
-}
-
 .mic {
+  background: none;
   display: flex;
   width: 4vw;
+  border: none;
 }
 
 .mic img {
