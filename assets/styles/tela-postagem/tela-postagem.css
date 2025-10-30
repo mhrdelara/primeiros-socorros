@@ -2,23 +2,19 @@ header {
   width: 100vw;
   height: 20vh;
   background: rgba(245, 245, 239, 1);
-  margin-bottom: 22px;
+  margin-bottom: 3vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-header img {
-}
-
 #dad-icons {
-  gap: 58px;
+  gap: 15vw;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
-  width: 361px;
-  height: 66.72px;
+  width: 90vw;
 }
 
 #dad-arrow {
@@ -37,7 +33,7 @@ header img {
 }
 
 #logo {
-  width: 49.62vw;
+  width: 49vw;
 }
 
 #dad-adicionar {
@@ -50,8 +46,8 @@ header img {
 }
 
 #adicionar {
-  width: 283px;
-  height: 46px;
+  width: 70vw;
+  height: 5vh;
   border-radius: 50px;
   background: rgba(245, 245, 243, 1);
   display: flex;
@@ -64,6 +60,7 @@ header img {
 
 #adicionar p {
   color: rgba(230, 46, 27, 1);
+  font-size: 4vw;
 }
 
 main {
@@ -79,8 +76,8 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 250px;
-  height: 80px;
+  width: 65vw;
+  height: 9vh;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -90,75 +87,17 @@ main {
 }
 
 .card h1 {
-  font-size: 14px;
+  font-size: 4vw;
 }
 
-.card p {
-  font-size: 12px;
+.card-input {
+  border: none;
+  background: none;
+  font-size: 3vw;
 }
 
-#card {
-  padding: 7px;
-  padding-left: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 250px;
-  height: 80px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  flex-direction: column;
-  margin-bottom: 19px;
-}
-
-#card h1 {
-  font-size: 14px;
-}
-
-#card p {
-  font-size: 12px;
-}
-
-.card1 {
-  padding: 7px;
-  padding-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 250px;
-  height: 80px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  flex-direction: column;
-  margin-bottom: 19px;
-}
-
-.card1 h1 {
-  font-size: 14px;
-}
-
-.card1 {
-  padding: 7px;
-  padding-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 250px;
-  height: 80px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
-  flex-direction: column;
-  margin-bottom: 19px;
-}
-
-.card1 h1 {
-  font-size: 14px;
+.card-input:focus {
+  outline: none;
 }
 
 .upload1 {
@@ -166,8 +105,8 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 140px;
-  height: 40px;
+  width: 35vw;
+  height: 5vh;
   background: rgba(26, 115, 232, 1);
 }
 
@@ -215,8 +154,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 250px;
-  height: 80px;
+  width: 65vw;
+  height: 9vh;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -226,7 +165,15 @@ main {
 }
 
 .file-upload h1 {
-  font-size: 14px;
+  font-size: 4vw;
+}
+
+.upload1 img {
+  width: 4vw;
+}
+
+.upload1 p {
+  font-size: 4vw;
 }
 
 #dad-concluir {
@@ -242,8 +189,8 @@ main {
   align-items: center;
   justify-content: center;
   background: rgb(230, 217, 200);
-  width: 170px;
-  height: 44px;
+  width: 43vw;
+  height: 5vh;
   border-radius: 100px;
   border: none;
   text-decoration: none;
@@ -252,7 +199,7 @@ main {
 
 #concluir p {
   background: rgb(230, 217, 200);
-  font-size: 15px;
+  font-size: 4vw;
   border-radius: 100px;
 }
 
