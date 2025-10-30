@@ -2,6 +2,7 @@ header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
   height: 20vh;
+  padding-left: 15px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -10,11 +11,12 @@ header {
 }
 
 header img {
-  width: 49.62vw;
+  width: 49vw;
 }
 
 .header-down {
-  padding-right: 4px;
+  margin-top: 16px;
+  padding-right: 14px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -201,14 +203,17 @@ main {
 
 .son-quadrado {
   width: 75vw;
+  color: black;
   display: flex;
   gap: 23px;
+  text-decoration: none;
   align-items: center;
 }
 
 .son-quadrado p {
   font-size: 6vw;
   text-align: left;
+  color: black;
 }
 
 .quadrado-video {
