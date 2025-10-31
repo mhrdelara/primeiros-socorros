@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "Ives van Hoorne",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "express": "^5.1.0",
+    "prisma": "^6.18.0"
+  }
 }
