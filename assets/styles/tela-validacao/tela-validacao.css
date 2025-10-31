@@ -1,79 +1,78 @@
-*{
-    padding:0;
-    margin:0;
-    background-color: rgba(245, 245, 239, 1);
-    box-sizing: border-box;
+* {
+  background-color: rgba(245, 245, 239, 1);
 }
 
-.dad-circulo{
-    height: 80px;
-    display: flex;
-    align-items: flex-end;
-    padding-left: 16px;
+.dad-circulo {
+  height: 10vh;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 16px;
+  margin-bottom: 15px;
 }
 
-.circulo{
-    background-color: rgba(230, 217, 200, 1);
-    border-radius: 50px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.circulo {
+  background-color: rgba(230, 217, 200, 1);
+  border-radius: 50px;
+  height: 7vw;
+  width: 7vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-#dad-arrow{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    background: rgba(230, 217, 200, 1);
-    border-radius: 50px;
+#dad-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7vw;
+  height: 7vw;
+  background: rgba(230, 217, 200, 1);
+  border-radius: 50px;
 }
 
-#arrow{
-    background: none;
+#arrow {
+  width: 6vw;
+  background: none;
 }
 
-main{
-    display: flex;
-    height: 772px;
-    justify-content: flex-end;
-    flex-direction: column;
+main {
+  display: flex;
+  height: 100vh;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
-.onda{
-    background: white;
-    height: 655px;
-    width: 393px;
-    border-top-left-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.onda {
+  background: white;
+  height: 88vh;
+  width: 100vw;
+  border-top-left-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-section{
-    background: rgba(230, 217, 200, 1);
-    width: 333px;
-    height: 270px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 20px;
-    margin-top: -205px;
+section {
+  background: rgba(230, 217, 200, 1);
+  width: 85vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: -50vw;
 }
 
-.cima p{
-    background: rgba(230, 217, 200, 1);
-    font-size: 20px;
+.cima p {
+  background: rgba(230, 217, 200, 1);
+  font-size: 5vw;
 }
 
-.baixo p{
-    background: rgba(230, 217, 200, 1);
-    font-size: 20px;
-    text-align: center;
-    width: 306px;
+.baixo p {
+  background: rgba(230, 217, 200, 1);
+  font-size: 5vw;
+  text-align: center;
+  width: 70vw;
 }
