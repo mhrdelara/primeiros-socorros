@@ -1,0 +1,153 @@
+#dad-arrow{
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 17px;
+}
+
+#video{
+    background: rgba(217, 217, 217, 1);
+    width: 393px;
+    height: 210px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.direita{
+    display: flex;
+}
+
+#bola{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 102px;
+    height: 26px;
+    background-color: rgba(237, 237, 237, 1);
+    border-radius: 15px;
+}
+
+#esquerda h1{
+    font-size: 16px;
+}
+
+.dad-informacoes{
+    height: 100px;
+    border-bottom: 1px solid rgba(223, 223, 223, 1);
+}
+
+#titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#son-titulo{
+    width: 349px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#like{
+    display: flex;
+    fill: none;
+    border: none;
+    border-right: 2px solid rgba(217, 217, 217, 1);
+    padding-right: 15px;
+}
+
+#deslike{
+    display: flex;
+    fill: none;
+    border: none;
+}
+
+#like-img{
+    fill: none;
+}
+
+#deslike-img{
+    fill: none;
+}
+
+#user{
+    display: flex;
+    align-items: center;
+    margin-left: 22px;
+    margin-top: 14px;
+}
+
+#user img{
+    margin-right: 10px;
+}
+
+#texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    border-bottom: 1px solid rgba(223, 223, 223, 1);
+    margin-bottom: 28px;
+}
+
+#texto h1{
+    margin-bottom: 7px;
+    font-size: 13px;
+    display: flex;
+}
+
+#texto p{
+    font-size: 11px;
+    display: flex;
+    padding: 0 33px;
+}
+
+.pai-videos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.filho-videos{
+    width: 337px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;    
+}
+
+.video{
+    gap: 24px;
+    width: 162px;
+    height: 92px;
+    background-color: rgba(217, 217, 217, 1);
+}
+
+.quadrado{
+    gap: 38px;
+    width: 150px;
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sub-quadrado{
+    display: flex;
+    flex-direction: column;
+}
+
+.quadrado h1{
+    font-size: 15px; 
+}
+
+.quadrado p{
+    font-size: 12px; 
+}
