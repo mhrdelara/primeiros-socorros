@@ -8,22 +8,22 @@ rotaCursos.get("/cursos", async (req, res) => {
 });
 
 rotaCursos.post("/cursos", async (req, res) => {
-  const { denuncia, texto, data_postagem, nota, like, dislike, id_usuarios } =
+  const { denuncia, texto, data_postagem, like, dislike, id_usuarios } =
     req.body;
+
   await db.cursos.create({
-    data: {
-      denuncia,
-      texto,
-      data_postagem,
-      nota,
-      like,
-      dislike,
+    data: JSON.stringify({
+      denuncia: denuncia,
+      texto: texto,
+      data_postagem: data_postagem,
+      like: like,
+      dislike: dislike,
       usuarios: {
         connect: {
           id: id_usuarios,
         },
       },
-    },
+    }),
   });
   res.json({ mensagem: "OK" });
 });
@@ -43,7 +43,6 @@ rotaCursos.put("/cursos/:id", async (req, res) => {
   if (req.body.denuncia) data.denuncia = req.body.denuncia;
   if (req.body.texto) data.texto = req.body.texto;
   if (req.body.data_postagem) data.data_postagem = req.body.data_postagem;
-  if (req.body.nota) data.nota = req.body.nota;
   if (req.body.like) data.like = req.body.like;
   if (req.body.dislike) data.dislike = req.body.dislike;
 
