@@ -195,51 +195,42 @@
       </div>
     </div>
 
-    <main>
-      <a
-        href="../pages/tela-recomendacao/recomendacao-reanimacao"
-        class="son-quadrado"
-      >
-        <div class="quadrado-video"></div>
-        <p>Reanimação</p>
-      </a>
-
-      <a
-        href="../pages/tela-recomendacao/recomendacao-ferimentos"
-        class="son-quadrado"
-      >
-        <div class="quadrado-video"></div>
-        <p>Ferimentos</p>
-      </a>
-
-      <a
-        href="../pages/tela-recomendacao/recomendacao-engasgo"
-        class="son-quadrado"
-      >
-        <div class="quadrado-video"></div>
-        <p>Engasgo</p>
-      </a>
-
-      <a
-        href="../pages/tela-recomendacao/recomendacao-acv"
-        class="son-quadrado"
-      >
-        <div class="quadrado-video"></div>
-        <p>AVC</p>
-      </a>
-
-      <a
-        href="../pages/tela-recomendacao/recomendacao-crise"
-        class="son-quadrado"
-      >
-        <div class="quadrado-video"></div>
-        <p>Crise de Ansie.</p>
-      </a>
-    </main>
+    <main></main>
 
     <script defer>
       addEventListener("DOMContentLoaded", () => {
         closeAllModals();
+      });
+
+      const links = [
+        {
+          texto: "Reanimação",
+          link: "Reanimação",
+        },
+        {
+          texto: "Ferimentos",
+          link: "Ferimentos",
+        },
+        {
+          texto: "Engasgo",
+          link: "Engasgo",
+        },
+        {
+          texto: "AVC",
+          link: "AVC",
+        },
+      ];
+
+      links.forEach((link) => {
+        document.querySelector("main").innerHTML += `
+        <a
+        href="../pages/recomendacao.html?valor=${link.link}"
+        class="son-quadrado"
+      >
+        <div class="quadrado-video"></div>
+        <p>${link.texto}</p>
+      </a>
+      `;
       });
     </script>
   </body>
