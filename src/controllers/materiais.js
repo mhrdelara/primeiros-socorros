@@ -8,13 +8,12 @@ rotaMateriais.get("/materiais", async (req, res) => {
 });
 
 rotaMateriais.post("/materiais", async (req, res) => {
-  const { anexo, data_postagem, prova, like, dislike, id_usuarios } = req.body;
+  const { titulo, anexo, urlVideo, id_curso } = req.body;
   await db.materiais.create({
     data: {
+      titulo,
       anexo,
-      texto,
-      data_postagem,
-      prova,
+      urlVideo,
       curso: {
         connect: {
           id: id_curso,

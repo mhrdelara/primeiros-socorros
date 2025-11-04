@@ -12,7 +12,7 @@ rotaCursos.post("/cursos", async (req, res) => {
     req.body;
 
   await db.cursos.create({
-    data: JSON.stringify({
+    data: {
       denuncia: denuncia,
       texto: texto,
       data_postagem: data_postagem,
@@ -23,7 +23,7 @@ rotaCursos.post("/cursos", async (req, res) => {
           id: id_usuarios,
         },
       },
-    }),
+    },
   });
   res.json({ mensagem: "OK" });
 });

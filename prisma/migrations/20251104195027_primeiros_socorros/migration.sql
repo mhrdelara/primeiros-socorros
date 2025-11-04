@@ -18,7 +18,6 @@ CREATE TABLE "Cursos" (
     "denuncia" INTEGER NOT NULL,
     "texto" TEXT NOT NULL,
     "data_postagem" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "nota" REAL NOT NULL,
     "like" TEXT NOT NULL,
     "dislike" TEXT NOT NULL,
     "usuariosId" INTEGER NOT NULL,
@@ -26,11 +25,13 @@ CREATE TABLE "Cursos" (
 );
 
 -- CreateTable
-CREATE TABLE "materias" (
+CREATE TABLE "materiais" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "titulo" TEXT NOT NULL,
     "anexo" TEXT NOT NULL,
-    "data_postagem" DATETIME NOT NULL,
-    "prova" TEXT NOT NULL,
+    "urlVideo" TEXT NOT NULL,
+    "data_postagem" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
     "cursosId" INTEGER NOT NULL,
-    CONSTRAINT "materias_cursosId_fkey" FOREIGN KEY ("cursosId") REFERENCES "Cursos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "materiais_cursosId_fkey" FOREIGN KEY ("cursosId") REFERENCES "Cursos" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
