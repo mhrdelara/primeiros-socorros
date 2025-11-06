@@ -14,4 +14,4 @@ server.get("/", (req, res) => {
   res.json(200);
 });
 
-server.listen(3000, console.log("Rodando"));
+server.listen(3001, console.log("Rodando"));

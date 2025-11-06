@@ -30,22 +30,19 @@ model Cursos {
   denuncia      Int
   texto         String
   data_postagem DateTime   @default(now())
-  nota          Float
   like          String
   dislike       String
   usuarios      Usuarios   @relation(fields: [usuariosId], references: [id])
   usuariosId    Int
-  materias      materias[]
+  materiais     materiais[]
 }
 
-model materias {
+model materiais {
   id            Int      @id @default(autoincrement())
   anexo         String
-  data_postagem DateTime
-  prova         String
+  titulo        String
+  urlVideo      String
+  data_postagem DateTime @default(now())
   cursos        Cursos   @relation(fields: [cursosId], references: [id])
   cursosId      Int
 }
-
-
-

@@ -8,22 +8,20 @@ rotaCursos.get("/cursos", async (req, res) => {
 });
 
 rotaCursos.post("/cursos", async (req, res) => {
-  const { denuncia, texto, data_postagem, like, dislike, id_usuarios } =
-    req.body;
+  const { denuncia, texto, like, dislike, id_usuarios } = req.body;
 
   await db.cursos.create({
-    data: JSON.stringify({
-      denuncia: denuncia,
-      texto: texto,
-      data_postagem: data_postagem,
-      like: like,
-      dislike: dislike,
+    data: {
+      denuncia,
+      texto,
+      like,
+      dislike,
       usuarios: {
         connect: {
           id: id_usuarios,
         },
       },
-    }),
+    },
   });
   res.json({ mensagem: "OK" });
 });
