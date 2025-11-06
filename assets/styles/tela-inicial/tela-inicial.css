@@ -2,7 +2,6 @@ header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
   height: 20vh;
-  padding-left: 15px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -16,7 +15,7 @@ header img {
 
 .header-down {
   margin-top: 16px;
-  padding-right: 14px;
+  padding-right: 4px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
