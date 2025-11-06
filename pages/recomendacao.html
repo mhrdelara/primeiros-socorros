@@ -31,6 +31,7 @@
     <script src="../assets/scripts/location.js" defer></script>
     <script src="../assets/scripts/mic.js" defer></script>
     <script src="../assets/scripts/modal.js" defer></script>
+    <script src="../assets/scripts/location-input.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,144 +46,148 @@
         <a href="../pages/index.html" id="dad-arrow">
           <img
             id="arrow"
-            src="../../assets/images/icons/arrow_back.svg"
-            alt=""
+            src="../assets/images/icons/arrow_back.svg"
+            alt="Voltar página"
           />
         </a>
 
         <div id="dad-logo">
           <img
             id="logo"
-            src="../../assets/images/logo/Atitude Vital.png"
-            alt=""
+            src="../assets/images/logo/Atitude Vital.png"
+            alt="Logo"
           />
         </div>
       </div>
-
-      <div class="back-modal-delete" onclick="closeAllModals()"></div>
-      <div class="confirm-modal-delete">
-        <div class="modal-content-delete">
-          <div class="delete-square">
-            <p>Excluir conta?</p>
-          </div>
-
-          <div class="frame-btn-delete">
-            <button id="btnSimDelete" onclick="showModalMensage()">
-              <p>Sim</p>
-            </button>
-            <button id="btnNaoDelete"><p>Não</p></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="back-modal-exit" onclick="closeAllModals()"></div>
-      <div class="confirm-modal-exit">
-        <div class="modal-content-exit">
-          <div class="exit-square">
-            <p>Excluir conta?</p>
-          </div>
-
-          <div class="frame-btn-exit">
-            <button id="btnSimExit"><p>Sim</p></button>
-            <button id="btnNaoExit"><p>Não</p></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="mensage-modal-delete">
-        <div class="mensage">
-          <p>Conta excluída com sucesso</p>
-        </div>
-      </div>
-
-      <div class="modal">
-        <div class="header-modal">
-          <img
-            src="../assets/images/icons/IMG_20250623_223429_557.webp"
-            alt="Foto de perfil"
-          />
-        </div>
-
-        <div class="dad-card">
-          <div id="card">
-            <h1>Nome de usuário</h1>
-            <p>@joaosilva</p>
-          </div>
-        </div>
-
-        <div class="dad-card">
-          <a href="./tela-postagem.html" id="post-content">
-            <div class="card">
-              <h1>Postar conteúdo</h1>
-              <img
-                src="../assets/images/icons/camera.svg"
-                alt="Postagem de conteúdos"
-              />
-            </div>
-          </a>
-        </div>
-
-        <div class="dad-card">
-          <a href="./tela-alterar-usuario.html" id="edit-account">
-            <div class="card">
-              <h1>Editar conta</h1>
-              <img
-                src="../assets/images/icons/editar-conta.svg"
-                alt="Editar conta"
-              />
-            </div>
-          </a>
-        </div>
-
-        <div class="dad-card">
-          <button id="delete-account" onclick="showModalDelete()">
-            <div class="card">
-              <h1>Excluir conta</h1>
-              <img
-                src="../assets/images/icons/excluir-conta.svg"
-                alt="Excluir conta"
-              />
-            </div>
-          </button>
-        </div>
-
-        <div class="dad-card">
-          <button id="exit" onclick="showModalExit()">
-            <div id="card1">
-              <h1>Sair</h1>
-              <img src="../assets/images/icons/exit.svg" alt="Sair da conta" />
-            </div>
-          </button>
-        </div>
-      </div>
-
-      <div class="back-modal disable" onclick="closeAllModals()"></div>
 
       <div class="header-down">
-        <button class="login-logout">
-          <p>Inscrever-se <span id="ou">ou</span> entrar</p>
-        </button>
+        <a href="./tela-cadastro" id="login-logout">
+          <p>Inscrever-se <span>ou</span> entrar</p>
+        </a>
       </div>
     </header>
 
+    <div class="back-modal-delete" onclick="closeAllModals()"></div>
+    <div class="confirm-modal-delete">
+      <div class="modal-content-delete">
+        <div class="delete-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-delete">
+          <button id="btnSimDelete" onclick="showModalMensage()">
+            <p>Sim</p>
+          </button>
+          <button id="btnNaoDelete"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-modal-exit" onclick="closeAllModals()"></div>
+    <div class="confirm-modal-exit">
+      <div class="modal-content-exit">
+        <div class="exit-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-exit">
+          <button id="btnSimExit"><p>Sim</p></button>
+          <button id="btnNaoExit"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mensage-modal-delete">
+      <div class="mensage">
+        <p>Conta excluída com sucesso</p>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="header-modal">
+        <img
+          src="../assets/images/icons/IMG_20250623_223429_557.webp"
+          alt="Foto de perfil"
+        />
+      </div>
+
+      <div class="dad-card">
+        <div id="card">
+          <h1>Nome de usuário</h1>
+          <p>@joaosilva</p>
+        </div>
+      </div>
+
+      <div class="dad-card">
+        <a href="./tela-postagem.html" id="post-content">
+          <div class="card">
+            <h1>Postar conteúdo</h1>
+            <img
+              src="../assets/images/icons/camera.svg"
+              alt="Postagem de conteúdos"
+            />
+          </div>
+        </a>
+      </div>
+
+      <div class="dad-card">
+        <a href="./tela-alterar-usuario.html" id="edit-account">
+          <div class="card">
+            <h1>Editar conta</h1>
+            <img
+              src="../assets/images/icons/editar-conta.svg"
+              alt="Editar conta"
+            />
+          </div>
+        </a>
+      </div>
+
+      <div class="dad-card">
+        <button id="delete-account" onclick="showModalDelete()">
+          <div class="card">
+            <h1>Excluir conta</h1>
+            <img
+              src="../assets/images/icons/excluir-conta.svg"
+              alt="Excluir conta"
+            />
+          </div>
+        </button>
+      </div>
+
+      <div class="dad-card">
+        <button id="exit" onclick="showModalExit()">
+          <div id="card1">
+            <h1>Sair</h1>
+            <img src="../assets/images/icons/exit.svg" alt="Sair da conta" />
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="back-modal disable" onclick="closeAllModals()"></div>
+
     <main>
       <div class="dad-search">
-        <div class="search">
-          <input
-            type="text"
-            placeholder="Pesquisar..."
-            class="pesquisar"
-            id="pesquisar"
-          />
-          <button id="mic-btn" class="mic">
-            <img
-              class="mutado"
-              id="mutado"
-              src="../assets/images/icons/microfone-mutado.svg"
-              alt="Microfone"
+        <form id="pesquisa" action="">
+          <div class="search">
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              class="pesquisar"
+              id="pesquisar"
+              autocomplete="off"
             />
-          </button>
-        </div>
+
+            <button id="mic-btn" class="mic">
+              <img
+                class="mutado"
+                id="mutado"
+                src="../assets/images/icons/microfone-mutado.svg"
+                alt="Microfone"
+              />
+            </button>
+          </div>
+        </form>
 
         <button id="opcoes" onclick="showModal()">
           <img src="../assets/images/icons/barra.svg" alt="Opções" />
