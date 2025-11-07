@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="stylesheet" href="../assets/styles/layout.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-postagem/tela-postagem.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Postar conteúdos</title>
+  </head>
+  <body>
+    <header>
+      <div id="dad-icons">
+        <a href="./index.html" id="dad-arrow">
+          <img
+            id="arrow"
+            src="../assets/images/icons/arrow_back.svg"
+            alt="Voltar página"
+          />
+        </a>
+
+        <div id="dad-logo">
+          <img
+            id="logo"
+            src="../assets/images/logo/Atitude Vital.png"
+            alt="Logo"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="dad-adicionar">
+      <div id="adicionar">
+        <p>Adicione seu conteúdo</p>
+      </div>
+    </div>
+
+    <main>
+      <div class="card">
+        <h1>Título:</h1>
+        <input
+          class="card-input"
+          type="text"
+          placeholder="Título do material"
+        />
+      </div>
+
+      <div class="card">
+        <h1>Descrição</h1>
+        <input
+          class="card-input"
+          type="text"
+          placeholder="Descrição do material"
+        />
+      </div>
+
+      <label for="video" class="file-upload">
+        <h1>Videoaula:</h1>
+        <div class="upload1">
+          <img src="../assets/images/icons/upload.svg" alt="Upload" />
+          <p>Upload</p>
+        </div>
+      </label>
+
+      <input
+        class="disable"
+        type="file"
+        id="video"
+        accept=".mp4"
+        name="video"
+      />
+
+      <label for="pdf" class="file-upload">
+        <h1>Material:</h1>
+        <div class="upload1">
+          <img src="../assets/images/icons/upload.svg" alt="Upload" />
+          <p>Upload</p>
+        </div>
+      </label>
+
+      <input class="disable" type="file" id="pdf" accept=".pdf" name="pdf" />
+    </main>
+
+    <div id="dad-concluir">
+      <a href="./index.html" id="concluir">
+        <p>Concluído</p>
+      </a>
+    </div>
+  </body>
+</html>
