@@ -157,10 +157,4 @@ function closeAllModals() {
     backModalDelete.classList.add("disable");
   }
 }
-lassList.add("disable");
-  }
-  if (!backModalDelete.classList.contains("disable")) {
-    backModalDelete.classList.add("disable");
-  }
-}
->>>>>>> joaozao
+oaozo
