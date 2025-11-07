@@ -1,0 +1,130 @@
+* {
+  background-color: rgba(245, 245, 239, 1);
+}
+
+.dad-circulo {
+  height: 10vh;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 16px;
+  margin-bottom: 15px;
+}
+
+.circulo {
+  background-color: rgba(230, 217, 200, 1);
+  border-radius: 50px;
+  height: 7vw;
+  width: 7vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#dad-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7vw;
+  height: 7vw;
+  background: rgba(230, 217, 200, 1);
+  border-radius: 50px;
+}
+
+#arrow {
+  width: 6vw;
+  background: none;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.onda {
+  background: white;
+  height: 88vh;
+  width: 100vw;
+  border-top-left-radius: 100px;
+}
+
+.foto-perfil {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: none;
+  transform: translateY(-50%);
+}
+
+.foto-perfil img {
+  background: none;
+  display: flex;
+  width: 52vw;
+}
+
+.dad-informations {
+  gap: 7vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.informacoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+  width: 64vw;
+  padding-left: 10px;
+  height: 8vh;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+}
+
+.informacoes h1 {
+  background: white;
+  font-size: 4vw;
+}
+
+.input {
+  font-size: 4vw;
+  height: 5vw;
+  border: none;
+  background: none;
+}
+
+#dad-concluir {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6vh;
+}
+
+.input:focus {
+  outline: none;
+}
+
+#concluir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(230, 217, 200);
+  width: 43vw;
+  height: 6vh;
+  border-radius: 100px;
+  border: none;
+  text-decoration: none;
+  color: black;
+}
+
+#concluir p {
+  background: rgb(230, 217, 200);
+  font-size: 4vw;
+  border-radius: 100px;
+}
