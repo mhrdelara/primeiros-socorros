@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="stylesheet" href="../assets/styles/layout.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-inicial/tela-inicial.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-modal/tela-excluir-mensagem.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-modal/tela-excluir-conta.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/styles/tela-modal/tela-sair-conta.css"
+    />
+    <script src="../assets/scripts/modal.js" defer></script>
+    <script src="../assets/scripts/mic.js" defer></script>
+    <script src="../assets/scripts/location-input.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Inicio</title>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/images/logo/Atitude Vital.png" alt="Logo" />
+      <div class="header-down">
+        <a href="./tela-cadastro" id="login-logout">
+          <p>Inscrever-se <span>ou</span> entrar</p>
+        </a>
+      </div>
+    </header>
+
+    <div class="back-modal-delete" onclick="closeAllModals()"></div>
+    <div class="confirm-modal-delete">
+      <div class="modal-content-delete">
+        <div class="delete-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-delete">
+          <button id="btnSimDelete" onclick="showModalMensage()">
+            <p>Sim</p>
+          </button>
+          <button id="btnNaoDelete"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-modal-exit" onclick="closeAllModals()"></div>
+    <div class="confirm-modal-exit">
+      <div class="modal-content-exit">
+        <div class="exit-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-exit">
+          <button id="btnSimExit"><p>Sim</p></button>
+          <button id="btnNaoExit"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mensage-modal-delete">
+      <div class="mensage">
+        <p>Conta excluída com sucesso</p>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="header-modal">
+        <img
+          src="../assets/images/icons/IMG_20250623_223429_557.webp"
+          alt="Foto de perfil"
+        />
+      </div>
+
+      <div class="dad-card">
+        <div id="card">
+          <h1>Nome de usuário</h1>
+          <p>@joaosilva</p>
+        </div>
+      </div>
+
+      <div class="dad-card">
+        <a href="./tela-postagem.html" id="post-content">
+          <div class="card">
+            <h1>Postar conteúdo</h1>
+            <img
+              src="../assets/images/icons/camera.svg"
+              alt="Postagem de conteúdos"
+            />
+          </div>
+        </a>
+      </div>
+
+      <div class="dad-card">
+        <a href="./tela-alterar-usuario.html" id="edit-account">
+          <div class="card">
+            <h1>Editar conta</h1>
+            <img
+              src="../assets/images/icons/editar-conta.svg"
+              alt="Editar conta"
+            />
+          </div>
+        </a>
+      </div>
+
+      <div class="dad-card">
+        <button id="delete-account" onclick="showModalDelete()">
+          <div class="card">
+            <h1>Excluir conta</h1>
+            <img
+              src="../assets/images/icons/excluir-conta.svg"
+              alt="Excluir conta"
+            />
+          </div>
+        </button>
+      </div>
+
+      <div class="dad-card">
+        <button id="exit" onclick="showModalExit()">
+          <div id="card1">
+            <h1>Sair</h1>
+            <img src="../assets/images/icons/exit.svg" alt="Sair da conta" />
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="back-modal disable" onclick="closeAllModals()"></div>
+
+    <div class="dad-search">
+      <div class="search">
+        <input
+          type="text"
+          placeholder="Pesquisar..."
+          class="pesquisar"
+          id="pesquisar"
+        />
+        <button id="mic-btn" class="mic">
+          <img
+            class="mutado"
+            id="mutado"
+            src="../assets/images/icons/microfone-mutado.svg"
+            alt="Microfone"
+          />
+        </button>
+      </div>
+
+      <button id="opcoes" onclick="showModal()">
+        <img src="../assets/images/icons/barra.svg" alt="Opções" />
+      </button>
+    </div>
+
+    <div class="dad-box">
+      <div class="box">
+        <div class="dad-informations">
+          <h2>INFORMAÇÕES</h2>
+        </div>
+
+        <div class="dad-text">
+          <p>Números de emergência no Brasil:</p>
+          <ul>
+            <li>Polícia Militar: 190</li>
+            <li>Bombeiros: 193</li>
+            <li>SAMU: 192</li>
+            <li>CVV: 188</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dad-temas">
+      <div class="temas">
+        <p>Temas mais procurados</p>
+      </div>
+    </div>
+
+    <main></main>
+
+    <script defer>
+      addEventListener("DOMContentLoaded", () => {
+        closeAllModals();
+      });
+
+      const links = [
+        {
+          texto: "Reanimação",
+          link: "Reanimação",
+        },
+        {
+          texto: "Ferimentos",
+          link: "Ferimentos",
+        },
+        {
+          texto: "Engasgo",
+          link: "Engasgo",
+        },
+        {
+          texto: "AVC",
+          link: "AVC",
+        },
+      ];
+
+      const linksInput = [
+        {
+          texto: "valor",
+          link: "valor",
+        },
+      ];
+
+      links.forEach((link) => {
+        document.querySelector("main").innerHTML += `
+        <a
+        href="../pages/recomendacao.html?valor=${link.link}"
+        class="son-quadrado"
+      >
+        <div class="quadrado-video"></div>
+        <p>${link.texto}</p>
+      </a>
+      `;
+      });
+    </script>
+  </body>
+</html>

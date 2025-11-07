@@ -1,0 +1,228 @@
+header {
+  background-color: rgba(245, 245, 239, 1);
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+header img {
+  width: 49vw;
+}
+
+.header-down {
+  margin-top: 16px;
+  padding-right: 4px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  height: 47px;
+}
+
+#login-logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  text-decoration: none;
+  height: 3.5vh;
+  background-color: rgba(230, 46, 27, 1);
+  border-radius: 44px;
+  border: 0px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#login-logout p {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 3vw;
+}
+
+#login-logout span {
+  font-weight: 400;
+}
+
+.dad-search {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 5.5vh;
+  width: 76vw;
+  gap: 20px;
+  background-color: rgba(245, 245, 243, 1);
+  border-radius: 100px;
+  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+}
+
+.search input {
+  font-size: 4vw;
+  color: rgba(230, 46, 27, 1);
+}
+
+.pesquisar {
+  width: 70%;
+  background: rgba(245, 245, 243, 1);
+  height: 100%;
+  border: none;
+}
+
+.pesquisar::placeholder {
+  color: rgba(230, 46, 27, 1);
+}
+
+.pesquisar:focus {
+  outline: none;
+}
+
+#opcoes {
+  display: flex;
+  background: none;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+}
+
+#opcoes img {
+  width: 5vw;
+}
+
+.mic {
+  background: none;
+  display: flex;
+  width: 4vw;
+  border: none;
+}
+
+.mic img {
+  display: flex;
+  width: 4vw;
+}
+
+.dad-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 72vw;
+  height: 25vh;
+  background: rgba(245, 245, 239, 1);
+  align-items: center;
+}
+
+.dad-informations {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 43vw;
+  transform: translateY(-50%);
+  height: 5vh;
+  background: rgba(245, 245, 243, 1);
+  border-radius: 45px;
+  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+}
+
+.dad-informations h2 {
+  font-size: 4vw;
+  color: rgba(230, 46, 27, 1);
+  font-weight: 400;
+}
+
+.dad-text {
+  flex-direction: column;
+  width: 72vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dad-text p {
+  font-size: 4vw;
+}
+
+.dad-text li {
+  font-size: 4vw;
+}
+
+.dad-temas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-bottom: 5vh;
+}
+
+.temas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72vw;
+  height: 5vh;
+  background: rgba(245, 245, 243, 1);
+  border-radius: 50px;
+  box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+}
+
+.temas p {
+  color: rgba(230, 46, 27, 1);
+  font-size: 4vw;
+}
+
+main {
+  display: flex;
+  padding-left: 9vw;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100vw;
+  gap: 32px;
+}
+
+.son-quadrado {
+  width: 75vw;
+  color: black;
+  display: flex;
+  gap: 23px;
+  text-decoration: none;
+  align-items: center;
+}
+
+.son-quadrado p {
+  font-size: 6vw;
+  text-align: left;
+  color: black;
+}
+
+.quadrado-video {
+  width: 25vw;
+  height: 25vw;
+  background: rgba(217, 217, 217, 1);
+}
+
+#opcoes {
+  border: none;
+  background: none;
+}

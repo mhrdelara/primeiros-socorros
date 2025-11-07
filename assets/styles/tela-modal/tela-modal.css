@@ -148,3 +148,12 @@
 #card1 img {
   width: 5vw;
 }
+215, 207, 0.6);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
+  padding: 10px;
+}
+
+#card1 img {
+  width: 5vw;
+}
+>>>>>>> joaozao
