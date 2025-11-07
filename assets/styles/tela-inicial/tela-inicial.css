@@ -92,6 +92,7 @@ header img {
 
 #opcoes {
   display: flex;
+  background: none;
   justify-content: center;
   align-items: center;
   width: 5vw;
