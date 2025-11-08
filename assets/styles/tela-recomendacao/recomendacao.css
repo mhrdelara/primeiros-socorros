@@ -168,6 +168,11 @@ header img {
   font-size: 4vw;
 }
 
+#span {
+  font-weight: 700;
+  color: rgba(230, 46, 27, 1);
+}
+
 .pai-videos {
   display: flex;
   flex-direction: row;
