@@ -157,4 +157,3 @@ function closeAllModals() {
     backModalDelete.classList.add("disable");
   }
 }
-oaozo

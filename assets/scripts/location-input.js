@@ -6,7 +6,7 @@
   const input = document.getElementById("pesquisar");
 
   document.querySelector("#pesquisar").innerHTML = resultado;
-  document.querySelector("#recomendacao").innerHTML = resultado;
+  document.querySelector("#span").innerHTML = resultado;
 
   document.querySelector("#pesquisa").addEventListener("submit", (ev) => {
     ev.preventDefault();
