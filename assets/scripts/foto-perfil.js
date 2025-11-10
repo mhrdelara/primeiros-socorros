@@ -12,7 +12,6 @@
     if (DEBUG) console.error("[foto-perfil]", ...args);
   }
 
-  // tenta encontrar elementos por vários seletores comuns
   function findElements() {
     const selectors = [
       { img: "#foto-perfil", input: "#img" },
@@ -25,7 +24,6 @@
       const input = document.querySelector(s.input);
       if (foto && input) return { foto, input };
     }
-    // última tentativa: qualquer img e input file dentro do modal
     const modalImg = document.querySelector(".modal img");
     const modalInput = document.querySelector(".modal input[type=file]");
     if (modalImg && modalInput) return { foto: modalImg, input: modalInput };
@@ -33,7 +31,6 @@
     return { foto: null, input: null };
   }
 
-  // Observador que espera os elementos aparecerem (até timeout)
   function waitForElements(timeout = 5000) {
     return new Promise((resolve) => {
       const found = findElements();
@@ -57,7 +54,6 @@
         subtree: true,
       });
 
-      // timeout fallback
       setTimeout(() => {
         observer.disconnect();
         const f = findElements();
@@ -66,13 +62,12 @@
           resolve(f);
         } else {
           warn("Timeout: elementos não encontrados em", timeout, "ms");
-          resolve(f); // pode ser nulo
+          resolve(f);
         }
       }, timeout);
     });
   }
 
-  // Função principal
   async function init() {
     if (document.readyState === "loading") {
       await new Promise((r) =>
@@ -94,10 +89,8 @@
 
     log("Elementos encontrados:", foto, input);
 
-    // garantir input visível para interação programática (não necessário visualmente)
     input.style.display = input.style.display || "";
 
-    // carrega imagem salva (se houver)
     try {
       const saved = localStorage.getItem("fotoPerfil");
       if (saved) {
@@ -108,18 +101,15 @@
       warn("Erro localStorage:", e);
     }
 
-    // abrir seletor quando clicar na foto
     foto.addEventListener("click", () => {
       log("Clique na foto: abrindo seletor de arquivos.");
       input.click();
     });
 
-    // tratar seleção de arquivo
     input.addEventListener("change", (ev) => handleFileChange(ev, foto, input));
     log("Iniciado com sucesso. Clique na foto para testar.");
   }
 
-  // Handler do change do input
   function handleFileChange(event, foto, input) {
     const file = event.target.files?.[0];
     if (!file) {
@@ -142,7 +132,6 @@
         return;
       }
 
-      // overlay com cropper
       const overlay = document.createElement("div");
       overlay.setAttribute("data-foto-overlay", "1");
       overlay.style.cssText = `
@@ -194,7 +183,6 @@
         });
       } catch (e) {
         err("Falha ao inicializar Cropper:", e);
-        // fallback: aplica a imagem direto
         foto.src = imageSrc;
         try {
           localStorage.setItem("fotoPerfil", imageSrc);
@@ -257,6 +245,5 @@
     reader.readAsDataURL(file);
   }
 
-  // inicializa
   init();
 })();
