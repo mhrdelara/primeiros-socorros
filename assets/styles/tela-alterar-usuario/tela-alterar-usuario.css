@@ -91,12 +91,13 @@ main {
 }
 
 .dad-informations {
+  background: white;
+  transform: translateY(-10%);
   gap: 7vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background: white;
 }
 
 .informacoes {
@@ -120,17 +121,17 @@ main {
 
 .input {
   font-size: 4vw;
-  height: 5vw;
+  height: 20px;
   border: none;
   background: none;
 }
 
 #dad-concluir {
-  background-color: white;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 6vh;
+  margin-top: 3vh;
 }
 
 .input:focus {
@@ -148,6 +149,7 @@ main {
   border: none;
   text-decoration: none;
   color: black;
+  margin-bottom: 5vh;
 }
 
 #concluir p {
