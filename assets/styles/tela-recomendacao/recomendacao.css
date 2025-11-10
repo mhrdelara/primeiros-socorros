@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
@@ -87,6 +91,7 @@ header img {
   height: 5.5vh;
   width: 76vw;
   gap: 20px;
+  padding: 0 40px;
   background-color: rgba(245, 245, 243, 1);
   border-radius: 100px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -213,9 +218,11 @@ header img {
 }
 
 .quadrado h1 {
+  color: rgb(0, 0, 0);
   font-size: 4vw;
 }
 
 .quadrado p {
+  color: rgb(0, 0, 0);
   font-size: 3vw;
 }
