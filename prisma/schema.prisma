@@ -16,7 +16,6 @@ model Usuarios {
   nome            String
   sobrenome       String
   data_nascimento DateTime
-  telefone        String
   email           String
   crm             String
   funcao          String
