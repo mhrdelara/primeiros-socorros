@@ -9,12 +9,37 @@
   margin-bottom: 78px;
 }
 
-.header-modal img {
+.foto-container {
+  object-fit: cover;
+  object-position: center;
   transform: translateY(50%);
-  flex-direction: column;
+}
+
+#foto-perfil {
+  object-fit: cover;
   width: 25vw;
-  border-radius: 100px;
+  height: 25vw;
+  border-radius: 500px;
   border: 3px solid white;
+}
+
+#dad-editar-foto {
+  transform: translateY(-355%);
+  left: 19vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  background-color: white;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 500px;
+}
+
+#editar-foto {
+  width: 4vw;
+  height: 4vw;
 }
 
 .modal {
@@ -148,4 +173,3 @@
 #card1 img {
   width: 5vw;
 }
-joaozao

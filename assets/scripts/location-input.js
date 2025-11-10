@@ -1,18 +1,18 @@
-(() => {
-  const resultado = urlParams.get("query");
+// (() => {
+//   const query = urlParams.get("query");
 
-  document.querySelector("#pesquisar").value = resultado;
+//   document.getElementById("pesquisar").value = query;
 
-  const input = document.getElementById("pesquisar");
+//   const input = document.getElementById("pesquisar");
 
-  document.querySelector("#pesquisar").innerHTML = resultado;
-  document.querySelector("#span").innerHTML = resultado;
+//   document.querySelector("#pesquisar").innerHTML = query;
+//   document.querySelector("#span").innerHTML = query;
 
-  document.querySelector("#pesquisa").addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const valorInput = input.value.trim();
-    if (valorInput) {
-      window.location.href = `?query=${encodeURIComponent(valorInput)}`;
-    }
-  });
-})();
+//   document.querySelector("#pesquisa").addEventListener("submit", (ev) => {
+//     ev.preventDefault();
+//     const valorInput = input.value.trim();
+//     if (valorInput) {
+//       window.location.href = `?query=${encodeURIComponent(valorInput)}`;
+//     }
+//   });
+// })();

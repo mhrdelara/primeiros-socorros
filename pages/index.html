@@ -28,10 +28,17 @@
       rel="stylesheet"
       href="../assets/styles/tela-modal/tela-sair-conta.css"
     />
+    <link
+      href="https://unpkg.com/cropperjs/dist/cropper.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/cropperjs"></script>
+
     <script src="../assets/scripts/modal.js" defer></script>
+    <script src="../assets/scripts/location.js" defer></script>
     <script src="../assets/scripts/mic.js" defer></script>
     <script src="../assets/scripts/location-input.js" defer></script>
-    <script src="../assets/scripts/location.js" defer></script>
+    <script src="../assets/scripts/foto-perfil.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,7 +78,7 @@
     <div class="confirm-modal-exit">
       <div class="modal-content-exit">
         <div class="exit-square">
-          <p>Excluir conta?</p>
+          <p>Sair da conta?</p>
         </div>
 
         <div class="frame-btn-exit">
@@ -89,10 +96,27 @@
 
     <div class="modal">
       <div class="header-modal">
-        <img
-          src="../assets/images/icons/IMG_20250623_223429_557.webp"
-          alt="Foto de perfil"
-        />
+        <div class="foto-container">
+          <img
+            id="foto-perfil"
+            src="../assets/images/icons/3d_avatar_1.svg"
+            alt="Foto de perfil"
+          />
+          <div id="dad-editar-foto">
+            <img
+              id="editar-foto"
+              src="../assets/images/icons/editar-foto.svg"
+              alt="Editar foto de perfil"
+            />
+          </div>
+          <input
+            class="disable"
+            type="file"
+            id="img"
+            accept="image"
+            name="img"
+          />
+        </div>
       </div>
 
       <div class="dad-card">
@@ -150,33 +174,39 @@
 
     <div class="back-modal disable" onclick="closeAllModals()"></div>
 
-    <div class="dad-search">
-      <div class="search">
-        <input
-          type="text"
-          placeholder="Pesquisar..."
-          class="pesquisar"
-          id="pesquisar"
-        />
-        <button id="mic-btn" class="mic">
-          <img
-            class="mutado"
-            id="mutado"
-            src="../assets/images/icons/microfone-mutado.svg"
-            alt="Microfone"
-          />
+    <main>
+      <div class="dad-search">
+        <div class="search">
+          <form id="pesquisa">
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              class="pesquisar"
+              id="pesquisar"
+              autocomplete="off"
+            />
+          </form>
+
+          <button id="mic-btn" class="mic">
+            <img
+              class="mutado"
+              id="mutado"
+              src="../assets/images/icons/microfone-mutado.svg"
+              alt="Microfone"
+            />
+          </button>
+        </div>
+
+        <button id="opcoes" onclick="showModal()">
+          <img src="../assets/images/icons/barra.svg" alt="Opções" />
         </button>
       </div>
-
-      <button id="opcoes" onclick="showModal()">
-        <img src="../assets/images/icons/barra.svg" alt="Opções" />
-      </button>
-    </div>
+    </main>
 
     <div class="dad-box">
       <div class="box">
         <div class="dad-informations">
-          <h2>INFORMAÇÕES</h2>
+          <h1>INFORMAÇÕES</h1>
         </div>
 
         <div class="dad-text">
@@ -197,12 +227,13 @@
       </div>
     </div>
 
-    <main></main>
+    <section></section>
 
     <script defer>
       addEventListener("DOMContentLoaded", () => {
         closeAllModals();
       });
+
       const links = [
         { texto: "Reanimação", link: "Reanimação" },
         { texto: "Ferimentos", link: "Ferimentos" },
@@ -210,16 +241,35 @@
         { texto: "AVC", link: "AVC" },
       ];
 
-      const main = document.querySelector("main");
+      const section = document.querySelector("section");
 
       links.forEach((link) => {
-        main.innerHTML += `
-      <a href="../pages/recomendacao.html?query=${link.link}" class="son-quadrado">
-        <div class="quadrado-video"></div>
-        <p>${link.texto}</p>
-      </a>
-    `;
+        section.innerHTML += `
+        <a
+          href="../pages/recomendacao.html?query=${encodeURIComponent(
+            link.link
+          )}"
+          class="son-quadrado"
+        >
+          <div class="quadrado-video"></div>
+          <p>${link.texto}</p>
+        </a>
+      `;
       });
+    </script>
+
+    <script>
+      document
+        .getElementById("pesquisa")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const valor = document.getElementById("pesquisar").value.trim();
+          if (valor) {
+            window.location.href = `./recomendacao.html?query=${encodeURIComponent(
+              valor
+            )}`;
+          }
+        });
     </script>
   </body>
 </html>

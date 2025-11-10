@@ -63,6 +63,7 @@ header img {
   height: 5.5vh;
   width: 76vw;
   gap: 20px;
+  padding: 0 40px;
   background-color: rgba(245, 245, 243, 1);
   border-radius: 100px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -71,6 +72,7 @@ header img {
 }
 
 .search input {
+  display: flex;
   font-size: 4vw;
   color: rgba(230, 46, 27, 1);
 }
@@ -145,7 +147,7 @@ header img {
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-.dad-informations h2 {
+.dad-informations h1 {
   font-size: 4vw;
   color: rgba(230, 46, 27, 1);
   font-weight: 400;
@@ -192,7 +194,7 @@ header img {
   font-size: 4vw;
 }
 
-main {
+section {
   display: flex;
   padding-left: 9vw;
   align-items: flex-start;
