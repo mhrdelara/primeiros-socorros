@@ -15,6 +15,9 @@
       href="../assets/images/icons/favicon.ico"
       type="image/x-icon"
     />
+
+    <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
+    <script src="../assets/scripts/foto-perfil.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,10 +41,25 @@
 
     <main>
       <div class="onda">
-        <div class="foto-perfil">
+        <div class="foto-container">
           <img
+            id="foto-perfil"
             src="../assets/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
+          />
+          <div id="dad-editar-foto">
+            <img
+              id="editar-foto"
+              src="../assets/images/icons/editar-foto.svg"
+              alt="Editar foto de perfil"
+            />
+          </div>
+          <input
+            class="disable"
+            type="file"
+            id="img"
+            accept="image"
+            name="img"
           />
         </div>
 
