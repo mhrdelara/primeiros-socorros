@@ -12,7 +12,6 @@ rotaUsuario.post("/usuarios", async (req, res) => {
     nome,
     sobrenome,
     data_nascimento,
-    telefone,
     email,
     crm,
     funcao,
@@ -24,7 +23,6 @@ rotaUsuario.post("/usuarios", async (req, res) => {
       nome,
       sobrenome,
       data_nascimento: new Date(data_nascimento),
-      telefone,
       email,
       crm,
       funcao,
@@ -51,7 +49,6 @@ rotaUsuario.put("/usuarios/:id", async (req, res) => {
   if (req.body.sobrenome) data.sobrenome = req.body.sobrenome;
   if (req.body.data_nascimento)
     data.data_nascimento = new Date(req.body.data_nascimento);
-  if (req.body.telefone) data.telefone = req.body.telefone;
   if (req.body.email) data.email = req.body.email;
   if (req.body.crm) data.crm = req.body.crm;
   if (req.body.funcao) data.funcao = req.body.funcao;
