@@ -15,6 +15,10 @@
       href="../assets/images/icons/favicon.ico"
       type="image/x-icon"
     />
+    <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
+    <script src="../assets/scripts/foto-perfil.js" defer></script>
+    <script src="../assets/scripts/cadastrar.js"></script>
+    <script src="../assets/scripts/auth-control.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,17 +42,42 @@
 
     <main>
       <div class="onda">
-        <div class="foto-perfil">
+        <div class="foto-container">
           <img
+            id="foto-perfil"
             src="../assets/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
+          />
+          <div id="dad-editar-foto">
+            <img
+              id="editar-foto"
+              src="../assets/images/icons/editar-foto.svg"
+              alt="Editar foto de perfil"
+            />
+          </div>
+          <input
+            class="disable"
+            type="file"
+            id="img"
+            accept="image"
+            name="img"
           />
         </div>
 
         <div class="dad-informations">
           <div class="informacoes">
             <h1>Nome:</h1>
-            <input type="text" placeholder="Ex: João Silva" class="input" />
+            <input type="text" placeholder="Ex: João" class="input" />
+          </div>
+
+          <div class="informacoes">
+            <h1>Sobrenome:</h1>
+            <input type="text" placeholder="Ex: Silva" class="input" />
+          </div>
+
+          <div class="informacoes">
+            <h1>Data/Nasc</h1>
+            <input type="date" placeholder="Ex: DD/MM/AA" class="input" />
           </div>
 
           <div class="informacoes">
@@ -69,14 +98,46 @@
               class="input"
             />
           </div>
-        </div>
 
-        <div id="dad-concluir">
-          <a href="../pages/tela-validacao.html" id="concluir">
-            <p>Cadastre-se</p>
-          </a>
+          <div id="dad-concluir">
+            <a href="../pages/tela-validacao.html" id="concluir">
+              <p>Cadastre-se</p>
+            </a>
+          </div>
         </div>
       </div>
     </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const btnConcluir = document.getElementById("concluir");
+        if (!btnConcluir) return;
+
+        btnConcluir.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // Pega valores básicos (ajuste se precisar)
+          const nome = document
+            .querySelector('input[placeholder="João Silva"]')
+            .value.trim();
+          const email = document
+            .querySelector('input[placeholder="joaosilva@gmail.com"]')
+            .value.trim();
+
+          if (!nome || !email) {
+            alert("Preencha nome e email!");
+            return;
+          }
+
+          // Salva o usuário logado
+          const novoUsuario = { id: Date.now(), nome, email };
+          localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
+
+          // Notifica e volta para o index
+          window.dispatchEvent(new Event("authChanged"));
+          window.location.href = "./index.html";
+        });
+      });
+    </script>
   </body>
 </html>
