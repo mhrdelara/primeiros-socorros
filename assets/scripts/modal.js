@@ -118,13 +118,6 @@ addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// back-model
-//   ---  modal
-//   ---  backmodal
-//   ------ excluir conta
-//   ------ sair conta
-//   --------  confirmação
-
 function closeAllModals() {
   let backModalExit = document.querySelector(".back-modal-exit");
   let confirmModalDelete = document.querySelector(".confirm-modal-delete");

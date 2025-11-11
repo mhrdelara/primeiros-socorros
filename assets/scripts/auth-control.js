@@ -11,10 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderAvatar(foto, showOpcoes) {
     if (!headerDown) return;
     headerDown.innerHTML = `
-      <div class="foto-container header-foto" style="display:flex;align-items:center;gap:8px;">
-        <img id="header-foto-perfil" src="${foto}" alt="Foto de perfil" style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center top;cursor:${
-      showOpcoes ? "pointer" : "default"
-    };">
+      <div class="foto-container header-foto">
+        <img id="header-foto-perfil" src="${foto}" alt="Foto de perfil" 
       </div>
     `;
     if (opcoesBtn) opcoesBtn.style.display = showOpcoes ? "block" : "none";

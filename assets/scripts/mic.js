@@ -2,9 +2,8 @@ const micBotao = document.getElementById("mic-btn");
 const micMutado = document.getElementById("mutado");
 const input = document.getElementById("pesquisar");
 
-// Caminhos das imagens no seu PC ou projeto
-const imgParado = "../assets/images/icons/microfone-mutado.svg"; // imagem normal
-const imgGravando = "../assets/images/icons/stop.svg"; // imagem quando estiver ouvindo
+const imgParado = "../assets/images/icons/microfone-mutado.svg";
+const imgGravando = "../assets/images/icons/stop.svg";
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -15,7 +14,7 @@ if (SpeechRecognition) {
 
   micBotao.addEventListener("click", () => {
     recognition.start();
-    micMutado.src = imgGravando; // muda a imagem quando começa
+    micMutado.src = imgGravando;
   });
 
   recognition.addEventListener("result", (event) => {
@@ -23,6 +22,6 @@ if (SpeechRecognition) {
   });
 
   recognition.addEventListener("end", () => {
-    micMutado.src = imgParado; // volta à imagem original quando termina
+    micMutado.src = imgParado;
   });
 }

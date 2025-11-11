@@ -35,8 +35,6 @@
     <script src="https://unpkg.com/cropperjs"></script>
 
     <script src="../assets/scripts/modal.js" defer></script>
-    <script src="../assets/scripts/location.js" defer></script>
-    <script src="../assets/scripts/location-input.js" defer></script>
     <script src="../assets/scripts/foto-perfil.js" defer></script>
     <script src="../assets/scripts/auth-control.js"></script>
     <script src="../assets/scripts/mic.js" defer></script>
@@ -98,9 +96,9 @@
 
     <div class="modal">
       <div class="header-modal">
-        <div class="foto-container">
+        <div class="foto-container-modal">
           <img
-            id="foto-perfil"
+            id="foto-perfil-modal"
             src="../assets/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
           />
@@ -287,7 +285,7 @@
           <img id="foto-perfil" src="${
             usuarioLogado.foto_perfil ||
             "../assets/images/icons/3d_avatar_1.svg"
-          }" alt="Foto de perfil" style="width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:center top;cursor:default;">
+          }" alt="Foto de perfil">
         </div>
       `;
 
