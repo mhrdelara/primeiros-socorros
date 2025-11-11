@@ -24,7 +24,27 @@ header img {
   justify-content: flex-end;
   align-items: center;
   width: 100vw;
-  height: 47px;
+  height: 5.5vh;
+}
+
+#foto-container {
+  width: 100vw;
+  height: 5.5vh;
+  border-radius: 500px;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid white;
+  background-color: #f0f0f0;
+}
+
+#foto-perfil {
+  width: 13vw;
+  height: 13vw;
+  border-radius: 500px;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid white;
+  background-color: #f0f0f0;
 }
 
 #login-logout {
