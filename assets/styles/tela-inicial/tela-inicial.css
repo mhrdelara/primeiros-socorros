@@ -229,22 +229,13 @@ section {
   background: none;
 }
 
-.foto-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.foto-header img {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
+#foto-perfil {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 500px;
   object-fit: cover;
-  object-position: center top;
-  border: 2px solid #fff;
-  transition: transform 0.2s ease;
 }
 
-.foto-header img:hover {
+#foto-perfil:hover {
   transform: scale(1.05);
 }
