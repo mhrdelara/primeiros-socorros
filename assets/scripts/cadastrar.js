@@ -8,8 +8,6 @@ const usuario = {
   foto: localStorage.getItem("fotoPerfil") || "",
 };
 
-// Salva no localStorage para manter sessão
 localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
-// Redireciona para a tela inicial
 window.location.href = "../pages/index.html";
