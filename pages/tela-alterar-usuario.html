@@ -17,7 +17,7 @@
     />
 
     <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
-    <script src="../assets/scripts/foto-perfil.js"></script>
+    <script src="../assets/scripts/foto-perfil.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,9 +41,10 @@
 
     <main>
       <div class="onda">
-        <div class="foto-container">
+        <div class="foto-container" id="foto-container-alterar">
           <img
-            id="foto-perfil"
+            class="foto-perfil"
+            id="foto-perfil-alterar"
             src="../assets/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
           />

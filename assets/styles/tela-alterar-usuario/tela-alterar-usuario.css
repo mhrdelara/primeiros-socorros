@@ -49,7 +49,7 @@ main {
   border-top-left-radius: 100px;
 }
 
-.foto-container {
+#foto-container-alterar {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -57,17 +57,13 @@ main {
   transform: translateY(-50%);
 }
 
-.foto-container img {
-  background: none;
-  display: flex;
-  width: 49vw;
-}
-
-#foto-perfil {
+#foto-perfil-alterar {
   width: 49vw;
   height: 49vw;
   border-radius: 500px;
   object-fit: cover;
+  background: none;
+  display: flex;
 }
 
 #dad-editar-foto {
@@ -86,6 +82,7 @@ main {
 }
 
 #editar-foto {
+  background: none;
   width: 6vw;
   height: 6vw;
 }
