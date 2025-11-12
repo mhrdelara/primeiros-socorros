@@ -8,17 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (opcoesBtn) opcoesBtn.style.display = "none";
   }
 
-  function renderAvatar(foto, showOpcoes) {
+  function renderAvatar(fotoPerfil, showOpcoes) {
     if (!headerDown) return;
     headerDown.innerHTML = `
-      <div class="foto-container header-foto">
-        <img id="header-foto-perfil" src="${foto}" alt="Foto de perfil" 
+      <div class="foto-container" id="foto-container-header">
+        <img class="foto-perfil" 
+        id="foto-perfil-header"
+        src="${fotoPerfil}" alt="Foto de perfil">
       </div>
     `;
     if (opcoesBtn) opcoesBtn.style.display = showOpcoes ? "block" : "none";
 
     if (showOpcoes) {
-      const headerImg = document.getElementById("header-foto-perfil");
+      const headerImg = document.querySelector(".foto-perfil");
       headerImg?.addEventListener("click", () => {
         const modal = document.querySelector(".modal");
         if (modal) modal.classList.remove("disable");

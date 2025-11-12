@@ -28,9 +28,9 @@ header img {
   height: 5.5vh;
   border-radius: 500px;
   object-fit: cover;
-  object-position: center top;
-  border: 3px solid white;
-  background-color: #f0f0f0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #foto-perfil-header {

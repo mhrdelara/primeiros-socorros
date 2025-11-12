@@ -29,9 +29,11 @@
       type="image/x-icon"
     />
     <link
-      href="https://unpkg.com/cropperjs/dist/cropper.min.css"
       rel="stylesheet"
+      href="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.css"
     />
+    <script src="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.js"></script>
+
     <script src="https://unpkg.com/cropperjs"></script>
 
     <script src="../assets/scripts/modal.js" defer></script>
@@ -290,7 +292,7 @@
         if (usuarioLogado) {
           // Remove o link "inscrever-se"
           headerDown.innerHTML = `
-    <div class="foto-container id="foto-container-header"">
+    <div class="foto-container" id="foto-container-header">
       <img class="foto-perfil" 
       id="foto-perfil-header"
       src="${

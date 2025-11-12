@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("usuarioLogado");
 
     window.location.href = "../pages/index.html";
-    window.location.href = "../pages/recomendacao.html";
   }
 
   if (btnSair) {

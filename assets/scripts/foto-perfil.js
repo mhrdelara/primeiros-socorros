@@ -1,4 +1,4 @@
-// foto-perfil.js - versão final
+// foto-perfil.js - versão final aprimorada
 (function () {
   const DEBUG = false;
   function log(...a) {
@@ -11,14 +11,13 @@
     if (DEBUG) console.error("[foto-perfil]", ...a);
   }
 
-  function findBaseElements() {
-    const foto =
-      document.querySelector(".foto-perfil") ||
-      document.querySelector(".foto-container img");
+  function findAllFotos() {
+    // pega todas as imagens de perfil existentes (header + modal)
+    const fotos = document.querySelectorAll(".foto-perfil");
     const input =
       document.getElementById("img") ||
       document.querySelector(".foto-container input[type=file]");
-    return { foto, input };
+    return { fotos, input };
   }
 
   async function init() {
@@ -28,11 +27,9 @@
       );
     }
 
-    const { foto, input } = findBaseElements();
-    if (!foto) {
-      log(
-        "foto não encontrada — script foto-perfil vai apenas salvar/ler localStorage se presente."
-      );
+    const { fotos, input } = findAllFotos();
+    if (!fotos.length) {
+      log("nenhuma foto encontrada — apenas leitura localStorage");
     }
     if (!input) {
       log("input não encontrado — upload desabilitado nesta página.");
@@ -40,25 +37,26 @@
 
     try {
       const saved = localStorage.getItem("fotoPerfil");
-      if (saved && foto) foto.src = saved;
+      if (saved) fotos.forEach((f) => (f.src = saved));
     } catch (e) {
       warn("localStorage read falhou", e);
     }
 
-    if (!input || !foto) return;
+    if (!input || !fotos.length) return;
 
-    foto.style.cursor = "pointer";
-    foto.addEventListener("click", () => input.click());
+    fotos.forEach((f) => (f.style.cursor = "pointer"));
+    fotos.forEach((f) => f.addEventListener("click", () => input.click()));
 
     input.addEventListener("change", async (ev) => {
       const file = ev.target.files?.[0];
       if (!file) return;
+
       const reader = new FileReader();
       reader.onload = (e) => {
         const src = e.target.result;
 
         if (typeof Cropper === "undefined") {
-          foto.src = src;
+          fotos.forEach((f) => (f.src = src));
           try {
             localStorage.setItem("fotoPerfil", src);
           } catch {}
@@ -68,21 +66,22 @@
 
         const overlay = document.createElement("div");
         const panel = document.createElement("div");
+        overlay.classList.add("cropper-overlay");
+        panel.classList.add("cropper-box");
         overlay.appendChild(panel);
 
         const img = document.createElement("img");
+        img.src = src;
         panel.appendChild(img);
 
         const controls = document.createElement("div");
-        panel.appendChild(controls);
-
         const btnSalvar = document.createElement("button");
         btnSalvar.textContent = "Salvar";
         const btnCancelar = document.createElement("button");
         btnCancelar.textContent = "Cancelar";
-
         controls.appendChild(btnSalvar);
         controls.appendChild(btnCancelar);
+        panel.appendChild(controls);
         document.body.appendChild(overlay);
 
         let cropper;
@@ -96,7 +95,7 @@
           });
         } catch (e) {
           err("Cropper init failed", e);
-          foto.src = src;
+          fotos.forEach((f) => (f.src = src));
           try {
             localStorage.setItem("fotoPerfil", src);
           } catch {}
@@ -105,38 +104,47 @@
           return;
         }
 
+        // botão salvar
         btnSalvar.addEventListener(
           "click",
           () => {
             try {
               const canvas = cropper.getCroppedCanvas({
-                width: 300,
-                height: 300,
+                width: 400,
+                height: 400,
                 imageSmoothingEnabled: true,
                 imageSmoothingQuality: "high",
               });
-              if (!canvas) {
-                err("canvas vazio");
-                return;
-              }
               const nova = canvas.toDataURL("image/png");
-              foto.src = nova;
-              try {
-                localStorage.setItem("fotoPerfil", nova);
-              } catch (e) {
-                warn("salvar localStorage falhou", e);
-              }
+
+              // aplica em todas as imagens
+              fotos.forEach((f) => (f.src = nova));
+
+              // salva no localStorage
+              localStorage.setItem("fotoPerfil", nova);
+
+              // atualiza também no objeto do usuário logado
+              const usuario = JSON.parse(
+                localStorage.getItem("usuarioLogado") || "{}"
+              );
+              usuario.foto_perfil = nova;
+              localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+
+              // dispara evento global para atualizar header etc.
+              window.dispatchEvent(new Event("authChanged"));
+
               cropper.destroy();
               overlay.remove();
               input.value = "";
-              log("foto salva");
+              log("foto salva e sincronizada");
             } catch (e) {
-              err("erro salvar crop", e);
+              err("erro ao salvar crop", e);
             }
           },
           { once: true }
         );
 
+        // botão cancelar
         btnCancelar.addEventListener(
           "click",
           () => {
