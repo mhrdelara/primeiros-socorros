@@ -186,3 +186,19 @@
 .quadrado p {
   font-size: 3vw;
 }
+
+.disable {
+  display: none;
+}
+
+.back-modal-denuncia {
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.56);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
