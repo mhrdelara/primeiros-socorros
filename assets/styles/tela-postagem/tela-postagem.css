@@ -169,6 +169,7 @@ main {
 }
 
 .upload1 img {
+  border: none;
   width: 4vw;
 }
 
