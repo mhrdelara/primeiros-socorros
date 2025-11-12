@@ -13,7 +13,7 @@
 
   function findBaseElements() {
     const foto =
-      document.getElementById("foto-perfil") ||
+      document.querySelector(".foto-perfil") ||
       document.querySelector(".foto-container img");
     const input =
       document.getElementById("img") ||

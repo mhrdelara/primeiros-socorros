@@ -113,8 +113,9 @@
 
     <div class="modal">
       <div class="header-modal">
-        <div class="foto-container-modal">
+        <div class="foto-container" id="foto-container-modal">
           <img
+            class="foto-perfil"
             id="foto-perfil-modal"
             src="../assets/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
@@ -287,16 +288,21 @@
         const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
         if (usuarioLogado) {
+          // Remove o link "inscrever-se"
           headerDown.innerHTML = `
-    <div class="foto-container">
-      <img id="foto-perfil" src="${
+    <div class="foto-container id="foto-container-header"">
+      <img class="foto-perfil" 
+      id="foto-perfil-header"
+      src="${
         usuarioLogado.foto_perfil || "../assets/images/icons/3d_avatar_1.svg"
       }" alt="Foto de perfil">
     </div>
   `;
 
+          // Mostra botão de opções
           opcoesBtn.style.display = "block";
         } else {
+          // Se não estiver logado, oculta o botão de opções
           opcoesBtn.style.display = "none";
         }
       });

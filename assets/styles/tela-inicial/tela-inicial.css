@@ -23,7 +23,7 @@ header img {
   height: 5.5vh;
 }
 
-#foto-container {
+#foto-container-header {
   width: 100vw;
   height: 5.5vh;
   border-radius: 500px;
@@ -33,7 +33,7 @@ header img {
   background-color: #f0f0f0;
 }
 
-#foto-perfil {
+#foto-perfil-header {
   width: 13vw;
   height: 13vw;
   border-radius: 500px;

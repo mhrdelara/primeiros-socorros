@@ -9,7 +9,7 @@
   margin-bottom: 78px;
 }
 
-.foto-container-modal {
+#foto-container-modal {
   object-fit: cover;
   object-position: center;
   transform: translateY(50%);
@@ -38,6 +38,7 @@
 }
 
 #editar-foto {
+  border: none;
   width: 4vw;
   height: 4vw;
 }
