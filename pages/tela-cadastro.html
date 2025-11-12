@@ -29,7 +29,7 @@
   <body>
     <div class="dad-circulo">
       <div class="circulo">
-        <a href="../pages/index.html" id="dad-arrow">
+        <a href="./index.html" id="dad-arrow">
           <img
             id="arrow"
             src="../assets/images/icons/arrow_back.svg"
@@ -41,10 +41,10 @@
 
     <main>
       <div class="onda">
-        <div class="foto-container" id="foto-container-cadastro">
+        <div class="foto-container" id="foto-container-cadastrar">
           <img
             class="foto-perfil"
-            id="foto-perfil-cadastro"
+            id="foto-perfil-cadastrar"
             src="../assets/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
           />
@@ -67,27 +67,47 @@
         <div class="dad-informations">
           <div class="informacoes">
             <h1>Nome:</h1>
-            <input type="text" placeholder="Ex: João" class="input" />
+            <input type="text" placeholder="Ex: João" class="input" id="nome" />
           </div>
 
           <div class="informacoes">
             <h1>Sobrenome:</h1>
-            <input type="text" placeholder="Ex: Silva" class="input" />
+            <input
+              type="text"
+              placeholder="Ex: Silva"
+              class="input"
+              id="sobrenome"
+            />
           </div>
 
           <div class="informacoes">
             <h1>Data/Nasc</h1>
-            <input type="date" placeholder="Ex: DD/MM/AA" class="input" />
+            <input
+              type="date"
+              placeholder="Ex: DD/MM/AA"
+              class="input"
+              id="data_nascimento"
+            />
           </div>
 
           <div class="informacoes">
             <h1>CRM/Matrícula:</h1>
-            <input type="number" placeholder="Ex: 1234567" class="input" />
+            <input
+              type="number"
+              placeholder="Ex: 1234567"
+              class="input"
+              id="crm"
+            />
           </div>
 
           <div class="informacoes">
             <h1>Especialidades:</h1>
-            <input type="text" placeholder="Ex: Dentista" class="input" />
+            <input
+              type="text"
+              placeholder="Ex: Dentista"
+              class="input"
+              id="funcao"
+            />
           </div>
 
           <div class="informacoes">
@@ -96,13 +116,14 @@
               type="email"
               placeholder="Ex: joaosilva@gmail.com"
               class="input"
+              id="email"
             />
           </div>
 
           <div id="dad-concluir">
             <a href="../pages/tela-validacao.html" id="concluir">
-              <p>Cadastre-se</p>
-            </a>
+              <p>Cadastrar-se</p></a
+            >
           </div>
         </div>
       </div>
@@ -111,7 +132,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         const btnConcluir = document.getElementById("concluir");
         const inputFile = document.getElementById("img");
-        const imgPreview = document.getElementById("foto-perfil");
+        const imgPreview = document.querySelector(".foto-perfil");
 
         btnConcluir?.addEventListener("click", async (e) => {
           e.preventDefault();
@@ -120,8 +141,8 @@
           const values = Array.from(inputs).map((i) => i.value.trim());
           const [nome, sobrenome, data_nascimento, crm, funcao, email] = values;
 
-          if (!nome || !email) {
-            alert("Preencha nome e email");
+          if (!nome || !email || !crm) {
+            alert("Preencha nome, email e CRM.");
             return;
           }
 
@@ -141,7 +162,7 @@
             email,
             crm,
             funcao,
-            matricula: crm || null,
+            crm: crm || null,
             foto_perfil: fotoBase64 || null,
             autorizado: false,
           };
