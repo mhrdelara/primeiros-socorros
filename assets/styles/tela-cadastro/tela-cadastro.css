@@ -131,6 +131,13 @@ main {
   margin-top: 3vh;
 }
 
+#dad-login {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .input:focus {
   outline: none;
 }
@@ -139,8 +146,22 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(230, 217, 200);
   width: 43vw;
+  height: 6vh;
+  border-radius: 100px;
+  border: none;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+  background: rgba(230, 46, 27, 1);
+}
+
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(230, 217, 200);
+  width: 50vw;
   height: 6vh;
   border-radius: 100px;
   border: none;
@@ -150,6 +171,13 @@ main {
 }
 
 #concluir p {
+  background: rgba(230, 46, 27, 1);
+  color: white;
+  font-size: 4vw;
+  border-radius: 100px;
+}
+
+#login p {
   background: rgb(230, 217, 200);
   font-size: 4vw;
   border-radius: 100px;
