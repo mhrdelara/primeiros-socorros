@@ -22,7 +22,7 @@ server.get("/tela-cadastro", (req, res) => {
 });
 
 server.get("/tela-postagem", (req, res) => {
-  res.sendFile(__dirname + "../pages/tela-cadastro.html");
+  res.sendFile(__dirname + "../pages/tela-postagem.html");
 });
 
 server.listen(3001, console.log("Rodando"));
