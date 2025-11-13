@@ -25,4 +25,8 @@ server.get("/tela-postagem", (req, res) => {
   res.sendFile(__dirname + "../pages/tela-postagem.html");
 });
 
+server.get("/tela-alterar-usuario", (req, res) => {
+  res.sendFile(__dirname + "../pages/tela-alterar-usuario.html");
+});
+
 server.listen(3001, console.log("Rodando"));
