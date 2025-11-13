@@ -4,30 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/styles/main.css" />
-    <link rel="stylesheet" href="../assets/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/tela-inicial/tela-inicial.css" />
     <link
       rel="stylesheet"
-      href="../assets/styles/tela-inicial/tela-inicial.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/tela-modal/tela-excluir-mensagem.css"
+      href="/styles/tela-modal/tela-excluir-mensagem.css"
     />
     <link
       rel="shortcut icon"
-      href="../assets/images/icons/favicon.ico"
+      href="/images/icons/favicon.ico"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/tela-modal/tela-excluir-conta.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/tela-modal/tela-sair-conta.css"
-    />
+    <link rel="stylesheet" href="/styles/tela-modal/tela-modal.css" />
+    <link rel="stylesheet" href="/styles/tela-modal/tela-excluir-conta.css" />
+    <link rel="stylesheet" href="/styles/tela-modal/tela-sair-conta.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.css"
@@ -53,9 +44,9 @@
   </head>
   <body>
     <header>
-      <img src="../assets/images/logo/Atitude Vital.png" alt="Logo" />
+      <img src="/images/logo/Atitude Vital.png" alt="Logo" />
       <div class="header-down">
-        <a href="./tela-cadastro" id="login-logout">
+        <a href="/tela-cadastro" id="login-logout">
           <p>Inscrever-se <span>ou</span> entrar</p>
         </a>
       </div>
@@ -103,13 +94,13 @@
           <img
             class="foto-perfil"
             id="foto-perfil-modal"
-            src="../assets/images/icons/3d_avatar_1.svg"
+            src="/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
           />
           <div id="dad-editar-foto">
             <img
               id="editar-foto"
-              src="../assets/images/icons/editar-foto.svg"
+              src="/images/icons/editar-foto.svg"
               alt="Editar foto de perfil"
             />
           </div>
@@ -131,13 +122,10 @@
       </div>
 
       <div class="dad-card">
-        <a href="./tela-postagem.html" id="post-content">
+        <a href="/tela-postagem" id="post-content">
           <div class="card">
             <h1>Postar conteúdo</h1>
-            <img
-              src="../assets/images/icons/camera.svg"
-              alt="Postagem de conteúdos"
-            />
+            <img src="/images/icons/camera.svg" alt="Postagem de conteúdos" />
           </div>
         </a>
       </div>
@@ -146,10 +134,7 @@
         <a href="./tela-alterar-usuario.html" id="edit-account">
           <div class="card">
             <h1>Editar conta</h1>
-            <img
-              src="../assets/images/icons/editar-conta.svg"
-              alt="Editar conta"
-            />
+            <img src="/images/icons/editar-conta.svg" alt="Editar conta" />
           </div>
         </a>
       </div>
@@ -158,10 +143,7 @@
         <button id="delete-account" onclick="showModalDelete()">
           <div class="card">
             <h1>Excluir conta</h1>
-            <img
-              src="../assets/images/icons/excluir-conta.svg"
-              alt="Excluir conta"
-            />
+            <img src="/images/icons/excluir-conta.svg" alt="Excluir conta" />
           </div>
         </button>
       </div>
@@ -170,7 +152,7 @@
         <button id="exit" onclick="showModalExit()">
           <div id="card1">
             <h1>Sair</h1>
-            <img src="../assets/images/icons/exit.svg" alt="Sair da conta" />
+            <img src="/images/icons/exit.svg" alt="Sair da conta" />
           </div>
         </button>
       </div>
@@ -195,14 +177,14 @@
             <img
               class="mutado"
               id="mutado"
-              src="../assets/images/icons/microfone-mutado.svg"
+              src="/images/icons/microfone-mutado.svg"
               alt="Microfone"
             />
           </button>
         </div>
 
         <button id="opcoes" onclick="showModal()">
-          <img src="../assets/images/icons/barra.svg" alt="Opções" />
+          <img src="/images/icons/barra.svg" alt="Opções" />
         </button>
       </div>
     </main>
