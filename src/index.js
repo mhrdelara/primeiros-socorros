@@ -29,4 +29,20 @@ server.get("/tela-alterar-usuario", (req, res) => {
   res.sendFile(__dirname + "../pages/tela-alterar-usuario.html");
 });
 
+server.get("/tela-validacao.html", (req, res) => {
+  res.sendFile(__dirname + "../pages/tela-validacao.html");
+});
+
+server.get("/tela-video.html", (req, res) => {
+  res.sendFile(__dirname + "../pages/tela-video.html");
+});
+
+server.get("/login.html", (req, res) => {
+  res.sendFile(__dirname + "../login.html");
+});
+
+server.get("/recomendacao.html", (req, res) => {
+  res.sendFile(__dirname + "../recomendacao.html");
+});
+
 server.listen(3001, console.log("Rodando"));
