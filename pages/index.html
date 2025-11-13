@@ -279,23 +279,19 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const headerDown = document.querySelector(".header-down");
-        const opcoesBtn = document.getElementById("opcoes");
+        const opcoesBtn = document.querySelector("#opcoes");
         const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
         const fotoPerfil = localStorage.getItem("fotoPerfil");
 
         if (usuarioLogado) {
           const fotoSrc =
-            usuarioLogado.foto ||
-            usuarioLogado.foto_perfil ||
-            fotoPerfil ||
-            "../assets/images/icons/3d_avatar_1.svg";
+            usuarioLogado.foto || usuarioLogado.foto_perfil || fotoPerfil;
 
           headerDown.innerHTML = `
         <div class="foto-container" id="foto-container-header">
-          <img class="foto-perfil"
-               id="foto-perfil-header"
-               src="${fotoSrc}"
-               alt="Foto de perfil">
+          <img class="foto-perfil" id="foto-perfil-header"
+              src="${fotoSrc}"
+              alt="Foto de perfil">
         </div>
       `;
 
