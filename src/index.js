@@ -9,6 +9,7 @@ const server = express();
 server.use(express.json());
 server.use(rotaUsuario);
 server.use(rotaMateriais);
+server.use(rotaVideos);
 
 server.use(express.static(path.join(__dirname, "assets")));
 
