@@ -22,6 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
-    window.location.href = "../pages/tela-validacao.html";
+    window.location.href = "/tela-validacao";
   });
 });
