@@ -30,8 +30,8 @@ model Video {
   denuncia      Int
   descricao     String
   data_postagem DateTime   @default(now())
-  like          String
-  dislike       String
+  like          Int
+  dislike       Int
   titulo        String
   urlVideo      String
   usuario       Usuario   @relation(fields: [usuarioId], references: [id])
