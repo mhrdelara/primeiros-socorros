@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Usuário logado:", usuarioLogado);
 
   if (nome) {
-    if (usuarioLogado.nome && usuarioLogado.nome.trim() !== "") {
+    if (usuarioLogado.nome && usuarioLogado.nome !== "") {
       nome.textContent = usuarioLogado.nome;
     } else {
       nome.textContent = "Usuário";

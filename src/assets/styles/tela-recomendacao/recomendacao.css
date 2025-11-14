@@ -200,7 +200,7 @@ header img {
 
 .pai-videos {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 18px;
