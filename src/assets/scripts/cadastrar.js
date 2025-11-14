@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const usuario = {
-      nome: nomeInput.value.trim(),
-      sobrenome: sobrenomeInput.value.trim(),
+      nome: nomeInput.value,
+      sobrenome: sobrenomeInput.value,
       data_nascimento: data_nascimentoInput.value,
-      crm: crmInput.value.trim(),
-      funcao: funcaoInput.value.trim(),
-      email: emailInput.value.trim(),
+      crm: crmInput.value,
+      funcao: funcaoInput.value,
+      email: emailInput.value,
       foto: localStorage.getItem("fotoPerfil") || "",
     };
 
