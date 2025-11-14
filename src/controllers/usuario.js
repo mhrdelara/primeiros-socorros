@@ -2,12 +2,12 @@ const { Router } = require("express");
 const { db } = require("../db");
 const rotaUsuario = Router();
 
-rotaUsuario.get("/usuarios", async (req, res) => {
+rotaUsuario.get("/usuario", async (req, res) => {
   const usuarios = await db.usuarios.findMany();
   res.json(usuarios);
 });
 
-rotaUsuario.post("/usuarios", async (req, res) => {
+rotaUsuario.post("/usuario", async (req, res) => {
   const {
     nome,
     sobrenome,
@@ -17,6 +17,7 @@ rotaUsuario.post("/usuarios", async (req, res) => {
     funcao,
     matricula,
     foto_perfil,
+    senha,
   } = req.body;
   await db.usuarios.create({
     data: {
@@ -28,12 +29,13 @@ rotaUsuario.post("/usuarios", async (req, res) => {
       funcao,
       matricula,
       foto_perfil,
+      senha,
     },
   });
   res.json({ mensagem: "OK" });
 });
 
-rotaUsuario.delete("/usuarios/:id", async (req, res) => {
+rotaUsuario.delete("/usuario/:id", async (req, res) => {
   const id = Number(req.params.id);
   await db.usuarios.delete({
     where: { id },
@@ -41,7 +43,7 @@ rotaUsuario.delete("/usuarios/:id", async (req, res) => {
   res.json({ mensagem: "OK" });
 });
 
-rotaUsuario.put("/usuarios/:id", async (req, res) => {
+rotaUsuario.put("/usuario/:id", async (req, res) => {
   const id = Number(req.params.id);
   const data = {};
 
@@ -54,6 +56,7 @@ rotaUsuario.put("/usuarios/:id", async (req, res) => {
   if (req.body.funcao) data.funcao = req.body.funcao;
   if (req.body.matricula) data.matricula = req.body.matricula;
   if (req.body.foto_perfil) data.foto_perfil = req.body.foto_perfil;
+  if (req.body.senha) data.senha = req.body.senha;
 
   await db.usuarios.update({
     where: { id },

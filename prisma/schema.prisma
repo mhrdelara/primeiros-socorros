@@ -21,6 +21,7 @@ model Usuarios {
   funcao          String
   matricula       String
   foto_perfil     String
+  senha           String
   Videos          Videos[]
 }
 
@@ -40,6 +41,5 @@ model Videos {
 model materiais {
   id            Int      @id @default(autoincrement())
   anexo         String
-
   data_postagem DateTime @default(now())
 }
