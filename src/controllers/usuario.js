@@ -3,8 +3,8 @@ const { db } = require("../db");
 const rotaUsuario = Router();
 
 rotaUsuario.get("/usuario", async (req, res) => {
-  const usuarios = await db.usuarios.findMany();
-  res.json(usuarios);
+  const usuario = await db.usuario.findMany();
+  res.json(usuario);
 });
 
 rotaUsuario.post("/usuario", async (req, res) => {
@@ -19,7 +19,7 @@ rotaUsuario.post("/usuario", async (req, res) => {
     foto_perfil,
     senha,
   } = req.body;
-  await db.usuarios.create({
+  await db.usuario.create({
     data: {
       nome,
       sobrenome,
@@ -37,7 +37,7 @@ rotaUsuario.post("/usuario", async (req, res) => {
 
 rotaUsuario.delete("/usuario/:id", async (req, res) => {
   const id = Number(req.params.id);
-  await db.usuarios.delete({
+  await db.usuario.delete({
     where: { id },
   });
   res.json({ mensagem: "OK" });
@@ -58,7 +58,7 @@ rotaUsuario.put("/usuario/:id", async (req, res) => {
   if (req.body.foto_perfil) data.foto_perfil = req.body.foto_perfil;
   if (req.body.senha) data.senha = req.body.senha;
 
-  await db.usuarios.update({
+  await db.usuario.update({
     where: { id },
     data,
   });

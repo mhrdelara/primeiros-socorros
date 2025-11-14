@@ -11,7 +11,7 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model Usuarios {
+model Usuario {
   id              Int      @id @default(autoincrement())
   nome            String
   sobrenome       String
@@ -34,11 +34,11 @@ model Videos {
   dislike       String
   titulo        String
   urlVideo      String
-  usuarios      Usuarios   @relation(fields: [usuariosId], references: [id])
-  usuariosId    Int
+  usuario       Usuario   @relation(fields: [usuarioId], references: [id])
+  usuarioId     Int
 }
 
-model materiais {
+model Materiais {
   id            Int      @id @default(autoincrement())
   anexo         String
   data_postagem DateTime @default(now())
