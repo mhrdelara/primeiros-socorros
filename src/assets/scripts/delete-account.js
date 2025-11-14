@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("fotoPerfil");
     localStorage.removeItem("usuarioLogado");
 
-    window.location.href = "../pages/index.html";
+    window.location.href = "/";
   }
 
   if (btnSair) {

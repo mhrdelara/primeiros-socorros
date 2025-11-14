@@ -2,8 +2,8 @@ const micBotao = document.getElementById("mic-btn");
 const micMutado = document.getElementById("mutado");
 const input = document.getElementById("pesquisar");
 
-const imgParado = "../assets/images/icons/microfone-mutado.svg";
-const imgGravando = "../assets/images/icons/stop.svg";
+const imgParado = "/images/icons/microfone-mutado.svg";
+const imgGravando = "/images/icons/stop.svg";
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;

@@ -4,28 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../assets/styles/main.css" />
-    <link rel="stylesheet" href="../../assets/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/tela-recomendacao/recomendacao.css" />
+    <link rel="stylesheet" href="/styles/tela-modal/tela-excluir-conta.css" />
     <link
       rel="stylesheet"
-      href="../assets/styles/tela-recomendacao/recomendacao.css"
+      href="/styles/tela-modal/tela-excluir-mensagem.css"
     />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/tela-modal/tela-excluir-conta.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/tela-modal/tela-excluir-mensagem.css"
-    />
-    <link rel="stylesheet" href="../assets/styles/tela-modal/tela-modal.css" />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/tela-modal/tela-sair-conta.css"
-    />
+    <link rel="stylesheet" href="/styles/tela-modal/tela-modal.css" />
+    <link rel="stylesheet" href="/styles/tela-modal/tela-sair-conta.css" />
     <link
       rel="shortcut icon"
-      href="../../assets/images/icons/favicon.ico"
+      href="/images/icons/favicon.ico"
       type="image/x-icon"
     />
     <link
@@ -36,11 +27,11 @@
 
     <script src="https://unpkg.com/cropperjs"></script>
 
-    <script src="../assets/scripts/modal.js" defer></script>
-    <script src="../assets/scripts/foto-perfil.js" defer></script>
-    <script src="../assets/scripts/auth-control.js"></script>
-    <script src="../assets/scripts/mic.js" defer></script>
-    <script src="../assets/scripts/delete-account.js" defer></script>
+    <script src="/scripts/modal.js" defer></script>
+    <script src="/scripts/foto-perfil.js" defer></script>
+    <script src="/scripts/auth-control.js"></script>
+    <script src="/scripts/mic.js" defer></script>
+    <script src="/scripts/delete-account.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,20 +44,16 @@
   <body>
     <header>
       <div id="dad-icons">
-        <a href="/index.html" id="dad-arrow">
+        <a href="/" id="dad-arrow">
           <img
             id="arrow"
-            src="../assets/images/icons/arrow_back.svg"
+            src="/images/icons/arrow_back.svg"
             alt="Voltar página"
           />
         </a>
 
         <div id="dad-logo">
-          <img
-            id="logo"
-            src="../assets/images/logo/Atitude Vital.png"
-            alt="Logo"
-          />
+          <img id="logo" src="/images/logo/Atitude Vital.png" alt="Logo" />
         </div>
       </div>
 
@@ -119,13 +106,13 @@
           <img
             class="foto-perfil"
             id="foto-perfil-modal"
-            src="../assets/images/icons/3d_avatar_1.svg"
+            src="/images/icons/3d_avatar_1.svg"
             alt="Foto de perfil"
           />
           <div id="dad-editar-foto">
             <img
               id="editar-foto"
-              src="../assets/images/icons/editar-foto.svg"
+              src="/images/icons/editar-foto.svg"
               alt="Editar foto de perfil"
             />
           </div>
@@ -147,25 +134,19 @@
       </div>
 
       <div class="dad-card">
-        <a href="/tela-postagem.html" id="post-content">
+        <a href="/tela-postagem" id="post-content">
           <div class="card">
             <h1>Postar conteúdo</h1>
-            <img
-              src="../assets/images/icons/camera.svg"
-              alt="Postagem de conteúdos"
-            />
+            <img src="/images/icons/camera.svg" alt="Postagem de conteúdos" />
           </div>
         </a>
       </div>
 
       <div class="dad-card">
-        <a href="/tela-alterar-usuario.html" id="edit-account">
+        <a href="/tela-alterar-usuario" id="edit-account">
           <div class="card">
             <h1>Editar conta</h1>
-            <img
-              src="../assets/images/icons/editar-conta.svg"
-              alt="Editar conta"
-            />
+            <img src="/images/icons/editar-conta.svg" alt="Editar conta" />
           </div>
         </a>
       </div>
@@ -174,10 +155,7 @@
         <button id="delete-account" onclick="showModalDelete()">
           <div class="card">
             <h1>Excluir conta</h1>
-            <img
-              src="../assets/images/icons/excluir-conta.svg"
-              alt="Excluir conta"
-            />
+            <img src="/images/icons/excluir-conta.svg" alt="Excluir conta" />
           </div>
         </button>
       </div>
@@ -186,7 +164,7 @@
         <button id="exit" onclick="showModalExit()">
           <div id="card1">
             <h1>Sair</h1>
-            <img src="../assets/images/icons/exit.svg" alt="Sair da conta" />
+            <img src="/images/icons/exit.svg" alt="Sair da conta" />
           </div>
         </button>
       </div>
@@ -211,14 +189,14 @@
             <img
               class="mutado"
               id="mutado"
-              src="../assets/images/icons/microfone-mutado.svg"
+              src="/images/icons/microfone-mutado.svg"
               alt="Microfone"
             />
           </button>
         </div>
 
         <button id="opcoes" onclick="showModal()">
-          <img src="../assets/images/icons/barra.svg" alt="Opções" />
+          <img src="/images/icons/barra.svg" alt="Opções" />
         </button>
       </div>
 
@@ -232,7 +210,7 @@
 
       <section>
         <div class="pai-videos">
-          <a href="/tela-video.html" class="filho-videos">
+          <a href="/tela-video" class="filho-videos">
             <div class="video"></div>
 
             <div class="quadrado">
@@ -276,7 +254,7 @@
           event.preventDefault();
           const valor = document.getElementById("pesquisar").value.trim();
           if (valor) {
-            window.location.href = `./recomendacao.html?query=${encodeURIComponent(
+            window.location.href = `/recomendacao?query=${encodeURIComponent(
               valor
             )}`;
           }
@@ -290,21 +268,18 @@
         const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
         if (usuarioLogado) {
-          // Remove o link "inscrever-se"
           headerDown.innerHTML = `
     <div class="foto-container" id="foto-container-header">
       <img class="foto-perfil" 
       id="foto-perfil-header"
       src="${
-        usuarioLogado.foto_perfil || "../assets/images/icons/3d_avatar_1.svg"
+        usuarioLogado.foto_perfil || "/images/icons/3d_avatar_1.svg"
       }" alt="Foto de perfil">
     </div>
   `;
 
-          // Mostra botão de opções
           opcoesBtn.style.display = "block";
         } else {
-          // Se não estiver logado, oculta o botão de opções
           opcoesBtn.style.display = "none";
         }
       });

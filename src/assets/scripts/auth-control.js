@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderLoggedOut() {
     if (!headerDown) return;
-    headerDown.innerHTML = `<a href="/tela-cadastro.html" id="login-logout"><p>Inscrever-se <span>ou</span> entrar</p></a>`;
+    headerDown.innerHTML = `<a href="/tela-cadastro" id="login-logout"><p>Inscrever-se <span>ou</span> entrar</p></a>`;
     if (opcoesBtn) opcoesBtn.style.display = "none";
   }
 
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       foto =
         localStorage.getItem("fotoPerfil") ||
         (usuario && usuario.foto_perfil) ||
-        "../assets/images/icons/3d_avatar_1.svg";
+        "/images/icons/3d_avatar_1.svg";
     } catch (e) {
-      foto = "../assets/images/icons/3d_avatar_1.svg";
+      foto = "/images/icons/3d_avatar_1.svg";
     }
 
     if (!usuario) {

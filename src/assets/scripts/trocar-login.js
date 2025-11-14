@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = document.getElementById("foto-header-perfil");
 
     img.addEventListener("click", () => {
-      window.location.href = "../pages/tela-cadastro.html";
+      window.location.href = "/tela-cadastro";
     });
   } else {
     console.log("Nenhuma foto de perfil salva no localStorage.");

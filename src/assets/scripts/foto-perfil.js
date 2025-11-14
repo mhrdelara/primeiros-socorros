@@ -1,4 +1,3 @@
-// foto-perfil.js - versão final aprimorada
 (function () {
   const DEBUG = false;
   function log(...a) {
@@ -12,7 +11,6 @@
   }
 
   function findAllFotos() {
-    // pega todas as imagens de perfil existentes (header + modal)
     const fotos = document.querySelectorAll(".foto-perfil");
     const input =
       document.getElementById("img") ||
@@ -117,20 +115,16 @@
               });
               const nova = canvas.toDataURL("image/png");
 
-              // aplica em todas as imagens
               fotos.forEach((f) => (f.src = nova));
 
-              // salva no localStorage
               localStorage.setItem("fotoPerfil", nova);
 
-              // atualiza também no objeto do usuário logado
               const usuario = JSON.parse(
                 localStorage.getItem("usuarioLogado") || "{}"
               );
               usuario.foto_perfil = nova;
               localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
-              // dispara evento global para atualizar header etc.
               window.dispatchEvent(new Event("authChanged"));
 
               cropper.destroy();
@@ -144,7 +138,6 @@
           { once: true }
         );
 
-        // botão cancelar
         btnCancelar.addEventListener(
           "click",
           () => {

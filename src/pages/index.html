@@ -131,7 +131,7 @@
       </div>
 
       <div class="dad-card">
-        <a href="./tela-alterar-usuario.html" id="edit-account">
+        <a href="/tela-alterar-usuario" id="edit-account">
           <div class="card">
             <h1>Editar conta</h1>
             <img src="/images/icons/editar-conta.svg" alt="Editar conta" />
@@ -232,9 +232,7 @@
       links.forEach((link) => {
         section.innerHTML += `
         <a
-          href="../pages/recomendacao.html?query=${encodeURIComponent(
-            link.link
-          )}"
+          href="/recomendacao?query=${encodeURIComponent(link.link)}"
           class="son-quadrado"
         >
           <div class="quadrado-video"></div>
@@ -251,7 +249,7 @@
           event.preventDefault();
           const valor = document.getElementById("pesquisar").value.trim();
           if (valor) {
-            window.location.href = `./recomendacao.html?query=${encodeURIComponent(
+            window.location.href = `/recomendacao?query=${encodeURIComponent(
               valor
             )}`;
           }
