@@ -21,27 +21,25 @@ model Usuarios {
   funcao          String
   matricula       String
   foto_perfil     String
-  Cursos          Cursos[]
+  Videos          Videos[]
 }
 
-model Cursos {
+model Videos {
   id            Int        @id @default(autoincrement())
   denuncia      Int
   texto         String
   data_postagem DateTime   @default(now())
   like          String
   dislike       String
+  titulo        String
+  urlVideo      String
   usuarios      Usuarios   @relation(fields: [usuariosId], references: [id])
   usuariosId    Int
-  materiais     materiais[]
 }
 
 model materiais {
   id            Int      @id @default(autoincrement())
   anexo         String
-  titulo        String
-  urlVideo      String
+
   data_postagem DateTime @default(now())
-  cursos        Cursos   @relation(fields: [cursosId], references: [id])
-  cursosId      Int
 }
