@@ -1,21 +1,24 @@
 const { Router } = require("express");
 const { db } = require("../db");
-const rotaCursos = Router();
+const rotaVideos = Router();
 
-rotaCursos.get("/cursos", async (req, res) => {
-  const cursos = await db.cursos.findMany();
-  res.json(cursos);
+rotaVideos.get("/videos", async (req, res) => {
+  const videos = await db.videos.findMany();
+  res.json(videos);
 });
 
-rotaCursos.post("/cursos", async (req, res) => {
-  const { denuncia, texto, like, dislike, id_usuarios } = req.body;
+rotaVideos.post("/videos", async (req, res) => {
+  const { denuncia, texto, like, dislike, titulo, urlVideo, id_usuarios } =
+    req.body;
 
-  await db.cursos.create({
+  await db.videos.create({
     data: {
       denuncia,
       texto,
       like,
       dislike,
+      titulo,
+      urlVideo,
       usuarios: {
         connect: {
           id: id_usuarios,
@@ -26,15 +29,15 @@ rotaCursos.post("/cursos", async (req, res) => {
   res.json({ mensagem: "OK" });
 });
 
-rotaCursos.delete("/cursos/:id", async (req, res) => {
+rotaVideos.delete("/videos/:id", async (req, res) => {
   const id = Number(req.params.id);
-  await db.cursos.delete({
+  await db.videos.delete({
     where: { id },
   });
   res.json({ mensagem: "OK" });
 });
 
-rotaCursos.put("/cursos/:id", async (req, res) => {
+rotaVideos.put("/videos/:id", async (req, res) => {
   const id = Number(req.params.id);
   const data = {};
 
@@ -43,8 +46,10 @@ rotaCursos.put("/cursos/:id", async (req, res) => {
   if (req.body.data_postagem) data.data_postagem = req.body.data_postagem;
   if (req.body.like) data.like = req.body.like;
   if (req.body.dislike) data.dislike = req.body.dislike;
+  if (req.body.titulo) data.titulo = req.body.titulo;
+  if (req.body.urlVideo) data.urlVideo = req.body.urlVideo;
 
-  await db.cursos.update({
+  await db.videos.update({
     where: { id },
     data,
   });
@@ -52,4 +57,4 @@ rotaCursos.put("/cursos/:id", async (req, res) => {
   res.send({ mensagem: "OK" });
 });
 
-module.exports = { rotaCursos };
+module.exports = { rotaVideos };

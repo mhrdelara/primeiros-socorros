@@ -3,13 +3,12 @@ const { db } = require("./db");
 const path = require("path");
 const { rotaUsuario } = require("./controllers/usuario");
 const { rotaMateriais } = require("./controllers/materiais");
-const { rotaCursos } = require("./controllers/cursos");
+const { rotaVideos } = require("./controllers/videos");
 const server = express();
 
 server.use(express.json());
 server.use(rotaUsuario);
 server.use(rotaMateriais);
-server.use(rotaCursos);
 
 server.use(express.static(path.join(__dirname, "assets")));
 
