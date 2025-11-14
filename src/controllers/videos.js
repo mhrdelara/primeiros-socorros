@@ -1,17 +1,17 @@
 const { Router } = require("express");
 const { db } = require("../db");
-const rotaVideos = Router();
+const rotaVideo = Router();
 
-rotaVideos.get("/videos", async (req, res) => {
-  const videos = await db.videos.findMany();
-  res.json(videos);
+rotaVideo.get("/video", async (req, res) => {
+  const video = await db.video.findMany();
+  res.json(video);
 });
 
-rotaVideos.post("/videos", async (req, res) => {
-  const { denuncia, descricao, like, dislike, titulo, urlVideo, id_usuarios } =
+rotaVideo.post("/video", async (req, res) => {
+  const { denuncia, descricao, like, dislike, titulo, urlVideo, id_usuario } =
     req.body;
 
-  await db.videos.create({
+  await db.video.create({
     data: {
       denuncia,
       descricao,
@@ -19,9 +19,9 @@ rotaVideos.post("/videos", async (req, res) => {
       dislike,
       titulo,
       urlVideo,
-      usuarios: {
+      usuario: {
         connect: {
-          id: id_usuarios,
+          id: id_usuario,
         },
       },
     },
@@ -29,15 +29,15 @@ rotaVideos.post("/videos", async (req, res) => {
   res.json({ mensagem: "OK" });
 });
 
-rotaVideos.delete("/videos/:id", async (req, res) => {
+rotaVideo.delete("/video/:id", async (req, res) => {
   const id = Number(req.params.id);
-  await db.videos.delete({
+  await db.video.delete({
     where: { id },
   });
   res.json({ mensagem: "OK" });
 });
 
-rotaVideos.put("/videos/:id", async (req, res) => {
+rotaVideo.put("/video/:id", async (req, res) => {
   const id = Number(req.params.id);
   const data = {};
 
@@ -49,7 +49,7 @@ rotaVideos.put("/videos/:id", async (req, res) => {
   if (req.body.titulo) data.titulo = req.body.titulo;
   if (req.body.urlVideo) data.urlVideo = req.body.urlVideo;
 
-  await db.videos.update({
+  await db.video.update({
     where: { id },
     data,
   });
@@ -57,4 +57,4 @@ rotaVideos.put("/videos/:id", async (req, res) => {
   res.send({ mensagem: "OK" });
 });
 
-module.exports = { rotaVideos };
+module.exports = { rotaVideo };

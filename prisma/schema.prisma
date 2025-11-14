@@ -22,10 +22,10 @@ model Usuario {
   matricula       String
   foto_perfil     String
   senha           String
-  Videos          Videos[]
+  Video           Video[]
 }
 
-model Videos {
+model Video {
   id            Int        @id @default(autoincrement())
   denuncia      Int
   descricao     String
@@ -38,7 +38,7 @@ model Videos {
   usuarioId     Int
 }
 
-model Materiais {
+model Material {
   id            Int      @id @default(autoincrement())
   anexo         String
   data_postagem DateTime @default(now())

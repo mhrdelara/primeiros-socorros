@@ -2,14 +2,14 @@ const express = require("express");
 const { db } = require("./db");
 const path = require("path");
 const { rotaUsuario } = require("./controllers/usuario");
-const { rotaMateriais } = require("./controllers/materiais");
-const { rotaVideos } = require("./controllers/videos");
+const { rotaMaterial } = require("./controllers/material");
+const { rotaVideo } = require("./controllers/video");
 const server = express();
 
 server.use(express.json());
 server.use(rotaUsuario);
-server.use(rotaMateriais);
-server.use(rotaVideos);
+server.use(rotaMaterial);
+server.use(rotaVideo);
 
 server.use(express.static(path.join(__dirname, "assets")));
 
