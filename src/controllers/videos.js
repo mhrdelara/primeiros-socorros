@@ -8,13 +8,13 @@ rotaVideos.get("/videos", async (req, res) => {
 });
 
 rotaVideos.post("/videos", async (req, res) => {
-  const { denuncia, texto, like, dislike, titulo, urlVideo, id_usuarios } =
+  const { denuncia, descricao, like, dislike, titulo, urlVideo, id_usuarios } =
     req.body;
 
   await db.videos.create({
     data: {
       denuncia,
-      texto,
+      descricao,
       like,
       dislike,
       titulo,
@@ -42,7 +42,7 @@ rotaVideos.put("/videos/:id", async (req, res) => {
   const data = {};
 
   if (req.body.denuncia) data.denuncia = req.body.denuncia;
-  if (req.body.texto) data.texto = req.body.texto;
+  if (req.body.descricao) data.descricao = req.body.descricao;
   if (req.body.data_postagem) data.data_postagem = req.body.data_postagem;
   if (req.body.like) data.like = req.body.like;
   if (req.body.dislike) data.dislike = req.body.dislike;

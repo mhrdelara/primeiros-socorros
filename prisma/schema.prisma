@@ -28,7 +28,7 @@ model Usuario {
 model Videos {
   id            Int        @id @default(autoincrement())
   denuncia      Int
-  texto         String
+  descricao     String
   data_postagem DateTime   @default(now())
   like          String
   dislike       String
