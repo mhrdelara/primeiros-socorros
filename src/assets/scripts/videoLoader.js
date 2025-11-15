@@ -1,3 +1,3 @@
-function carregarVideos() {
+function carregarVideos() {}
 
 carregarVideos();
