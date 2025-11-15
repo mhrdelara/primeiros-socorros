@@ -13,8 +13,7 @@ datasource db {
 
 model Usuario {
   id              Int      @id @default(autoincrement())
-  nome            String
-  sobrenome       String
+  nome_completo   String
   data_nascimento DateTime
   email           String
   crm             String
@@ -30,6 +29,7 @@ model Video {
   denuncia      Int
   descricao     String
   data_postagem DateTime   @default(now())
+  usuario_nome  String
   like          Int
   dislike       Int
   titulo        String
