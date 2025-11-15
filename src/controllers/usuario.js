@@ -9,8 +9,7 @@ rotaUsuario.get("/usuario", async (req, res) => {
 
 rotaUsuario.post("/usuario", async (req, res) => {
   const {
-    nome,
-    sobrenome,
+    nome_completo,
     data_nascimento,
     email,
     crm,
@@ -21,8 +20,7 @@ rotaUsuario.post("/usuario", async (req, res) => {
   } = req.body;
   await db.usuario.create({
     data: {
-      nome,
-      sobrenome,
+      nome_completo,
       data_nascimento: new Date(data_nascimento),
       email,
       crm,
@@ -47,8 +45,7 @@ rotaUsuario.put("/usuario/:id", async (req, res) => {
   const id = Number(req.params.id);
   const data = {};
 
-  if (req.body.nome) data.nome = req.body.nome;
-  if (req.body.sobrenome) data.sobrenome = req.body.sobrenome;
+  if (req.body.nome_completo) data.nome_completo = req.body.nome_completo;
   if (req.body.data_nascimento)
     data.data_nascimento = new Date(req.body.data_nascimento);
   if (req.body.email) data.email = req.body.email;

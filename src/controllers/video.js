@@ -3,13 +3,26 @@ const { db } = require("../db");
 const rotaVideo = Router();
 
 rotaVideo.get("/video", async (req, res) => {
-  const video = await db.video.findMany();
-  res.json(video);
+  const videos = await db.video.findMany({
+    include: {
+      usuario: true,
+    },
+  });
+
+  res.json(videos);
 });
 
 rotaVideo.post("/video", async (req, res) => {
-  const { denuncia, descricao, like, dislike, titulo, urlVideo, id_usuario } =
-    req.body;
+  const {
+    denuncia,
+    descricao,
+    like,
+    dislike,
+    titulo,
+    urlVideo,
+    id_usuario,
+    nome_usuario,
+  } = req.body;
 
   await db.video.create({
     data: {
@@ -19,6 +32,7 @@ rotaVideo.post("/video", async (req, res) => {
       dislike,
       titulo,
       urlVideo,
+      nome: nome_usuario,
       usuario: {
         connect: {
           id: id_usuario,
