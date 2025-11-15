@@ -1,27 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const nomeInput = document.querySelector("#nome");
-  const sobrenomeInput = document.querySelector("#sobrenome");
-  const data_nascimentoInput = document.querySelector("#data_nascimento");
-  const crmInput = document.querySelector("#crm");
-  const funcaoInput = document.querySelector("#funcao");
-  const emailInput = document.querySelector("#email");
-  const btnCadastrar = document.querySelector("#concluir");
+  const btnConcluir = document.getElementById("concluir");
+  const imgPreview = document.querySelector(".foto-perfil");
 
-  btnCadastrar.addEventListener("click", (e) => {
+  btnConcluir?.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const usuario = {
-      nome: nomeInput.value,
-      sobrenome: sobrenomeInput.value,
-      data_nascimento: data_nascimentoInput.value,
-      crm: crmInput.value,
-      funcao: funcaoInput.value,
-      email: emailInput.value,
-      foto: localStorage.getItem("fotoPerfil") || "",
+    const inputs = document.querySelectorAll(".input");
+    const values = Array.from(inputs).map((i) => i.value.trim());
+
+    const [nome_completo, data_nascimento, crm, funcao, email, senha] = values;
+
+    if (!nome_completo || !email || !crm || !senha) {
+      alert("Preencha nome completo, email, CRM e senha.");
+      return;
+    }
+
+    const fotoBase64 =
+      localStorage.getItem("fotoPerfil") ||
+      (imgPreview ? imgPreview.src : null);
+
+    const novoUsuario = {
+      nome_completo,
+      data_nascimento,
+      email,
+      crm,
+      funcao,
+      matricula: crm,
+      foto_perfil: fotoBase64,
+      senha,
+      autorizado: false,
     };
 
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+    try {
+      const res = await fetch("/usuario", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(novoUsuario),
+      });
 
-    window.location.href = "/tela-validacao";
+      if (!res.ok) {
+        console.warn("Erro ao cadastrar usuário:", res.status);
+        return;
+      }
+
+      const usuarioCriado = await res.json();
+
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuarioCriado));
+
+      window.dispatchEvent(new Event("authChanged"));
+
+      window.location.href = "/tela-validacao";
+    } catch (e) {
+      console.warn("Erro ao enviar cadastro:", e);
+    }
   });
 });

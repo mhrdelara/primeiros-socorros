@@ -17,7 +17,7 @@
     />
 
     <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
-    <script src="/scripts/foto-perfil.js" defer></script>
+    <script src="/scripts/fotoPerfil.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,28 +66,43 @@
 
         <div class="dad-informations">
           <div class="informacoes">
-            <h1>Nome:</h1>
-            <input type="text" placeholder="Ex: João" class="input" />
+            <h1>Nome Completo:</h1>
+            <input
+              type="text"
+              placeholder="Ex: João"
+              class="input"
+              id="nome_completo"
+            />
           </div>
 
           <div class="informacoes">
-            <h1>Sobrenome:</h1>
-            <input type="text" placeholder="Ex: Silva" class="input" />
-          </div>
-
-          <div class="informacoes">
-            <h1>Data/Nasc</h1>
-            <input type="date" placeholder="Ex: DD/MM/AA" class="input" />
+            <h1>Data/Nasc:</h1>
+            <input
+              type="date"
+              placeholder="Ex: DD/MM/AAAA"
+              class="input"
+              id="data_nascimento"
+            />
           </div>
 
           <div class="informacoes">
             <h1>CRM/Matrícula:</h1>
-            <input type="number" placeholder="Ex: 1234567" class="input" />
+            <input
+              type="number"
+              placeholder="Ex: 1234567"
+              class="input"
+              id="crm"
+            />
           </div>
 
           <div class="informacoes">
             <h1>Especialidades:</h1>
-            <input type="text" placeholder="Ex: Dentista" class="input" />
+            <input
+              type="text"
+              placeholder="Ex: Dentista"
+              class="input"
+              id="funcao"
+            />
           </div>
 
           <div class="informacoes">
@@ -96,7 +111,19 @@
               type="email"
               placeholder="Ex: joaosilva@gmail.com"
               class="input"
+              id="email"
             />
+          </div>
+
+          <div class="informacoes">
+            <h1>Senha:</h1>
+            <input
+              type="email"
+              placeholder="Ex: joaosilva@gmail.com"
+              class="input"
+              id="email"
+            />
+          </div>
           </div>
 
           <div id="dad-concluir">

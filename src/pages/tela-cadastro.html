@@ -13,8 +13,8 @@
       type="image/x-icon"
     />
     <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
-    <script src="/scripts/foto-perfil.js" defer></script>
-    <script src="/scripts/cadastrar.js"></script>
+    <script src="/scripts/fotoPerfil.js" defer></script>
+    <script src="/scripts/cadastrar.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -63,25 +63,20 @@
 
         <div class="dad-informations">
           <div class="informacoes">
-            <h1>Nome:</h1>
-            <input type="text" placeholder="Ex: João" class="input" id="nome" />
-          </div>
-
-          <div class="informacoes">
-            <h1>Sobrenome:</h1>
+            <h1>Nome Completo:</h1>
             <input
               type="text"
-              placeholder="Ex: Silva"
+              placeholder="Ex: João"
               class="input"
-              id="sobrenome"
+              id="nome_completo"
             />
           </div>
 
           <div class="informacoes">
-            <h1>Data/Nasc</h1>
+            <h1>Data/Nasc:</h1>
             <input
               type="date"
-              placeholder="Ex: DD/MM/AA"
+              placeholder="Ex: DD/MM/AAAA"
               class="input"
               id="data_nascimento"
             />
@@ -117,6 +112,16 @@
             />
           </div>
 
+          <div class="informacoes">
+            <h1>Senha:</h1>
+            <input
+              type="email"
+              placeholder="Ex: joaosilva@gmail.com"
+              class="input"
+              id="email"
+            />
+          </div>
+
           <div id="dad-concluir">
             <a href="/tela-validacao" id="concluir"> <p>Cadastrar-se</p></a>
           </div>
@@ -127,67 +132,5 @@
         </div>
       </div>
     </main>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const btnConcluir = document.getElementById("concluir");
-        const inputFile = document.getElementById("img");
-        const imgPreview = document.querySelector(".foto-perfil");
-
-        btnConcluir?.addEventListener("click", async (e) => {
-          e.preventDefault();
-
-          const inputs = document.querySelectorAll(".input");
-          const values = Array.from(inputs).map((i) => i.value.trim());
-          const [nome, sobrenome, data_nascimento, crm, funcao, email] = values;
-
-          if (!nome || !email || !crm) {
-            alert("Preencha nome, email e CRM.");
-            return;
-          }
-
-          let fotoBase64 = null;
-          try {
-            fotoBase64 =
-              localStorage.getItem("fotoPerfil") ||
-              (imgPreview ? imgPreview.src : null);
-          } catch (e) {
-            console.warn("ler fotoPerfil falhou", e);
-          }
-
-          const novoUsuario = {
-            nome,
-            sobrenome,
-            data_nascimento,
-            email,
-            crm,
-            funcao,
-            matricula: crm || null,
-            foto_perfil: fotoBase64 || null,
-            autorizado: false,
-          };
-
-          try {
-            const res = await fetch("/usuarios", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(novoUsuario),
-            });
-            if (!res.ok) {
-              console.warn("POST /usuarios retornou", res.status);
-            }
-          } catch (e) {
-            console.warn("Erro fetch /usuarios:", e);
-          }
-
-          try {
-            localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
-          } catch (e) {
-            console.warn("salvar usuarioLogado falhou", e);
-          }
-          window.dispatchEvent(new Event("authChanged"));
-          window.location.href = "/tela-validacao";
-        });
-      });
-    </script>
   </body>
 </html>
