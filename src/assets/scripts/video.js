@@ -41,9 +41,7 @@ addEventListener("DOMContentLoaded", async () => {
     dados.map((data) => {
       main.innerHTML += `
               <a href="/tela-video" class="filho-videos">
-              <div class="video">${
-                (gerarIframe(data.urlVideo), data.titulo)
-              }</div>
+              <div class="video">${gerarIframe(data.urlVideo)}</div>
 
               <div class="quadrado">
                 <div class="sub-quadrado">
@@ -52,14 +50,14 @@ addEventListener("DOMContentLoaded", async () => {
                   <p></p>
                 </div>
 
-                <p>${data.descricao}</p>
+                <p>${data.usuario_nome}</p>
                 <p></p>
               </div>
             </a>
       `;
       console.log(data);
     });
-    console.log("tessss");
+    console.log("teste");
   } catch (error) {
     console.error("Erro na requisição:", error.message);
   }

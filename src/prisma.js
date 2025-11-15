@@ -1,7 +1,7 @@
-import { PrismaClient } from "./generated/prisma/client/index.js";
-import { format } from "date-fns";
-import { flatten, unflatten } from "flat";
-import _ from "lodash";
+const { PrismaClient } = require("@prisma/client");
+const { format } = require("date-fns");
+const { flatten, unflatten } = require("flat");
+const _ = require("lodash");
 
 const prisma = new PrismaClient();
 
@@ -32,4 +32,4 @@ function sanitizeDateValuesInObject(result) {
   return result;
 }
 
-export default prisma;
+module.exports = prisma;
