@@ -1,151 +1,105 @@
 (function () {
-  const DEBUG = false;
-  const log = (...a) => DEBUG && console.log("[foto-perfil]", ...a);
-  const warn = (...a) => DEBUG && console.warn("[foto-perfil]", ...a);
-  const err = (...a) => DEBUG && console.error("[foto-perfil]", ...a);
+  let cropper = null;
 
-  function findAllFotos() {
+  document.addEventListener("DOMContentLoaded", () => {
     const fotos = document.querySelectorAll(".foto-perfil");
-    const input =
-      document.getElementById("img") ||
-      document.querySelector(".foto-container input[type=file]");
-    return { fotos, input };
-  }
+    const input = document.getElementById("img");
 
-  async function init() {
-    if (document.readyState === "loading") {
-      await new Promise((r) =>
-        document.addEventListener("DOMContentLoaded", r)
-      );
-    }
+    if (!fotos.length || !input) return;
 
-    const { fotos, input } = findAllFotos();
+    // carregar foto salva
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
+    const saved = usuario.foto_perfil || localStorage.getItem("fotoPerfil");
+    if (saved) fotos.forEach((f) => (f.src = saved));
 
-    // carrega foto salva
-    try {
-      const saved = localStorage.getItem("fotoPerfil");
-      if (saved) fotos.forEach((f) => (f.src = saved));
-    } catch (e) {
-      warn("localStorage read falhou", e);
-    }
+    // clicar na foto abre o input
+    fotos.forEach((f) => {
+      f.style.cursor = "pointer";
+      f.addEventListener("click", () => input.click());
+    });
 
-    if (!input || !fotos.length) return;
-
-    fotos.forEach((f) => (f.style.cursor = "pointer"));
-    fotos.forEach((f) => f.addEventListener("click", () => input.click()));
-
-    input.addEventListener("change", async (ev) => {
+    // selecionar arquivo
+    input.addEventListener("change", (ev) => {
       const file = ev.target.files?.[0];
       if (!file) return;
 
       const reader = new FileReader();
-
-      reader.onload = (e) => {
-        const src = e.target.result;
-
-        // sem cropper
-        if (typeof Cropper === "undefined") {
-          fotos.forEach((f) => (f.src = src));
-          localStorage.setItem("fotoPerfil", src);
-          input.value = "";
-          return;
-        }
-
-        // criar overlay do crop
-        const overlay = document.createElement("div");
-        const panel = document.createElement("div");
-        overlay.classList.add("cropper-overlay");
-        panel.classList.add("cropper-box");
-        overlay.appendChild(panel);
-
-        const img = document.createElement("img");
-        img.src = src;
-        panel.appendChild(img);
-
-        const controls = document.createElement("div");
-        const btnSalvar = document.createElement("button");
-        const btnCancelar = document.createElement("button");
-
-        btnSalvar.textContent = "Salvar";
-        btnCancelar.textContent = "Cancelar";
-
-        controls.appendChild(btnSalvar);
-        controls.appendChild(btnCancelar);
-        panel.appendChild(controls);
-
-        document.body.appendChild(overlay);
-
-        let cropper;
-
-        try {
-          cropper = new Cropper(img, {
-            aspectRatio: 1,
-            viewMode: 1,
-            dragMode: "move",
-            autoCropArea: 1,
-            background: false,
-          });
-        } catch (e) {
-          err("Cropper init failed", e);
-          fotos.forEach((f) => (f.src = src));
-          localStorage.setItem("fotoPerfil", src);
-          overlay.remove();
-          input.value = "";
-          return;
-        }
-
-        // salvar crop
-        btnSalvar.addEventListener(
-          "click",
-          () => {
-            try {
-              const canvas = cropper.getCroppedCanvas({
-                width: 400,
-                height: 400,
-                imageSmoothingEnabled: true,
-                imageSmoothingQuality: "high",
-              });
-
-              const nova = canvas.toDataURL("image/png");
-
-              fotos.forEach((f) => (f.src = nova));
-              localStorage.setItem("fotoPerfil", nova);
-
-              // atualizar usuarioLogado
-              const usuario = JSON.parse(
-                localStorage.getItem("usuarioLogado") || "{}"
-              );
-              usuario.foto_perfil = nova;
-              localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-
-              window.dispatchEvent(new Event("authChanged"));
-
-              cropper.destroy();
-              overlay.remove();
-              input.value = "";
-              log("foto salva e sincronizada");
-            } catch (e) {
-              err("erro ao salvar crop", e);
-            }
-          },
-          { once: true }
-        );
-
-        btnCancelar.addEventListener(
-          "click",
-          () => {
-            cropper?.destroy();
-            overlay.remove();
-            input.value = "";
-          },
-          { once: true }
-        );
-      };
-
-      reader.onerror = (erro) => err("FileReader error", erro);
+      reader.onload = (e) => abrirCropUI(e.target.result, fotos);
       reader.readAsDataURL(file);
+    });
+  });
+
+  function abrirCropUI(src, fotos) {
+    const overlay = document.createElement("div");
+    overlay.className = "cropper-overlay";
+
+    overlay.innerHTML = `
+      <div class="cropper-box">
+        <div class="cropper-image-wrapper">
+          <img id="cropper-image" src="${src}">
+        </div>
+        <div class="cropper-controls">
+          <button class="cropper-cancel" type="button">Cancelar</button>
+          <button class="cropper-save" type="button">Salvar</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const img = overlay.querySelector("#cropper-image");
+    const btnSalvar = overlay.querySelector(".cropper-save");
+    const btnCancelar = overlay.querySelector(".cropper-cancel");
+
+    img.onload = () => {
+      cropper = new Cropper(img, {
+        aspectRatio: 1,
+        viewMode: 1,
+        autoCropArea: 1,
+        background: false,
+      });
+    };
+
+    // salvar recorte
+    btnSalvar.addEventListener("click", () => {
+      const canvas = cropper.getCroppedCanvas({ width: 500, height: 500 });
+      const base64 = canvas.toDataURL("image/png");
+
+      atualizarFoto(base64, fotos);
+
+      cropper.destroy();
+      overlay.remove();
+    });
+
+    btnCancelar.addEventListener("click", () => {
+      cropper.destroy();
+      overlay.remove();
+    });
+
+    overlay.addEventListener("click", (ev) => {
+      if (ev.target === overlay) {
+        cropper.destroy();
+        overlay.remove();
+      }
     });
   }
 
-  init();
+  function atualizarFoto(base64, fotos) {
+    fotos.forEach((f) => (f.src = base64));
+    localStorage.setItem("fotoPerfil", base64);
+
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
+    usuario.foto_perfil = base64;
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+
+    if (usuario.id) {
+      fetch(`/usuario/${usuario.id}/foto`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ foto_perfil: base64 }),
+      });
+    }
+
+    window.dispatchEvent(new Event("authChanged"));
+  }
 })();
