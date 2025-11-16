@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Usuario {
-  id              Int      @id @default(autoincrement())
+  id              Int       @id @default(autoincrement())
   nome_completo   String
   data_nascimento DateTime
   email           String
@@ -25,21 +25,21 @@ model Usuario {
 }
 
 model Video {
-  id            Int        @id @default(autoincrement())
+  id            Int         @id @default(autoincrement())
   denuncia      Int
   descricao     String
-  data_postagem DateTime   @default(now())
+  data_postagem DateTime    @default(now())
   usuario_nome  String
   like          Int
   dislike       Int
   titulo        String
   urlVideo      String
-  usuario       Usuario    @relation(fields: [usuarioId], references: [id])
+  usuario       Usuario     @relation(fields: [usuarioId], references: [id])
   usuarioId     Int
 }
 
 model Material {
-  id            Int        @id @default(autoincrement())
+  id            Int         @id @default(autoincrement())
   anexo         String
-  data_postagem DateTime   @default(now())
+  data_postagem DateTime    @default(now())
 }
