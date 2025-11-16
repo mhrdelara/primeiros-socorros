@@ -29,7 +29,8 @@ model Video {
   denuncia      Int
   descricao     String
   data_postagem DateTime    @default(now())
-  usuario_nome  String
+  nome_usuario  String
+  foto_perfil   String
   like          Int
   dislike       Int
   titulo        String
