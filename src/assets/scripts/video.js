@@ -19,7 +19,13 @@ function gerarIframe(link, titulo = "YouTube video player") {
 const API_URL = "/video";
 
 document.addEventListener("DOMContentLoaded", async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = (urlParams.get("query") || "").toLowerCase();
+
   const main = document.querySelector(".pai-videos");
+  const span = document.getElementById("span");
+
+  if (query) span.textContent = query;
 
   try {
     const response = await fetch(API_URL);
@@ -27,13 +33,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const dados = await response.json();
 
-    dados.forEach((data) => {
-      const dataFormatada = new Date(data.data_postagem).toLocaleDateString(
-        "pt-BR"
-      );
+    const filtrados = query
+      ? dados.filter((d) => d.titulo.toLowerCase().includes(query))
+      : dados;
+
+    main.innerHTML = "";
+
+    if (filtrados.length === 0) {
+      main.innerHTML = `
+        <p style="color:#777; text-align:center; width:100%;">
+          Nenhum vídeo encontrado${
+            query ? ` para "<strong>${query}</strong>"` : ""
+          }
+        </p>
+      `;
+      return;
+    }
+
+    filtrados.forEach((data) => {
+      const dataFormatada = data.data_postagem
+        ? new Date(data.data_postagem).toLocaleDateString("pt-BR")
+        : "";
 
       main.innerHTML += `
-        <a href="/tela-video" class="filho-videos">
+        <a href="/tela-video?id=${data.id}" class="filho-videos">
           <div class="video">${gerarIframe(data.urlVideo, data.titulo)}</div>
 
           <div class="quadrado">
