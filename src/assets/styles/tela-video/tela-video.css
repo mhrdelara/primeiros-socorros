@@ -17,7 +17,6 @@
   justify-content: center;
 }
 
-/* Container do vídeo */
 #video {
   position: relative;
   width: 100%;
@@ -132,18 +131,29 @@
 
 #user {
   display: flex;
+  gap: 50px;
   align-items: center;
   margin-left: 22px;
   margin-top: 14px;
 }
 
-#user p {
-  font-size: 4vw;
+#info-user {
+  font-size: 14px;
 }
 
 #user img {
   width: 10vw;
   margin-right: 10px;
+}
+
+#informacoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#data {
+  font-size: 12px;
 }
 
 #texto {
@@ -214,16 +224,4 @@
 
 .disable {
   display: none;
-}
-
-.back-modal-denuncia {
-  z-index: 9;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.56);
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

@@ -21,22 +21,17 @@ async function carregarVideo() {
     return;
   }
 
-  try {
-    const res = await fetch(`https://6lrndh-3001.csb.app/video/${id}`);
-    if (!res.ok) throw new Error("Erro ao carregar vídeo");
+  const res = await fetch(`/video/${id}`);
 
-    const video = await res.json();
-    montarVideoNaTela(video);
-  } catch (erro) {
-    console.error("Erro carregando vídeo:", erro);
-  }
+  const video = await res.json();
+  montarVideoNaTela(video);
 }
 
 function montarVideoNaTela(video) {
+  console.log(video);
   const player = document.getElementById("video");
   const youtubeID = extrairIDYoutube(video.urlVideo);
 
-  // Inserir o player do YouTube
   player.innerHTML = `
     <iframe 
       src="https://www.youtube.com/embed/${youtubeID}"
@@ -54,22 +49,16 @@ function montarVideoNaTela(video) {
   document.querySelector("#titulo h1").textContent = video.titulo;
 
   const desc = document.getElementById("text-descricao");
-  desc.textContent = video.descricao || "Sem descrição.";
+  desc.innerText = video.descricao || "Sem descrição.";
 
   const data = new Date(video.data_postagem).toLocaleDateString("pt-BR");
-  document
-    .querySelector("#texto h1")
-    .insertAdjacentHTML(
-      "afterend",
-      `<p style="margin-top: -15px; opacity: .7">Postado em ${data}</p>`
-    );
+  document.querySelector(".data").innerHTML = `<p id="data">${data}</p>`;
 
-  document.getElementById("user-foto").src =
-    video.foto_perfil || "/images/default-user.png";
-  document.getElementById("user-nome").textContent =
-    video.nome_usuario || "Usuário";
-  document.getElementById("user-funcao").textContent =
-    video.funcao_usuario || "Função não informada";
+  document.getElementById("foto-perfil").src =
+    video.foto_perfil || "/images/icons/3d_avatar_1.svg";
+  document.getElementById("info-user").textContent = `${
+    video.nome_usuario || "Usuário"
+  } - ${video.funcao_usuario || "Função não informada"}`;
 
   const materiaisContainer = document.getElementById("materiais");
   if (materiaisContainer && video.materiais.length > 0) {
@@ -87,11 +76,16 @@ function montarVideoNaTela(video) {
 }
 
 function configurarLike(video) {
-  const btn = document.getElementById("like-btn");
+  const btn = document.getElementById("like");
   if (!btn) return;
 
+  console.log("ok");
   btn.addEventListener("click", () => {
-    btn.classList.toggle("liked");
+    fetch(`/video/like/${video.id}`, {
+      headers: {
+        Authenticate: "gfhj",
+      },
+    });
   });
 }
 

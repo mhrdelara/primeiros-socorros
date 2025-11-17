@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const nomeCompleto = document.querySelector("#nome_completo");
-  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuario"));
 
   console.log("Usuário logado:", usuarioLogado);
 

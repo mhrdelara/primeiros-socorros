@@ -2,18 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerDown = document.querySelector(".header-down");
   const opcoesBtn = document.getElementById("opcoes");
 
-  if (!headerDown) return;
-
   let usuarioLogado = {};
   try {
-    usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")) || {};
+    usuarioLogado = JSON.parse(localStorage.getItem("usuario")) || {};
   } catch {
     usuarioLogado = {};
   }
 
   const usuarioExiste = usuarioLogado && Object.keys(usuarioLogado).length > 0;
+  console.log(usuarioExiste);
 
   if (usuarioExiste) {
+    console.log("Colocando os dados do usuario");
     const fotoSrc =
       usuarioLogado.foto ||
       usuarioLogado.foto_perfil ||
@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (opcoesBtn) opcoesBtn.style.display = "block";
   } else {
+    console.log("Deu errado");
+
     headerDown.innerHTML = `
       <a href="/tela-cadastro" id="login-logout">
         <p>Inscrever-se <span>ou</span> entrar</p>

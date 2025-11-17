@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const formLogin = document.getElementById("form-login");
+  const nomeCompletoInput = document.getElementById("nome_completo");
+  const crmInput = document.getElementById("crm");
   const emailInput = document.getElementById("email");
   const senhaInput = document.getElementById("senha");
 
@@ -14,17 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
   formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const nome_completo = nomeCompletoInput.value.trim();
+    const crm = crmInput.value.trim();
     const email = emailInput.value.trim();
     const senha = senhaInput.value.trim();
 
-    if (!email || !senha) {
-      mensagem.textContent = "Preencha email e senha";
+    if (!nome_completo || !crm || !email || !senha) {
+      mensagem.textContent = "Preencha todas as informações";
       mensagem.style.color = "red";
       return;
     }
 
     try {
-      const res = await fetch("https://6lrndh-3001.csb.app/login", {
+      const res = await fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, senha }),
@@ -39,8 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const usuario = data.usuario;
+      const token = data.token;
 
       localStorage.setItem("usuario", JSON.stringify(usuario));
+      localStorage.setItem("token", token);
 
       mensagem.textContent = `Bem-vindo, ${usuario.nome_completo}! Redirecionando...`;
       mensagem.style.color = "green";

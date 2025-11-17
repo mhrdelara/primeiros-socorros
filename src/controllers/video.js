@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const { Router } = require("express");
 const { db } = require("../db");
 const rotaVideo = Router();
@@ -35,7 +36,35 @@ rotaVideo.get("/", async (req, res) => {
   }
 });
 
-// ----------------- GET vídeo por id -----------------
+rotaVideo.get("/like/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    const videoExistente = await db.video.findUnique({
+      where: { id },
+    });
+
+    if (!videoExistente) {
+      return res.status(404).json({ erro: "Vídeo não encontrado" });
+    }
+
+    const atualizado = await db.video.update({
+      where: { id },
+      data: {
+        like: videoExistente?.like + 1,
+      },
+    });
+
+    res.json({
+      mensagem: "Like registrado com sucesso",
+      video: atualizado,
+    });
+  } catch (err) {
+    console.error("POST /video/like error:", err);
+    res.status(500).json({ erro: "Erro ao registrar like" });
+  }
+});
+
 rotaVideo.get("/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);

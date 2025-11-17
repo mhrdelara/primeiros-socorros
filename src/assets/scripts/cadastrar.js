@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const usuarioCriado = await res.json();
-      localStorage.setItem("usuarioLogado", JSON.stringify(usuarioCriado));
+      localStorage.setItem("usuario", JSON.stringify(usuarioCriado));
 
       window.dispatchEvent(new Event("authChanged"));
       window.location.href = "/tela-validacao";
