@@ -5,8 +5,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url = "file:/dev.db"
-
+  url      = "file:/.dev.db"
 }
 
 model Usuario {
@@ -23,23 +22,23 @@ model Usuario {
 }
 
 model Video {
-  id            Int         @id @default(autoincrement())
-  denuncia      Int
+  id            Int        @id @default(autoincrement())
+  denuncia      Int        @default(0)
   descricao     String
-  data_postagem DateTime    @default(now())
-  like          Int
-  dislike       Int
+  data_postagem DateTime   @default(now())
+  like          Int        @default(0)
+  dislike       Int        @default(0)
   titulo        String
   urlVideo      String
-  usuario       Usuario     @relation(fields: [usuarioId], references: [id])
+  usuario       Usuario    @relation(fields: [usuarioId], references: [id])
   usuarioId     Int
   Material      Material[]
 }
 
 model Material {
-  id            Int         @id @default(autoincrement())
-  anexo         String
-  data_postagem DateTime    @default(now())
-  video         Video     @relation(fields: [videoId], references: [id])
-  videoId       Int
+  id        Int      @id @default(autoincrement())
+  anexo     String
+  video     Video    @relation(fields: [videoId], references: [id])
+  videoId   Int
+  data_postagem DateTime @default(now())
 }
