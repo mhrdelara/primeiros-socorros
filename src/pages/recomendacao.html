@@ -21,15 +21,15 @@
     />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
     />
-    <script src="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.js"></script>
+    <link rel="stylesheet" href="/styles/cropper.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
-    <script src="https://unpkg.com/cropperjs"></script>
-
+    <script src="/scripts/recomendacaoQuery.js" defer></script>
     <script src="/scripts/modal.js" defer></script>
-    <script src="/scripts/fotoPerfil.js" defer></script>
     <script src="/scripts/authControl.js"></script>
+    <script src="/scripts/fotoPerfil.js" defer></script>
     <script src="/scripts/mic.js" defer></script>
     <script src="/scripts/deleteAccount.js" defer></script>
     <script src="/scripts/exitAccount.js" defer></script>
@@ -215,62 +215,5 @@
         <div class="pai-videos"></div>
       </section>
     </main>
-
-    <script defer>
-      addEventListener("DOMContentLoaded", () => {
-        closeAllModals();
-      });
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const query = urlParams.get("query");
-
-        const span = document.getElementById("span");
-        const input = document.getElementById("pesquisar");
-
-        if (query) {
-          span.textContent = query;
-          input.value = query;
-        }
-      });
-    </script>
-
-    <script>
-      document
-        .getElementById("pesquisa")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const valor = document.getElementById("pesquisar").value.trim();
-          if (valor) {
-            window.location.href = `/recomendacao?query=${encodeURIComponent(
-              valor
-            )}`;
-          }
-        });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const headerDown = document.querySelector(".header-down");
-        const opcoesBtn = document.getElementById("opcoes");
-        const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-
-        if (usuarioLogado) {
-          headerDown.innerHTML = `
-    <div class="foto-container" id="foto-container-header">
-      <img class="foto-perfil" 
-      id="foto-perfil-header"
-      src="${
-        usuarioLogado.foto_perfil || "/images/icons/3d_avatar_1.svg"
-      }" alt="Foto de perfil">
-    </div>
-  `;
-
-          opcoesBtn.style.display = "block";
-        } else {
-          opcoesBtn.style.display = "none";
-        }
-      });
-    </script>
   </body>
 </html>

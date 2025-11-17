@@ -21,15 +21,14 @@
     <link rel="stylesheet" href="/styles/tela-modal/tela-sair-conta.css" />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
     />
-    <script src="https://unpkg.com/cropperjs@1.6.1/dist/cropper.min.js"></script>
-
-    <script src="https://unpkg.com/cropperjs"></script>
+    <link rel="stylesheet" href="/styles/cropper.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
     <script src="/scripts/modal.js" defer></script>
-    <script src="/scripts/fotoPerfil.js" defer></script>
     <script src="/scripts/authControl.js"></script>
+    <script src="/scripts/fotoPerfil.js" defer></script>
     <script src="/scripts/mic.js" defer></script>
     <script src="/scripts/deleteAccount.js" defer></script>
     <script src="/scripts/exitAccount.js" defer></script>
@@ -233,7 +232,7 @@
       links.forEach((link) => {
         section.innerHTML += `
         <a
-          href="/recomendacao?query=${encodeURIComponent(link.link)}"
+          href="/recomendacao?query=${encodeURIComponent(link.link)}&by=card"
           class="son-quadrado"
         >
           <div class="quadrado-video"></div>
@@ -255,32 +254,6 @@
             )}`;
           }
         });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const headerDown = document.querySelector(".header-down");
-        const opcoesBtn = document.querySelector("#opcoes");
-        const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-        const fotoPerfil = localStorage.getItem("fotoPerfil");
-
-        if (usuarioLogado) {
-          const fotoSrc =
-            usuarioLogado.foto || usuarioLogado.foto_perfil || fotoPerfil;
-
-          headerDown.innerHTML = `
-        <div class="foto-container" id="foto-container-header">
-          <img class="foto-perfil" id="foto-perfil-header"
-              src="${fotoSrc}"
-              alt="Foto de perfil">
-        </div>
-      `;
-
-          opcoesBtn.style.display = "block";
-        } else {
-          opcoesBtn.style.display = "none";
-        }
-      });
     </script>
   </body>
 </html>
