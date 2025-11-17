@@ -1,140 +1,98 @@
-function gerarIframeEmBigger(link, titulo = "YouTube video player") {
-  const videoIdMatch = link.match(/[?&]v=([^&#]+)/);
-  const videoId = videoIdMatch ? videoIdMatch[1] : null;
-
-  return `
-        <iframe 
-          width="100%"
-          height="480"
-          src="https://www.youtube.com/embed/${videoId}"
-          title="${titulo}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      `;
+function getVideoIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
 }
 
-async function fetchVideoById(id) {
-  const res = await fetch(`/video/${id}`);
-  if (!res.ok) throw new Error(`Erro ao buscar vídeo: ${res.status}`);
-  return res.json();
+function extrairIDYoutube(url) {
+  try {
+    const regex =
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  } catch (e) {
+    return null;
+  }
 }
 
-async function fetchMaterial(id) {
-  const res = await fetch(`/material/${id}`);
-  if (!res.ok) return null;
-  return res.json();
-}
-
-async function fetchVideosAll() {
-  const res = await fetch(`/video`);
-  if (!res.ok) throw new Error(`Erro ao buscar vídeos: ${res.status}`);
-  return res.json();
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
-
+async function carregarVideo() {
+  const id = getVideoIdFromUrl();
   if (!id) {
-    document.querySelector("main").innerText = "Vídeo não especificado.";
+    console.error("ID do vídeo não encontrado");
     return;
   }
 
   try {
-    const video = await fetchVideoById(id);
+    const res = await fetch(`https://6lrndh-3001.csb.app/video/${id}`);
+    if (!res.ok) throw new Error("Erro ao carregar vídeo");
 
-    // player
-    const videoContainer = document.getElementById("video");
-    videoContainer.innerHTML = gerarIframeEmBigger(
-      video.urlVideo,
-      video.titulo
+    const video = await res.json();
+    montarVideoNaTela(video);
+  } catch (erro) {
+    console.error("Erro carregando vídeo:", erro);
+  }
+}
+
+function montarVideoNaTela(video) {
+  const player = document.getElementById("video");
+  const youtubeID = extrairIDYoutube(video.urlVideo);
+
+  // Inserir o player do YouTube
+  player.innerHTML = `
+    <iframe 
+      src="https://www.youtube.com/embed/${youtubeID}"
+      frameborder="0" 
+      allowfullscreen
+    ></iframe>
+
+    <div id="bandeira">
+      <button id="btnDenunciaFlag">
+        <img src="/images/icons/flag-inativo.svg" alt="Denunciar"/>
+      </button>
+    </div>
+  `;
+
+  document.querySelector("#titulo h1").textContent = video.titulo;
+
+  const desc = document.getElementById("text-descricao");
+  desc.textContent = video.descricao || "Sem descrição.";
+
+  const data = new Date(video.data_postagem).toLocaleDateString("pt-BR");
+  document
+    .querySelector("#texto h1")
+    .insertAdjacentHTML(
+      "afterend",
+      `<p style="margin-top: -15px; opacity: .7">Postado em ${data}</p>`
     );
 
-    // título
-    const h1 = document.querySelector("#esquerda h1");
-    if (h1) h1.textContent = video.titulo;
+  document.getElementById("user-foto").src =
+    video.foto_perfil || "/images/default-user.png";
+  document.getElementById("user-nome").textContent =
+    video.nome_usuario || "Usuário";
+  document.getElementById("user-funcao").textContent =
+    video.funcao_usuario || "Função não informada";
 
-    const userDiv = document.getElementById("user");
-    if (userDiv) {
-      const foto = video.usuario?.foto_perfil || "/images/icons/avatar.svg";
-      const nome = video.usuario?.nome_completo || "Autor";
-      const funcao = video.usuario?.funcao || "Profissional";
-
-      userDiv.innerHTML = `
-            <img src="${foto}" alt="Foto do autor" />
-            <p>${nome} - ${funcao}</p>
-          `;
-    }
-
-    const textoDiv = document.getElementById("texto");
-    textoDiv.innerHTML = `
-          <h1>Descrição</h1>
-          <p>${video.descricao || ""}</p>
-        `;
-
-    if (video.id_material) {
-      const material = await fetchMaterial(video.id_material);
-
-      if (material) {
-        const div = document.createElement("div");
-        div.className = "material-block";
-
-        div.innerHTML = `
-              <h2>Material</h2>
-              <a href="${material.anexo}" target="_blank" class="material-file">
-                <div class="file-icon">📄</div>
-                <div class="file-info">
-                  <div class="file-name">Material do vídeo</div>
-                  <div class="file-meta">${
-                    material.data_postagem
-                      ? new Date(material.data_postagem).toLocaleDateString(
-                          "pt-BR"
-                        )
-                      : ""
-                  }</div>
-                </div>
-              </a>
-            `;
-
-        textoDiv.appendChild(div);
-      }
-    }
-
-    // recomendações
-    const all = await fetchVideosAll();
-    const relacionados = all.filter((v) => v.id !== video.id).slice(0, 5);
-
-    const paiVideos = document.querySelector(".pai-videos");
-    paiVideos.innerHTML = "";
-
-    relacionados.forEach((v) => {
-      const dataFormatada = v.data_postagem
-        ? new Date(v.data_postagem).toLocaleDateString("pt-BR")
-        : "";
-
-      paiVideos.innerHTML += `
-            <a href="/tela-video?id=${v.id}" class="filho-videos">
-              <div class="video" style="width:212px;height:120px;">
-                <iframe width="212" height="120" src="https://www.youtube.com/embed/${
-                  (v.urlVideo.match(/[?&]v=([^&#]+)/) || [])[1] || ""
-                }" frameborder="0" allowfullscreen></iframe>
-              </div>
-    
-              <div class="quadrado">
-                <div class="sub-quadrado">
-                  <h1>${v.titulo}</h1>
-                  <p>${dataFormatada}</p>
-                </div>
-                <p>${v.usuario?.nome_completo || ""}</p>
-              </div>
-            </a>
-          `;
-    });
-  } catch (err) {
-    console.error(err);
-    document.querySelector("main").innerText = "Erro ao carregar o vídeo.";
+  const materiaisContainer = document.getElementById("materiais");
+  if (materiaisContainer && video.materiais.length > 0) {
+    materiaisContainer.innerHTML = video.materiais
+      .map(
+        (m) =>
+          `<a href="${m}" target="_blank" class="material-link"> ${m
+            .split("/")
+            .pop()}</a>`
+      )
+      .join("<br>");
   }
-});
+
+  configurarLike(video);
+}
+
+function configurarLike(video) {
+  const btn = document.getElementById("like-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("liked");
+  });
+}
+
+carregarVideo();

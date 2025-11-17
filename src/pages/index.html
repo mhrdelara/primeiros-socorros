@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/styles/cropper.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
+    <script src="/scripts/pesquisa.js" defer></script>
+    <script src="/scripts/queryCards.js" defer></script>
     <script src="/scripts/modal.js" defer></script>
     <script src="/scripts/authControl.js"></script>
     <script src="/scripts/fotoPerfil.js" defer></script>
@@ -214,46 +216,5 @@
     </div>
 
     <section></section>
-
-    <script defer>
-      addEventListener("DOMContentLoaded", () => {
-        closeAllModals();
-      });
-
-      const links = [
-        { texto: "Reanimação", link: "Reanimação" },
-        { texto: "Ferimentos", link: "Ferimentos" },
-        { texto: "Engasgo", link: "Engasgo" },
-        { texto: "AVC", link: "AVC" },
-      ];
-
-      const section = document.querySelector("section");
-
-      links.forEach((link) => {
-        section.innerHTML += `
-        <a
-          href="/recomendacao?query=${encodeURIComponent(link.link)}&by=card"
-          class="son-quadrado"
-        >
-          <div class="quadrado-video"></div>
-          <p>${link.texto}</p>
-        </a>
-      `;
-      });
-    </script>
-
-    <script>
-      document
-        .getElementById("pesquisa")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const valor = document.getElementById("pesquisar").value.trim();
-          if (valor) {
-            window.location.href = `/recomendacao?query=${encodeURIComponent(
-              valor
-            )}`;
-          }
-        });
-    </script>
   </body>
 </html>

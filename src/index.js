@@ -3,6 +3,7 @@ const path = require("path");
 const { rotaUsuario } = require("./controllers/usuario");
 const { rotaMaterial } = require("./controllers/material");
 const { rotaVideo } = require("./controllers/video");
+const { rotaLogin } = require("./controllers/login");
 
 const server = express();
 
@@ -12,6 +13,7 @@ server.use(express.urlencoded({ limit: "50mb", extended: true }));
 server.use("/usuario", rotaUsuario);
 server.use("/material", rotaMaterial);
 server.use("/video", rotaVideo);
+server.use("/login", rotaLogin);
 
 server.use(express.static(path.join(__dirname, "assets")));
 
@@ -31,8 +33,8 @@ server.get("/tela-validacao", (req, res) =>
 server.get("/tela-video", (req, res) =>
   res.sendFile(__dirname + "/pages/tela-video.html")
 );
-server.get("/login", (req, res) =>
-  res.sendFile(__dirname + "/pages/login.html")
+server.get("/tela-usuario-logado", (req, res) =>
+  res.sendFile(__dirname + "/pages/tela-usuario-logado.html")
 );
 server.get("/recomendacao", (req, res) =>
   res.sendFile(__dirname + "/pages/recomendacao.html")

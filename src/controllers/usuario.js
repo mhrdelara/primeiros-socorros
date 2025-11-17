@@ -1,19 +1,12 @@
 const { Router } = require("express");
 const { db } = require("../db");
-
 const rotaUsuario = Router();
 
-/* -------------------------
-   Função pra converter data BR (dd/mm/yyyy) → yyyy-mm-dd
-------------------------- */
 function converterDataBR(data) {
   const [dia, mes, ano] = data.split("/");
   return `${ano}-${mes}-${dia}`;
 }
 
-/* -------------------------
-   GET /usuario — Lista usuários
-------------------------- */
 rotaUsuario.get("/", async (req, res) => {
   try {
     const usuarios = await db.usuario.findMany();
@@ -26,9 +19,21 @@ rotaUsuario.get("/", async (req, res) => {
   }
 });
 
-/* -------------------------
-   POST /usuario — Criar usuário
-------------------------- */
+rotaUsuario.get("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const usuario = await db.usuario.findUnique({ where: { id } });
+
+    if (!usuario)
+      return res.status(404).json({ erro: "Usuário não encontrado" });
+
+    res.json(usuario);
+  } catch (e) {
+    console.error("GET /usuario/:id erro:", e);
+    res.status(500).json({ erro: "Falha ao buscar usuário" });
+  }
+});
+
 rotaUsuario.post("/", async (req, res) => {
   const {
     nome_completo,
@@ -41,20 +46,15 @@ rotaUsuario.post("/", async (req, res) => {
     senha,
   } = req.body || {};
 
-  // validação dos obrigatórios (inclui data BR)
   if (!nome_completo || !email || !crm || !senha || !data_nascimento) {
     return res.status(400).json({ erro: "Campos obrigatórios faltando" });
   }
 
-  // validação da data BR
   let dataISO;
   try {
     const convertida = converterDataBR(data_nascimento);
     dataISO = new Date(convertida);
-
-    if (isNaN(dataISO.getTime())) {
-      throw new Error("Data inválida");
-    }
+    if (isNaN(dataISO.getTime())) throw new Error("Data inválida");
   } catch {
     return res
       .status(400)
@@ -78,25 +78,17 @@ rotaUsuario.post("/", async (req, res) => {
     res.json(usuarioCriado);
   } catch (e) {
     console.error("Erro criando usuário:", e);
-
     return res.status(500).json({
       erro: "Falha ao criar usuário",
       detalhe: e.message,
-      meta: e.meta || null,
-      stack: e.stack,
     });
   }
 });
 
-/* -------------------------
-   DELETE /usuario/:id — Apagar usuário
-------------------------- */
 rotaUsuario.delete("/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
-
     await db.usuario.delete({ where: { id } });
-
     res.json({ mensagem: "OK" });
   } catch (e) {
     console.error("DELETE /usuario/:id erro:", e);
@@ -106,14 +98,10 @@ rotaUsuario.delete("/:id", async (req, res) => {
   }
 });
 
-/* -------------------------
-   PUT /usuario/:id — Atualizar usuário
-------------------------- */
 rotaUsuario.put("/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
     const data = {};
-
     const campos = [
       "nome_completo",
       "data_nascimento",
@@ -131,7 +119,6 @@ rotaUsuario.put("/:id", async (req, res) => {
           try {
             const convertida = converterDataBR(req.body[campo]);
             const dataISO = new Date(convertida);
-
             if (isNaN(dataISO)) throw new Error("Data inválida");
             data[campo] = dataISO;
           } catch {

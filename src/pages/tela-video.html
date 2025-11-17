@@ -15,11 +15,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="/scripts/tela-video.js" defer></script>
-    <script src="/scripts/likeBtn.js" defer></script>
+    <script src="/scripts/telaVideo.js" defer></script>
+    <script src="/scripts/fotoPerfil.js"></script>
     <title>Vídeos</title>
   </head>
   <body>
@@ -41,39 +41,35 @@
       <div class="dad-informacoes">
         <div id="titulo">
           <div id="son-titulo">
-            <div id="esquerda">
-              <h1>TÍTULO PRINCIPAL - Subtitulo</h1>
-            </div>
+            <div id="esquerda"><h1>TÍTULO PRINCIPAL - Subtitulo</h1></div>
 
             <div id="direita">
               <div id="bola">
-                <button onclick="mudarSvgLike ()" id="like">
+                <button id="like">
                   <img
                     id="like-img"
                     src="/images/icons/like-normal.svg"
                     alt="Like"
                   />
-
                   <img
                     id="like-img-vermelho"
                     class="hidden"
                     src="/images/icons/like-vermelho.svg"
-                    alt="Deslike"
+                    alt="Like ativo"
                   />
                 </button>
 
-                <button onclick="mudarSvgDeslike()" id="deslike">
+                <button id="deslike">
                   <img
                     id="deslike-img"
                     src="/images/icons/deslike-normal.svg"
-                    alt="Like"
+                    alt="Deslike"
                   />
-
                   <img
                     id="deslike-img-vermelho"
                     class="hidden"
                     src="/images/icons/deslike-vermelho.svg"
-                    alt="Deslike"
+                    alt="Deslike ativo"
                   />
                 </button>
               </div>
@@ -81,43 +77,25 @@
           </div>
         </div>
 
+        <!-- USUÁRIO CORRIGIDO -->
         <div id="user">
-          <img src="/images/icons/avatar.svg" alt="" />
-          <p>João Victor - Primeiros Socorros</p>
+          <img
+            id="foto-perfil"
+            src="/images/icons/avatar.svg"
+            alt="Foto Perfil"
+          />
+          <p id="info-user">Carregando...</p>
         </div>
       </div>
 
       <div id="texto">
         <h1>Descrição</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p id="text-descricao"></p>
       </div>
     </main>
 
     <section>
-      <div class="pai-videos">
-        <div class="filho-videos">
-          <div class="video"></div>
-
-          <div class="quadrado">
-            <div class="sub-quadrado">
-              <h1>TÍTULO</h1>
-              <p>Data de postagem</p>
-              <p></p>
-            </div>
-
-            <p>Profissional</p>
-            <p></p>
-          </div>
-        </div>
-      </div>
+      <div class="pai-videos"></div>
     </section>
   </body>
 </html>
