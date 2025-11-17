@@ -2,73 +2,180 @@ const { Router } = require("express");
 const { db } = require("../db");
 const rotaVideo = Router();
 
-rotaVideo.get("/video", async (req, res) => {
-  const videos = await db.video.findMany({
-    include: {
-      usuario: true,
-    },
-  });
+rotaVideo.get("/", async (req, res) => {
+  try {
+    const videos = await db.video.findMany({
+      include: {
+        usuario: {
+          select: {
+            id: true,
+            nome_completo: true,
+            foto_perfil: true,
+            funcao: true,
+          },
+        },
+        material: true,
+      },
+      orderBy: { data_postagem: "desc" },
+    });
 
-  res.json(videos);
+    const formatados = videos.map((v) => ({
+      ...v,
+      nome_usuario: v.usuario?.nome_completo || "Autor",
+      foto_perfil: v.usuario?.foto_perfil || "",
+      funcao_usuario: v.usuario?.funcao || "",
+    }));
+
+    res.json(formatados);
+  } catch (err) {
+    console.error("GET /video error:", err);
+    res.status(500).json({ erro: err.message });
+  }
 });
 
-rotaVideo.post("/video", async (req, res) => {
-  const {
-    denuncia,
-    descricao,
-    like,
-    dislike,
-    titulo,
-    urlVideo,
-    id_usuario,
-    nome_usuario,
-  } = req.body;
+rotaVideo.get("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
 
-  await db.video.create({
-    data: {
+    const video = await db.video.findUnique({
+      where: { id },
+      include: {
+        usuario: {
+          select: {
+            id: true,
+            nome_completo: true,
+            foto_perfil: true,
+            funcao: true,
+          },
+        },
+        material: true,
+      },
+    });
+
+    if (!video) return res.status(404).json({ erro: "Vídeo não encontrado" });
+
+    const formatado = {
+      ...video,
+      nome_usuario: video.usuario?.nome_completo || "Autor",
+      foto_perfil: video.usuario?.foto_perfil || "",
+      funcao_usuario: video.usuario?.funcao || "",
+    };
+
+    res.json(formatado);
+  } catch (err) {
+    console.error("GET /video/:id error:", err);
+    res.status(500).json({ erro: err.message });
+  }
+});
+
+rotaVideo.post("/", async (req, res) => {
+  try {
+    const {
       denuncia,
       descricao,
       like,
       dislike,
       titulo,
       urlVideo,
-      nome: nome_usuario,
-      usuario: {
-        connect: {
-          id: id_usuario,
+      id_usuario,
+      material_id,
+    } = req.body;
+
+    if (!titulo || !urlVideo || !id_usuario) {
+      return res
+        .status(400)
+        .json({ erro: "titulo, urlVideo e id_usuario são obrigatórios" });
+    }
+
+    const usuarioExiste = await db.usuario.findUnique({
+      where: { id: Number(id_usuario) },
+    });
+
+    if (!usuarioExiste)
+      return res.status(400).json({ erro: "Usuário não encontrado" });
+
+    const novoVideo = await db.video.create({
+      data: {
+        titulo,
+        descricao,
+        urlVideo,
+        denuncia: Number(denuncia || 0),
+        like: Number(like || 0),
+        dislike: Number(dislike || 0),
+        usuario: { connect: { id: Number(id_usuario) } },
+        ...(material_id
+          ? { material: { connect: { id: Number(material_id) } } }
+          : {}),
+      },
+      include: {
+        usuario: {
+          select: {
+            nome_completo: true,
+            foto_perfil: true,
+            funcao: true,
+          },
         },
       },
-    },
-  });
-  res.json({ mensagem: "OK" });
+    });
+
+    const formatado = {
+      ...novoVideo,
+      nome_usuario: novoVideo.usuario.nome_completo,
+      foto_perfil: novoVideo.usuario.foto_perfil,
+      funcao_usuario: novoVideo.usuario.funcao,
+    };
+
+    res.status(201).json(formatado);
+  } catch (err) {
+    console.error("POST /video error:", err);
+    res.status(500).json({ erro: err.message });
+  }
 });
 
-rotaVideo.delete("/video/:id", async (req, res) => {
-  const id = Number(req.params.id);
-  await db.video.delete({
-    where: { id },
-  });
-  res.json({ mensagem: "OK" });
+rotaVideo.delete("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    await db.video.delete({ where: { id } });
+    res.json({ mensagem: "OK" });
+  } catch (err) {
+    console.error("DELETE /video/:id error:", err);
+    res.status(500).json({ erro: err.message });
+  }
 });
 
-rotaVideo.put("/video/:id", async (req, res) => {
-  const id = Number(req.params.id);
-  const data = {};
+rotaVideo.put("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const data = {};
 
-  if (req.body.denuncia) data.denuncia = req.body.denuncia;
-  if (req.body.descricao) data.descricao = req.body.descricao;
-  if (req.body.data_postagem) data.data_postagem = req.body.data_postagem;
-  if (req.body.like) data.like = req.body.like;
-  if (req.body.dislike) data.dislike = req.body.dislike;
-  if (req.body.titulo) data.titulo = req.body.titulo;
-  if (req.body.urlVideo) data.urlVideo = req.body.urlVideo;
+    if (req.body.denuncia !== undefined) data.denuncia = req.body.denuncia;
+    if (req.body.descricao !== undefined) data.descricao = req.body.descricao;
+    if (req.body.data_postagem !== undefined)
+      data.data_postagem = new Date(req.body.data_postagem);
+    if (req.body.like !== undefined) data.like = req.body.like;
+    if (req.body.dislike !== undefined) data.dislike = req.body.dislike;
+    if (req.body.titulo !== undefined) data.titulo = req.body.titulo;
+    if (req.body.urlVideo !== undefined) data.urlVideo = req.body.urlVideo;
+    if (req.body.material_id !== undefined) {
+      const matId = req.body.material_id;
+      if (matId) {
+        data.material = { connect: { id: Number(matId) } };
+      } else {
+        data.material = { disconnect: true };
+      }
+    }
 
-  await db.video.update({
-    where: { id },
-    data,
-  });
+    const videoAtualizado = await db.video.update({
+      where: { id },
+      data,
+      include: { usuario: true, material: true },
+    });
 
-  res.send({ mensagem: "OK" });
+    res.json(videoAtualizado);
+  } catch (err) {
+    console.error("PUT /video/:id error:", err);
+    res.status(500).json({ erro: err.message });
+  }
 });
 
 module.exports = { rotaVideo };

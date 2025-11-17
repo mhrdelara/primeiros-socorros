@@ -1,13 +1,35 @@
 const { Router } = require("express");
 const { db } = require("../db");
+
 const rotaUsuario = Router();
 
-rotaUsuario.get("/usuario", async (req, res) => {
-  const usuario = await db.usuario.findMany();
-  res.json(usuario);
+/* -------------------------
+   Função pra converter data BR (dd/mm/yyyy) → yyyy-mm-dd
+------------------------- */
+function converterDataBR(data) {
+  const [dia, mes, ano] = data.split("/");
+  return `${ano}-${mes}-${dia}`;
+}
+
+/* -------------------------
+   GET /usuario — Lista usuários
+------------------------- */
+rotaUsuario.get("/", async (req, res) => {
+  try {
+    const usuarios = await db.usuario.findMany();
+    res.json(usuarios);
+  } catch (e) {
+    console.error("GET /usuario error:", e);
+    res
+      .status(500)
+      .json({ erro: "Falha ao buscar usuários", detalhe: e.message });
+  }
 });
 
-rotaUsuario.post("/usuario", async (req, res) => {
+/* -------------------------
+   POST /usuario — Criar usuário
+------------------------- */
+rotaUsuario.post("/", async (req, res) => {
   const {
     nome_completo,
     data_nascimento,
@@ -17,50 +39,120 @@ rotaUsuario.post("/usuario", async (req, res) => {
     matricula,
     foto_perfil,
     senha,
-  } = req.body;
-  await db.usuario.create({
-    data: {
-      nome_completo,
-      data_nascimento: new Date(data_nascimento),
-      email,
-      crm,
-      funcao,
-      matricula,
-      foto_perfil,
-      senha,
-    },
-  });
-  res.json({ mensagem: "OK" });
+  } = req.body || {};
+
+  // validação dos obrigatórios (inclui data BR)
+  if (!nome_completo || !email || !crm || !senha || !data_nascimento) {
+    return res.status(400).json({ erro: "Campos obrigatórios faltando" });
+  }
+
+  // validação da data BR
+  let dataISO;
+  try {
+    const convertida = converterDataBR(data_nascimento);
+    dataISO = new Date(convertida);
+
+    if (isNaN(dataISO.getTime())) {
+      throw new Error("Data inválida");
+    }
+  } catch {
+    return res
+      .status(400)
+      .json({ erro: "Formato da data inválido. Use dd/mm/yyyy" });
+  }
+
+  try {
+    const usuarioCriado = await db.usuario.create({
+      data: {
+        nome_completo,
+        data_nascimento: dataISO,
+        email,
+        crm,
+        funcao: funcao || "Não informado",
+        matricula: matricula || crm,
+        foto_perfil: foto_perfil || "",
+        senha,
+      },
+    });
+
+    res.json(usuarioCriado);
+  } catch (e) {
+    console.error("Erro criando usuário:", e);
+
+    return res.status(500).json({
+      erro: "Falha ao criar usuário",
+      detalhe: e.message,
+      meta: e.meta || null,
+      stack: e.stack,
+    });
+  }
 });
 
-rotaUsuario.delete("/usuario/:id", async (req, res) => {
-  const id = Number(req.params.id);
-  await db.usuario.delete({
-    where: { id },
-  });
-  res.json({ mensagem: "OK" });
+/* -------------------------
+   DELETE /usuario/:id — Apagar usuário
+------------------------- */
+rotaUsuario.delete("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    await db.usuario.delete({ where: { id } });
+
+    res.json({ mensagem: "OK" });
+  } catch (e) {
+    console.error("DELETE /usuario/:id erro:", e);
+    res
+      .status(500)
+      .json({ erro: "Falha ao deletar usuário", detalhe: e.message });
+  }
 });
 
-rotaUsuario.put("/usuario/:id", async (req, res) => {
-  const id = Number(req.params.id);
-  const data = {};
+/* -------------------------
+   PUT /usuario/:id — Atualizar usuário
+------------------------- */
+rotaUsuario.put("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const data = {};
 
-  if (req.body.nome_completo) data.nome_completo = req.body.nome_completo;
-  if (req.body.data_nascimento)
-    data.data_nascimento = new Date(req.body.data_nascimento);
-  if (req.body.email) data.email = req.body.email;
-  if (req.body.crm) data.crm = req.body.crm;
-  if (req.body.funcao) data.funcao = req.body.funcao;
-  if (req.body.matricula) data.matricula = req.body.matricula;
-  if (req.body.foto_perfil) data.foto_perfil = req.body.foto_perfil;
-  if (req.body.senha) data.senha = req.body.senha;
+    const campos = [
+      "nome_completo",
+      "data_nascimento",
+      "email",
+      "crm",
+      "funcao",
+      "matricula",
+      "foto_perfil",
+      "senha",
+    ];
 
-  await db.usuario.update({
-    where: { id },
-    data,
-  });
+    campos.forEach((campo) => {
+      if (req.body[campo] !== undefined) {
+        if (campo === "data_nascimento") {
+          try {
+            const convertida = converterDataBR(req.body[campo]);
+            const dataISO = new Date(convertida);
 
-  res.send({ mensagem: "OK" });
+            if (isNaN(dataISO)) throw new Error("Data inválida");
+            data[campo] = dataISO;
+          } catch {
+            return res.status(400).json({
+              erro: "Formato da data inválido. Use dd/mm/yyyy",
+            });
+          }
+        } else {
+          data[campo] = req.body[campo];
+        }
+      }
+    });
+
+    await db.usuario.update({ where: { id }, data });
+    res.json({ mensagem: "OK" });
+  } catch (e) {
+    console.error("PUT /usuario/:id erro:", e);
+    res
+      .status(500)
+      .json({ erro: "Falha ao atualizar usuário", detalhe: e.message });
+  }
 });
 
 module.exports = { rotaUsuario };

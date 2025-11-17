@@ -9,12 +9,10 @@ rotaMaterial.get("/material", async (req, res) => {
 
 rotaMaterial.post("/material", async (req, res) => {
   const { anexo } = req.body;
-  await db.material.create({
-    data: {
-      anexo,
-    },
+  const materialCriado = await db.material.create({
+    data: { anexo },
   });
-  res.json({ mensagem: "OK" });
+  res.json(materialCriado);
 });
 
 rotaMaterial.delete("/material/:id", async (req, res) => {
