@@ -30,7 +30,7 @@ model Video {
   dislike       Int        @default(0)
   titulo        String
   urlVideo      String
-  usuario       Usuario    @relation(fields: [usuarioId], references: [id])
+  usuario       Usuario    @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
   usuarioId     Int
   Material      Material[]
 }
@@ -38,7 +38,7 @@ model Video {
 model Material {
   id        Int      @id @default(autoincrement())
   anexo     String
-  video     Video    @relation(fields: [videoId], references: [id])
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
   videoId   Int
   data_postagem DateTime @default(now())
 }
