@@ -22,10 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   btnConcluir.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
     if (!usuario?.id) return alert("Usuário não logado.");
 
-    // IDs AJUSTADOS PARA COMBINAR COM O HTML
     const titulo = document.getElementById("titulo")?.value.trim();
     const descricao = document.getElementById("descricao")?.value.trim();
     const urlVideo = document.getElementById("video")?.value.trim();
@@ -39,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          titulo,
           titulo,
           descricao,
           urlVideo,
