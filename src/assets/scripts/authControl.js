@@ -2,21 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerDown = document.querySelector(".header-down");
   const opcoesBtn = document.getElementById("opcoes");
 
-  let usuarioLogado = {};
+  let usuario = {};
   try {
-    usuarioLogado = JSON.parse(localStorage.getItem("usuario")) || {};
+    usuario = JSON.parse(localStorage.getItem("usuario")) || {};
   } catch {
-    usuarioLogado = {};
+    usuario = {};
   }
 
-  const usuarioExiste = usuarioLogado && Object.keys(usuarioLogado).length > 0;
+  const usuarioExiste = usuario && Object.keys(usuario).length > 0;
   console.log(usuarioExiste);
 
   if (usuarioExiste) {
     console.log("Colocando os dados do usuario");
     const fotoSrc =
-      usuarioLogado.foto ||
-      usuarioLogado.foto_perfil ||
+      usuario.foto ||
+      usuario.foto_perfil ||
       localStorage.getItem("fotoPerfil") ||
       "/images/icons/3d_avatar_1.svg";
 

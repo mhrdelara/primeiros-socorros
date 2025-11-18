@@ -203,33 +203,33 @@ header img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
 }
 
 .filho-videos {
-  width: 86vw;
+  width: 85vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 4.5vh;
   border-bottom: 1px solid rgba(242, 148, 139, 1);
+  gap: 5px;
 }
 
 .video {
   gap: 24px;
-  width: 54vw;
-  height: 14vh;
+  width: 335px;
+  height: 178px;
   background-color: rgba(217, 217, 217, 1);
 }
 
 .quadrado {
-  gap: 38px;
-  width: 29vw;
-  height: 11vh;
+  width: 85vw;
+  height: 55px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .sub-quadrado {

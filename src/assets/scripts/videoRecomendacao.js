@@ -4,8 +4,8 @@ function gerarIframe(link, titulo = "YouTube video player") {
 
   return `
     <iframe 
-      width="212"
-      height="120"
+      width="335"
+      height="178"
       src="https://www.youtube.com/embed/${videoId}"
       title="${titulo}"
       frameborder="0"
@@ -55,14 +55,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? new Date(data.data_postagem).toLocaleDateString("pt-BR")
         : "";
 
-      const materialHTML = data.materiais.length
-        ? data.materiais
-            .map(
-              (anexo) => `<a href="${anexo}" target="_blank">📄 Material</a>`
-            )
-            .join(" ")
-        : "";
-
       main.innerHTML += `
         <a href="/tela-video?id=${data.id}" class="filho-videos">
           <div class="video">${gerarIframe(data.urlVideo, data.titulo)}</div>
@@ -70,11 +62,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div class="quadrado">
             <div class="sub-quadrado">
               <h1>${data.titulo}</h1>
-              <p>${dataFormatada}</p>
-              ${materialHTML}
+              <p>${data.nome_usuario + " - " + data.funcao}</p>
             </div>
 
-            <p>${data.nome_usuario}</p>
+            
+            <p>${dataFormatada}</p>
           </div>
         </a>
       `;

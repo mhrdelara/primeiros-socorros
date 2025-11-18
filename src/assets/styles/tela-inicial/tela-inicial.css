@@ -20,12 +20,12 @@ header img {
   justify-content: flex-end;
   align-items: center;
   width: 100vw;
-  height: 5.5vh;
+  height: 38px;
 }
 
 #foto-container-header {
   width: 100vw;
-  height: 5.5vh;
+  height: 38px;
   border-radius: 500px;
   object-fit: cover;
   display: flex;

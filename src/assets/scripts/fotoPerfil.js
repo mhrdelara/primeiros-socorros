@@ -7,18 +7,15 @@
 
     if (!fotos.length || !input) return;
 
-    // carregar foto salva
-    const usuario = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
+    const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
     const saved = usuario.foto_perfil || localStorage.getItem("fotoPerfil");
     if (saved) fotos.forEach((f) => (f.src = saved));
 
-    // clicar na foto abre o input
     fotos.forEach((f) => {
       f.style.cursor = "pointer";
       f.addEventListener("click", () => input.click());
     });
 
-    // selecionar arquivo
     input.addEventListener("change", (ev) => {
       const file = ev.target.files?.[0];
       if (!file) return;
@@ -60,7 +57,6 @@
       });
     };
 
-    // salvar recorte
     btnSalvar.addEventListener("click", () => {
       const canvas = cropper.getCroppedCanvas({ width: 500, height: 500 });
       const base64 = canvas.toDataURL("image/png");
@@ -88,9 +84,9 @@
     fotos.forEach((f) => (f.src = base64));
     localStorage.setItem("fotoPerfil", base64);
 
-    const usuario = JSON.parse(localStorage.getItem("usuarioLogado") || "{}");
+    const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
     usuario.foto_perfil = base64;
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+    localStorage.setItem("usuario", JSON.stringify(usuario));
 
     if (usuario.id) {
       fetch(`/usuario/${usuario.id}/foto`, {
