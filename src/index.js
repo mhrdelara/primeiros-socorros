@@ -33,8 +33,8 @@ server.get("/tela-validacao", (req, res) =>
 server.get("/tela-video", (req, res) =>
   res.sendFile(__dirname + "/pages/tela-video.html")
 );
-server.get("/tela-usuario-logado", (req, res) =>
-  res.sendFile(__dirname + "/pages/tela-usuario-logado.html")
+server.get("/tela-usuario-login", (req, res) =>
+  res.sendFile(__dirname + "/pages/tela-usuario-login.html")
 );
 server.get("/recomendacao", (req, res) =>
   res.sendFile(__dirname + "/pages/recomendacao.html")
