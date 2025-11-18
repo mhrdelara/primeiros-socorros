@@ -139,18 +139,19 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(230, 217, 200);
   width: 43vw;
   height: 6vh;
   border-radius: 100px;
   border: none;
   text-decoration: none;
   color: black;
-  margin-bottom: 5vh;
+  margin-bottom: 10px;
+  background: rgba(230, 46, 27, 1);
 }
 
 #concluir p {
-  background: rgb(230, 217, 200);
+  background: rgba(230, 46, 27, 1);
+  color: white;
   font-size: 4vw;
   border-radius: 100px;
 }

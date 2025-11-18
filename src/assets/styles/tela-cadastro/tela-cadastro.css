@@ -3,7 +3,7 @@
 }
 
 .dad-circulo {
-  height: 10vh;
+  height: 94px;
   display: flex;
   align-items: flex-end;
   padding-left: 16px;
@@ -13,8 +13,8 @@
 .circulo {
   background-color: rgba(230, 217, 200, 1);
   border-radius: 50px;
-  height: 7vw;
-  width: 7vw;
+  height: 30px;
+  width: 30px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -24,14 +24,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7vw;
-  height: 7vw;
+  width: 26px;
+  height: 26px;
   background: rgba(230, 217, 200, 1);
   border-radius: 50px;
 }
 
 #arrow {
-  width: 6vw;
+  width: 26px;
   background: none;
 }
 
@@ -58,8 +58,8 @@ main {
 }
 
 #foto-perfil-cadastrar {
-  width: 49vw;
-  height: 49vw;
+  width: 204px;
+  height: 204px;
   border-radius: 500px;
   object-fit: cover;
   background: none;
@@ -68,29 +68,29 @@ main {
 
 #dad-editar-foto {
   transform: translateY(-170%);
-  left: 62vw;
+  left: 250px;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9;
   background-color: white;
-  width: 11vw;
-  height: 11vw;
+  width: 40px;
+  height: 40px;
   border-radius: 500px;
   object-fit: cover;
 }
 
 #editar-foto {
   background: none;
-  width: 6vw;
-  height: 6vw;
+  width: 22px;
+  height: 22px;
 }
 
 .dad-informations {
   background: white;
   transform: translateY(-10%);
-  gap: 7vw;
+  gap: 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -102,9 +102,9 @@ main {
   flex-direction: column;
   justify-content: space-around;
   background: white;
-  width: 64vw;
+  width: 250px;
   padding-left: 10px;
-  height: 8vh;
+  height: 70px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -113,11 +113,11 @@ main {
 
 .informacoes h1 {
   background: white;
-  font-size: 4vw;
+  font-size: 16px;
 }
 
 .input {
-  font-size: 4vw;
+  font-size: 16px;
   height: 20px;
   border: none;
   background: none;
@@ -128,7 +128,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3vh;
+  margin-top: 40px;
 }
 
 #dad-login {
@@ -146,8 +146,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 43vw;
-  height: 6vh;
+  width: 170px;
+  height: 44px;
   border-radius: 100px;
   border: none;
   text-decoration: none;
@@ -161,13 +161,13 @@ main {
   align-items: center;
   justify-content: center;
   background: rgb(230, 217, 200);
-  width: 50vw;
-  height: 6vh;
+  width: 189px;
+  height: 44px;
   border-radius: 100px;
   border: none;
   text-decoration: none;
   color: black;
-  margin-bottom: 5vh;
+  margin-bottom: 44px;
 }
 
 #concluir p {
@@ -179,7 +179,7 @@ main {
 
 #login p {
   background: rgb(230, 217, 200);
-  font-size: 4vw;
+  font-size: 16px;
   border-radius: 100px;
 }
 
