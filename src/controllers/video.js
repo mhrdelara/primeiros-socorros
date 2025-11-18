@@ -3,7 +3,6 @@ const { Router } = require("express");
 const { db } = require("../db");
 const rotaVideo = Router();
 
-// ----------------- GET todos os vídeos -----------------
 rotaVideo.get("/", async (req, res) => {
   try {
     const videos = await db.video.findMany({

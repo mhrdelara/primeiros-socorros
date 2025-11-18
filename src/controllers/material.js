@@ -4,13 +4,13 @@ const rotaMaterial = Router();
 
 rotaMaterial.get("/", async (req, res) => {
   try {
-    const materiais = await db.material.findMany({
+    const material = await db.material.findMany({
       include: {
         video: { select: { id: true, titulo: true } },
       },
       orderBy: { data_postagem: "desc" },
     });
-    res.json(materiais);
+    res.json(material);
   } catch (err) {
     console.error("GET /material error:", err);
     res.status(500).json({ erro: "Erro ao carregar materiais" });
