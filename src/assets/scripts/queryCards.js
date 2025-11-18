@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { texto: "Ferimentos", link: "Ferimentos" },
     { texto: "Engasgo", link: "Engasgo" },
     { texto: "AVC", link: "AVC" },
+    { texto: "Crise Ansie.", link: "Crise de Ansiedade" },
   ];
 
   const section = document.querySelector("section");
