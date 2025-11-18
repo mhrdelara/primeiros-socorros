@@ -83,7 +83,7 @@ function configurarLike(video) {
   btn.addEventListener("click", () => {
     fetch(`/video/like/${video.id}`, {
       headers: {
-        Authenticate: "gfhj",
+        Authenticate: "Autenticado",
       },
     });
   });
