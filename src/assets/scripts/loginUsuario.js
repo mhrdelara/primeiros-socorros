@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, senha }),
+        body: JSON.stringify({ nome_completo, crm, email, senha }),
       });
 
       const data = await res.json();

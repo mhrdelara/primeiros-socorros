@@ -4,6 +4,7 @@ const { rotaUsuario } = require("./controllers/usuario");
 const { rotaMaterial } = require("./controllers/material");
 const { rotaVideo } = require("./controllers/video");
 const { rotaLogin } = require("./controllers/login");
+const { rotaLike } = require("./controllers/like");
 
 const server = express();
 
@@ -14,6 +15,7 @@ server.use("/usuario", rotaUsuario);
 server.use("/material", rotaMaterial);
 server.use("/video", rotaVideo);
 server.use("/login", rotaLogin);
+server.use("/like", rotaLike);
 
 server.use(express.static(path.join(__dirname, "assets")));
 

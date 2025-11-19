@@ -5,7 +5,7 @@ const rotaVideo = Router();
 
 rotaVideo.get("/", async (req, res) => {
   try {
-    const videos = await db.video.findMany({
+    const video = await db.video.findMany({
       include: {
         usuario: {
           select: {
@@ -20,12 +20,12 @@ rotaVideo.get("/", async (req, res) => {
       orderBy: { data_postagem: "desc" },
     });
 
-    const formatados = videos.map((v) => ({
+    const formatados = video.map((v) => ({
       ...v,
       nome_usuario: v.usuario?.nome_completo || "Autor",
       foto_perfil: v.usuario?.foto_perfil || "",
       funcao_usuario: v.usuario?.funcao || "",
-      materiais: v.Material.map((m) => m.anexo),
+      material: v.Material.map((m) => m.anexo),
     }));
 
     res.json(formatados);

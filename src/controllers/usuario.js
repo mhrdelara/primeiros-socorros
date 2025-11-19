@@ -133,7 +133,12 @@ rotaUsuario.put("/:id", async (req, res) => {
     });
 
     await db.usuario.update({ where: { id }, data });
-    res.json({ mensagem: "OK" });
+    const usuario = await db.usuario.findUnique({
+      where: {
+        id,
+      },
+    });
+    res.json(usuario);
   } catch (e) {
     console.error("PUT /usuario/:id erro:", e);
     res

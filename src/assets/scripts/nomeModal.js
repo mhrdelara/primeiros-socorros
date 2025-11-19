@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const nomeCompleto = document.querySelector("#nome_completo");
-  const usuarioLogado = JSON.parse(localStorage.getItem("usuario"));
-
-  console.log("Usuário logado:", usuarioLogado);
+  const nomeCompleto = document.getElementById("nome_completo");
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
 
   if (nomeCompleto) {
-    nomeCompleto.textContent = usuarioLogado.nome_completo || "Usuário";
+    nomeCompleto.textContent = usuario.nome_completo || "Usuário";
   }
+
+  console.log("Usuário logado:", usuario);
 });
