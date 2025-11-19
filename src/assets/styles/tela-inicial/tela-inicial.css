@@ -1,7 +1,7 @@
 header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
-  height: 20vh;
+  height: 220px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -10,7 +10,7 @@ header {
 }
 
 header img {
-  width: 49vw;
+  width: 230px;
 }
 
 .header-down {
@@ -20,14 +20,12 @@ header img {
   justify-content: flex-end;
   align-items: center;
   width: 100vw;
-  height: 38px;
+  height: 60px;
 }
-
-/*muda no js */
 
 #foto-container-header {
   width: 100vw;
-  height: 65px;
+  height: 60px;
   border-radius: 500px;
   object-fit: cover;
   display: flex;
@@ -36,8 +34,8 @@ header img {
 }
 
 #foto-perfil-header {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 500px;
   object-fit: cover;
   object-position: center top;
@@ -82,8 +80,8 @@ header img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 299px;
+  height: 60px;
+  width: 370px;
   gap: 20px;
   padding: 0 40px;
   background-color: rgba(245, 245, 243, 1);
@@ -95,12 +93,12 @@ header img {
 
 .search input {
   display: flex;
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(230, 46, 27, 1);
 }
 
 .pesquisar {
-  width: 70%;
+  width: 100%;
   background: rgba(245, 245, 243, 1);
   height: 100%;
   border: none;
