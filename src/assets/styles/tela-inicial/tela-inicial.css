@@ -1,7 +1,7 @@
 header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
-  height: 20vh;
+  height: 220px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -10,7 +10,7 @@ header {
 }
 
 header img {
-  width: 49vw;
+  width: 230px;
 }
 
 .header-down {
@@ -20,12 +20,12 @@ header img {
   justify-content: flex-end;
   align-items: center;
   width: 100vw;
-  height: 38px;
+  height: 60px;
 }
 
 #foto-container-header {
   width: 100vw;
-  height: 38px;
+  height: 60px;
   border-radius: 500px;
   object-fit: cover;
   display: flex;
@@ -34,8 +34,8 @@ header img {
 }
 
 #foto-perfil-header {
-  width: 13vw;
-  height: 13vw;
+  width: 60px;
+  height: 60px;
   border-radius: 500px;
   object-fit: cover;
   object-position: center top;
