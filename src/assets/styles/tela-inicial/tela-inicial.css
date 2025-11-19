@@ -80,8 +80,8 @@ header img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 299px;
+  height: 60px;
+  width: 370px;
   gap: 20px;
   padding: 0 40px;
   background-color: rgba(245, 245, 243, 1);
@@ -93,12 +93,12 @@ header img {
 
 .search input {
   display: flex;
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(230, 46, 27, 1);
 }
 
 .pesquisar {
-  width: 70%;
+  width: 100%;
   background: rgba(245, 245, 243, 1);
   height: 100%;
   border: none;
