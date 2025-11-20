@@ -1,12 +1,13 @@
 header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
-  height: 220px;
+  height: 160px;
   display: flex;
-  justify-content: flex-end;
+  margin-bottom: 22px;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 22px;
+  align-content: center;
+  justify-content: flex-end;
 }
 
 header img {
@@ -14,13 +15,12 @@ header img {
 }
 
 .header-down {
-  margin-top: 16px;
   padding-right: 4px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100vw;
-  height: 60px;
+  height: 40px;
 }
 
 #foto-container-header {
@@ -31,6 +31,7 @@ header img {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  margin-bottom: 25px;
 }
 
 #foto-perfil-header {

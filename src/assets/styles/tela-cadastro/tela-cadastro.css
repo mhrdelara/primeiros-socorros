@@ -59,12 +59,12 @@ main {
 
 #foto-perfil-cadastrar {
   width: 204px;
-    height: 204px;
-    border-radius: 500px;
-    object-fit: cover;
-    margin-left: 40px;
-    background: none;
-    display: flex;
+  height: 204px;
+  border-radius: 500px;
+  object-fit: cover;
+  margin-left: 40px;
+  background: none;
+  display: flex;
 }
 
 #dad-editar-foto {
@@ -80,7 +80,6 @@ main {
   border-radius: 500px;
   object-fit: cover;
   left: -10%;
-
 }
 
 #editar-foto {
@@ -175,7 +174,7 @@ main {
 #concluir p {
   background: rgba(230, 46, 27, 1);
   color: white;
-  font-size: 4vw;
+  font-size: 16px;
   border-radius: 100px;
 }
 
