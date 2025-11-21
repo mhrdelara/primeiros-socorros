@@ -5,12 +5,13 @@ a {
 header {
   background-color: rgba(245, 245, 239, 1);
   width: 100vw;
-  height: 200px;
+  height: 160px;
   display: flex;
-  justify-content: flex-end;
+  margin-bottom: 22px;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 22px;
+  align-content: center;
+  justify-content: flex-end;
 }
 
 header img {
@@ -18,7 +19,6 @@ header img {
 }
 
 .header-down {
-  margin-top: 16px;
   padding-right: 4px;
   display: flex;
   justify-content: flex-end;
@@ -38,13 +38,14 @@ header img {
 }
 
 #foto-perfil-header {
-  width: 13vw;
-  height: 13vw;
+  width: 50px;
+  height: 50px;
   border-radius: 500px;
   object-fit: cover;
   object-position: center top;
   border: 3px solid white;
   background-color: #f0f0f0;
+  margin-bottom: 20px;
 }
 
 #login-logout {
@@ -85,14 +86,14 @@ header img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7vw;
-  height: 7vw;
+  width: 27px;
+  height: 27px;
   background: rgba(230, 217, 200, 1);
   border-radius: 50px;
 }
 
 #arrow {
-  width: 6vw;
+  width: 23px;
   background: none;
 }
 
@@ -106,7 +107,7 @@ header img {
 .search {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 5.5vh;
   width: 76vw;
@@ -120,7 +121,7 @@ header img {
 }
 
 .search input {
-  font-size: 4vw;
+  font-size: 15px;
   color: rgba(230, 46, 27, 1);
 }
 
@@ -145,23 +146,23 @@ header img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5vw;
+  width: 19px;
 }
 
 #opcoes img {
-  width: 5vw;
+  width: 19px;
 }
 
 .mic {
   background: none;
   display: flex;
-  width: 4vw;
+  width: 15px;
   border: none;
 }
 
 .mic img {
   display: flex;
-  width: 4vw;
+  width: 15px;
 }
 
 #resposta {
@@ -174,8 +175,6 @@ header img {
   justify-content: center;
   align-items: center;
   margin-bottom: 59px;
-  
-
 }
 
 #reanimacao {
@@ -183,8 +182,8 @@ header img {
   justify-content: center;
   align-items: center;
   background-color: rgba(245, 245, 243, 1);
-  width: 72vw;
-  height: 5vh;
+  width: 283px;
+  height: 30px;
   border-radius: 50px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -192,7 +191,7 @@ header img {
 }
 
 #reanimacao p {
-  font-size: 4vw;
+  font-size: 15px;
 }
 
 #span {
@@ -241,10 +240,10 @@ header img {
 
 .quadrado h1 {
   color: rgb(0, 0, 0);
-  font-size: 4vw;
+  font-size: 15px;
 }
 
 .quadrado p {
   color: rgb(0, 0, 0);
-  font-size: 3vw;
+  font-size: 13px;
 }

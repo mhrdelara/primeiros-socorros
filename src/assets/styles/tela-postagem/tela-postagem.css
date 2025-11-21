@@ -1,8 +1,8 @@
 header {
   width: 100vw;
-  height: 20vh;
+  height: 160px;
   background: rgba(245, 245, 239, 1);
-  margin-bottom: 3vh;
+  margin-bottom: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,19 +21,19 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7vw;
-  height: 7vw;
+  width: 27px;
+  height: 27px;
   background: rgba(230, 217, 200, 1);
   border-radius: 50px;
 }
 
 #arrow {
-  width: 6vw;
+  width: 22px;
   background: none;
 }
 
 #logo {
-  width: 49vw;
+  width: 174px;
 }
 
 #dad-adicionar {
@@ -46,8 +46,8 @@ header {
 }
 
 #adicionar {
-  width: 70vw;
-  height: 5vh;
+  width: 275px;
+  height: 30px;
   border-radius: 50px;
   background: rgba(245, 245, 243, 1);
   display: flex;
@@ -60,7 +60,7 @@ header {
 
 #adicionar p {
   color: rgba(230, 46, 27, 1);
-  font-size: 4vw;
+  font-size: 16px;
 }
 
 main {
@@ -77,7 +77,7 @@ main {
   justify-content: flex-start;
   align-items: flex-start;
   width: 65vw;
-  height: 9vh;
+  height: 60px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -87,13 +87,13 @@ main {
 }
 
 .card h1 {
-  font-size: 4vw;
+  font-size: 14px;
 }
 
 .card-input {
   border: none;
   background: none;
-  font-size: 3vw;
+  font-size: 11px;
 }
 
 .card-input:focus {
@@ -105,14 +105,14 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 35vw;
-  height: 5vh;
+  width: 137px;
+  height: 20px;
   background: rgba(26, 115, 232, 1);
 }
 
 .upload1 p {
   color: white;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 #dad-document {
@@ -155,7 +155,7 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   width: 65vw;
-  height: 9vh;
+  height: 65px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -165,16 +165,12 @@ main {
 }
 
 .file-upload h1 {
-  font-size: 4vw;
+  font-size: 15px;
 }
 
 .upload1 img {
   border: none;
-  width: 4vw;
-}
-
-.upload1 p {
-  font-size: 4vw;
+  width: 13px;
 }
 
 #dad-concluir {
@@ -182,7 +178,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 101px;
+  margin-top: 70px;
 }
 
 #concluir {
@@ -190,8 +186,8 @@ main {
   align-items: center;
   justify-content: center;
   background: rgb(230, 217, 200);
-  width: 43vw;
-  height: 5vh;
+  width: 160px;
+  height: 30px;
   border-radius: 100px;
   border: none;
   text-decoration: none;
@@ -200,7 +196,7 @@ main {
 
 #concluir p {
   background: rgb(230, 217, 200);
-  font-size: 4vw;
+  font-size: 15px;
   border-radius: 100px;
 }
 
