@@ -18,34 +18,31 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="/scripts/telaVideo.js" defer></script>
     <script src="/scripts/fotoPerfil.js" defer></script>
+    <script src="/scripts/recomendacaoLike.js" defer></script>
+    <script src="/scripts/telaVideo.js" defer></script>
+
     <title>Vídeos</title>
   </head>
   <body>
     <a href="/recomendacao?query=" id="dad-arrow">
-      <img id="arrow" src="/images/icons/arrow_back.svg" alt="" />
+      <img id="arrow" src="/images/icons/arrow_back.svg" alt="Voltar" />
     </a>
 
     <main>
       <div class="dad-video">
-        <div id="video">
-          <div id="bandeira">
-            <button id="btnDenunciaFlag">
-              <img src="/images/icons/flag-inativo.svg" alt="" />
-            </button>
-          </div>
-        </div>
+        <div id="video"></div>
       </div>
 
       <div class="dad-informacoes">
         <div id="titulo">
           <div id="son-titulo">
-            <div id="esquerda"><h1>TÍTULO PRINCIPAL - Subtitulo</h1></div>
-
+            <div id="esquerda">
+              <h1>TÍTULO PRINCIPAL - Subtitulo</h1>
+            </div>
             <div id="direita">
               <div id="bola">
-                <button id="like">
+                <button id="like" aria-label="Like">
                   <img
                     id="like-img"
                     src="/images/icons/like-normal.svg"
@@ -58,8 +55,7 @@
                     alt="Like ativo"
                   />
                 </button>
-
-                <button id="deslike">
+                <button id="deslike" aria-label="Deslike">
                   <img
                     id="deslike-img"
                     src="/images/icons/deslike-normal.svg"
@@ -99,5 +95,18 @@
     <section>
       <div class="pai-videos"></div>
     </section>
+
+    <div
+      id="modal-denuncia"
+      class="hidden-modal"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-overlay">
+        <div class="modal-card">
+          <p>A conta foi denunciada!</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

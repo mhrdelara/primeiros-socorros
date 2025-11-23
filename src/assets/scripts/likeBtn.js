@@ -1,33 +1,63 @@
-function mudarSvgLike() {
+function atualizarIcones(estado) {
   const like = document.getElementById("like-img");
-  const likeVermelho = document.getElementById("like-img-vermelho");
-  const deslike = document.getElementById("deslike-img");
-  const deslikeVermelho = document.getElementById("deslike-img-vermelho");
+  const likeV = document.getElementById("like-img-vermelho");
+  const des = document.getElementById("deslike-img");
+  const desV = document.getElementById("deslike-img-vermelho");
 
-  if (!likeVermelho.classList.contains("hidden")) {
-    likeVermelho.classList.add("hidden");
-    like.classList.remove("hidden");
-  } else {
-    likeVermelho.classList.remove("hidden");
-    like.classList.add("hidden");
-    deslikeVermelho.classList.add("hidden");
-    deslike.classList.remove("hidden");
-  }
+  like.classList.toggle("hidden", estado.like);
+  likeV.classList.toggle("hidden", !estado.like);
+
+  des.classList.toggle("hidden", estado.deslike);
+  desV.classList.toggle("hidden", !estado.deslike);
 }
 
-function mudarSvgDeslike() {
-  const deslike = document.getElementById("deslike-img");
-  const deslikeVermelho = document.getElementById("deslike-img-vermelho");
-  const like = document.getElementById("like-img");
-  const likeVermelho = document.getElementById("like-img-vermelho");
-
-  if (!deslikeVermelho.classList.contains("hidden")) {
-    deslikeVermelho.classList.add("hidden");
-    deslike.classList.remove("hidden");
+async function toggleLike(id, estado) {
+  if (estado.like) {
+    // tirar like
+    await fetch(`/like/unlike/${id}`);
+    estado.like = false;
   } else {
-    deslikeVermelho.classList.remove("hidden");
-    deslike.classList.add("hidden");
-    likeVermelho.classList.add("hidden");
-    like.classList.remove("hidden");
+    if (estado.deslike) {
+      await fetch(`/like/undislike/${id}`);
+      estado.deslike = false;
+    }
+
+    await fetch(`/like/like/${id}`);
+    estado.like = true;
   }
+
+  localStorage.setItem(`reacao_${id}`, JSON.stringify(estado));
+  atualizarIcones(estado);
+}
+
+async function toggleDeslike(id, estado) {
+  if (estado.deslike) {
+    await fetch(`/like/undislike/${id}`);
+    estado.deslike = false;
+  } else {
+    if (estado.like) {
+      await fetch(`/like/unlike/${id}`);
+      estado.like = false;
+    }
+
+    await fetch(`/like/dislike/${id}`);
+    estado.deslike = true;
+  }
+
+  localStorage.setItem(`reacao_${id}`, JSON.stringify(estado));
+  atualizarIcones(estado);
+}
+
+function configurarLike(video) {
+  const id = video.id;
+
+  let estado = JSON.parse(localStorage.getItem(`reacao_${id}`)) || {
+    like: false,
+    deslike: false,
+  };
+
+  atualizarIcones(estado);
+
+  document.getElementById("like").onclick = () => toggleLike(id, estado);
+  document.getElementById("deslike").onclick = () => toggleDeslike(id, estado);
 }

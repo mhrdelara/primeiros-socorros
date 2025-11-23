@@ -31,19 +31,18 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: auto;
   z-index: 1;
 }
 
 #bandeira {
   position: absolute;
+  z-index: 9;
   top: 12px;
   right: 12px;
-  pointer-events: auto;
 }
 
 #bandeira button {
-  background: rgba(0, 0, 0, 0.45);
+  background: black;
   backdrop-filter: blur(6px);
   border-radius: 50%;
   padding: 6px;
@@ -53,6 +52,41 @@
 #bandeira button img {
   width: 26px;
   height: 26px;
+}
+
+.hidden-modal {
+  display: none !important;
+}
+
+#modal-denuncia {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-card {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#like-img, #deslike-img, #like-img-vermelho, #deslike-img-vermelho {
+  width: 5vw;
 }
 
 #titulo {
@@ -125,10 +159,6 @@
   width: 5vw;
 }
 
-.hidden {
-  display: none;
-}
-
 #user {
   display: flex;
   gap: 50px;
@@ -180,7 +210,7 @@
 
 .pai-videos {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 18px;
@@ -220,6 +250,10 @@
 
 .quadrado p {
   font-size: 3vw;
+}
+
+.hidden {
+  display: none;
 }
 
 .disable {
