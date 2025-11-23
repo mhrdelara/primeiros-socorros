@@ -68,9 +68,9 @@ main {
   flex-direction: column;
   justify-content: space-around;
   background: white;
-  width: 400px;
+  width: 70vw;
   padding-left: 10px;
-  height: 100px;
+  height: 70px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -79,11 +79,11 @@ main {
 
 .informacoes h1 {
   background: white;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .input {
-  font-size: 20px;
+  font-size: 16px;
   height: 20px;
   border: none;
   background: none;
@@ -111,8 +111,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 70px;
+  width: 170px;
+  height: 44px;
   border-radius: 100px;
   border: none;
   text-decoration: none;
@@ -124,7 +124,7 @@ main {
 #concluir p {
   background: rgba(230, 46, 27, 1);
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 100px;
 }
 
