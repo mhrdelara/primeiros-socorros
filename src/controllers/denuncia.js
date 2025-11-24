@@ -24,8 +24,7 @@ router.get("/denunciar/:id", async (req, res) => {
   }
 });
 
-// REMOVER DENÚNCIA (caso precise)
-router.get("/undenunciar/:id", async (req, res) => {
+router.get("/retirar/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 

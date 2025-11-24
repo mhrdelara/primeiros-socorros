@@ -216,32 +216,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
 }
 
 .filho-videos {
-  color: black;
   text-decoration: none;
-  width: 80%;
+  width: 85vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
+  border-bottom: 1px solid rgba(242, 148, 139, 1);
+  gap: 5px;
 }
 
 .video {
-  margin-right: 6vw;
-  width: 42vw;
-  height: 11vh;
+  gap: 24px;
+  width: 335px;
+  height: 178px;
   background-color: rgba(217, 217, 217, 1);
 }
 
 .quadrado {
-  gap: 38px;
-  width: 30vw;
-  height: 11vh;
+  width: 85vw;
+  height: 55px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .sub-quadrado {
@@ -250,11 +252,13 @@
 }
 
 .quadrado h1 {
-  font-size: 4vw;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
 }
 
 .quadrado p {
-  font-size: 3vw;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
 }
 
 .hidden {

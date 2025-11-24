@@ -24,8 +24,7 @@ router.get("/like/:id", async (req, res) => {
   }
 });
 
-// REMOVER LIKE
-router.get("/unlike/:id", async (req, res) => {
+router.get("/retirarlike/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -46,7 +45,6 @@ router.get("/unlike/:id", async (req, res) => {
   }
 });
 
-// AUMENTAR DISLIKE
 router.get("/dislike/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
@@ -68,8 +66,7 @@ router.get("/dislike/:id", async (req, res) => {
   }
 });
 
-// REMOVER DISLIKE
-router.get("/undislike/:id", async (req, res) => {
+router.get("/retirardeslike/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 

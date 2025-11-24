@@ -68,11 +68,11 @@ function atualizarIcones(estado) {
 
 async function toggleLike(id, estado) {
   if (estado.like) {
-    await fetch(`/like/unlike/${id}`);
+    await fetch(`/like/retirarlike/${id}`);
     estado.like = false;
   } else {
     if (estado.deslike) {
-      await fetch(`/like/undislike/${id}`);
+      await fetch(`/like/retirardeslike/${id}`);
       estado.deslike = false;
     }
     await fetch(`/like/like/${id}`);
@@ -84,11 +84,11 @@ async function toggleLike(id, estado) {
 
 async function toggleDeslike(id, estado) {
   if (estado.deslike) {
-    await fetch(`/like/undislike/${id}`);
+    await fetch(`/like/retirardeslike/${id}`);
     estado.deslike = false;
   } else {
     if (estado.like) {
-      await fetch(`/like/unlike/${id}`);
+      await fetch(`/like/retirarlike/${id}`);
       estado.like = false;
     }
     await fetch(`/like/dislike/${id}`);
@@ -132,7 +132,7 @@ function atualizarIconeDenuncia(btnDenuncia, denunciado) {
 
 async function toggleDenuncia(id, estado, btnDenuncia) {
   if (estado.denunciado) {
-    await fetch(`/denuncia/undenunciar/${id}`);
+    await fetch(`/denuncia/retirar/${id}`);
     estado.denunciado = false;
     atualizarIconeDenuncia(btnDenuncia, false);
     fecharModal();
