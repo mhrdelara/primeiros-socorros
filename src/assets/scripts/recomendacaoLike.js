@@ -4,8 +4,8 @@ function gerarIframe(link, titulo = "YouTube video player") {
 
   return `
     <iframe 
-      width="170"
-      height="113"
+    width="335"
+    height="178"
       src="https://www.youtube.com/embed/${videoId}"
       title="${titulo}"
       frameborder="0"

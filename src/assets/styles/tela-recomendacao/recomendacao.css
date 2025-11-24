@@ -54,7 +54,7 @@ header img {
   align-items: center;
   width: 40vw;
   text-decoration: none;
-  height: 3.5vh;
+  height: 30px;
   background-color: rgba(230, 46, 27, 1);
   border-radius: 44px;
   border: 0px;
@@ -109,8 +109,8 @@ header img {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 5.5vh;
-  width: 76vw;
+  height: 46px;
+  width: 80%;
   gap: 20px;
   padding: 0 40px;
   background-color: rgba(245, 245, 243, 1);
@@ -121,7 +121,7 @@ header img {
 }
 
 .search input {
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(230, 46, 27, 1);
 }
 
@@ -183,7 +183,7 @@ header img {
   align-items: center;
   background-color: rgba(245, 245, 243, 1);
   width: 283px;
-  height: 30px;
+  height: 40px;
   border-radius: 50px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
