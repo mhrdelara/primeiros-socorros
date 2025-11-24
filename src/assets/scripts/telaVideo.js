@@ -1,4 +1,6 @@
-function safeGet(id) { return document.getElementById(id); }
+function safeGet(id) {
+  return document.getElementById(id);
+}
 
 function getVideoIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
@@ -7,15 +9,15 @@ function getVideoIdFromUrl() {
 
 function extrairIDYoutube(url) {
   try {
-    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/;
+    const regex =
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/;
     const match = url.match(regex);
     return match ? match[1] : null;
-  } catch { return null; }
+  } catch {
+    return null;
+  }
 }
 
-/* ==========================
-        CARREGAR VIDEO
-========================== */
 async function carregarVideo() {
   const id = getVideoIdFromUrl();
   if (!id) return console.error("ID do vídeo não encontrado");
@@ -42,16 +44,16 @@ function montarVideoNaTela(video) {
   safeGet("text-descricao").innerText = video.descricao || "Sem descrição.";
   const data = new Date(video.data_postagem).toLocaleDateString("pt-BR");
   document.querySelector(".data").innerHTML = `<p id="data">${data}</p>`;
-  safeGet("foto-perfil").src = video.foto_perfil || "/images/icons/3d_avatar_1.svg";
-  safeGet("info-user").textContent = `${video.nome_usuario || "Usuário"} - ${video.funcao_usuario || "Função não informada"}`;
+  safeGet("foto-perfil").src =
+    video.foto_perfil || "/images/icons/3d_avatar_1.svg";
+  safeGet("info-user").textContent = `${video.nome_usuario || "Usuário"} - ${
+    video.funcao_usuario || "Função não informada"
+  }`;
 
   configurarLike(video);
   configurarDenuncia(video);
 }
 
-/* ==========================
-        LIKE / DESLIKE
-========================== */
 function atualizarIcones(estado) {
   const like = safeGet("like-img");
   const likeV = safeGet("like-img-vermelho");
@@ -98,7 +100,10 @@ async function toggleDeslike(id, estado) {
 
 function configurarLike(video) {
   const id = video.id;
-  let estado = JSON.parse(localStorage.getItem(`reacao_${id}`)) || { like: false, deslike: false };
+  let estado = JSON.parse(localStorage.getItem(`reacao_${id}`)) || {
+    like: false,
+    deslike: false,
+  };
   atualizarIcones(estado);
   safeGet("like").onclick = () => toggleLike(id, estado);
   safeGet("deslike").onclick = () => toggleDeslike(id, estado);
@@ -120,7 +125,9 @@ function atualizarIconeDenuncia(btnDenuncia, denunciado) {
   if (!btnDenuncia) return;
   const img = btnDenuncia.querySelector("img");
   if (!img) return;
-  img.src = denunciado ? "/images/icons/flag-ativo.svg" : "/images/icons/flag-inativo.svg";
+  img.src = denunciado
+    ? "/images/icons/flag-ativo.svg"
+    : "/images/icons/flag-inativo.svg";
 }
 
 async function toggleDenuncia(id, estado, btnDenuncia) {
@@ -145,13 +152,16 @@ function configurarDenuncia(video) {
   const overlay = modal ? modal.querySelector(".modal-overlay") : null;
   const card = modal ? modal.querySelector(".modal-card") : null;
 
-  let estado = JSON.parse(localStorage.getItem(`denuncia_${id}`)) || { denunciado: false };
+  let estado = JSON.parse(localStorage.getItem(`denuncia_${id}`)) || {
+    denunciado: false,
+  };
   atualizarIconeDenuncia(btnDenuncia, estado.denunciado);
 
-  if (btnDenuncia) btnDenuncia.onclick = () => toggleDenuncia(id, estado, btnDenuncia);
+  if (btnDenuncia)
+    btnDenuncia.onclick = () => toggleDenuncia(id, estado, btnDenuncia);
 
   if (overlay) overlay.addEventListener("click", () => fecharModal());
-  if (card) card.addEventListener("click", e => e.stopPropagation());
+  if (card) card.addEventListener("click", (e) => e.stopPropagation());
 
   if (modal && !estado.denunciado) modal.classList.add("hidden-modal");
 }
