@@ -50,7 +50,7 @@ header img {
   align-items: center;
   width: 157px;
   text-decoration: none;
-  height: 21px;
+  height: 30px;
   background-color: rgba(230, 46, 27, 1);
   border-radius: 44px;
   border: 0px;
@@ -94,7 +94,7 @@ header img {
 
 .search input {
   display: flex;
-  font-size: 20px;
+  font-size: 16px;
   color: rgba(230, 46, 27, 1);
 }
 
