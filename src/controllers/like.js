@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const { db } = require("../db");
 
-const router = Router();
+const rotaLike = Router();
 
-router.get("/like/:id", async (req, res) => {
+rotaLike.get("/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -24,7 +24,7 @@ router.get("/like/:id", async (req, res) => {
   }
 });
 
-router.get("/retirarlike/:id", async (req, res) => {
+rotaLike.get("/retirarlike/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -45,7 +45,7 @@ router.get("/retirarlike/:id", async (req, res) => {
   }
 });
 
-router.get("/dislike/:id", async (req, res) => {
+rotaLike.get("/dislike/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -66,7 +66,7 @@ router.get("/dislike/:id", async (req, res) => {
   }
 });
 
-router.get("/retirardeslike/:id", async (req, res) => {
+rotaLike.get("/retirardislike/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -87,4 +87,4 @@ router.get("/retirardeslike/:id", async (req, res) => {
   }
 });
 
-module.exports = { rotaLike: router };
+module.exports = { rotaLike };
