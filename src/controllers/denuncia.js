@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const { db } = require("../db");
 
-const router = Router();
+const rotaDenuncia = Router();
 
-router.get("/denunciar/:id", async (req, res) => {
+rotaDenuncia.get("/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -24,7 +24,7 @@ router.get("/denunciar/:id", async (req, res) => {
   }
 });
 
-router.get("/retirar/:id", async (req, res) => {
+rotaDenuncia.get("/retirar/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -45,4 +45,4 @@ router.get("/retirar/:id", async (req, res) => {
   }
 });
 
-module.exports = { rotaDenuncia: router };
+module.exports = { rotaDenuncia };
