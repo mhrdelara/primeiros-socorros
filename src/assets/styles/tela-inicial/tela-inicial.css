@@ -48,7 +48,7 @@ header img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 157px;
+  width: 165px;
   text-decoration: none;
   height: 30px;
   background-color: rgba(230, 46, 27, 1);
@@ -62,7 +62,7 @@ header img {
 #login-logout p {
   color: rgb(255, 255, 255);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 #login-logout span {
@@ -94,7 +94,7 @@ header img {
 
 .search input {
   display: flex;
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(230, 46, 27, 1);
 }
 
@@ -147,8 +147,8 @@ header img {
 .box {
   display: flex;
   flex-direction: column;
-  width: 283px;
-  height: 195px;
+  width: 305px;
+  height: 240px;
   background: rgba(245, 245, 239, 1);
   align-items: center;
 }
@@ -212,7 +212,7 @@ header img {
 
 .temas p {
   color: rgba(230, 46, 27, 1);
-  font-size: 16px;
+  font-size: 20px;
 }
 
 section {
@@ -234,7 +234,7 @@ section {
 }
 
 .son-quadrado p {
-  font-size: 23px;
+  font-size: 25px;
   text-align: left;
   color: black;
 }
