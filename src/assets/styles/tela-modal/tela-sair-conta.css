@@ -5,7 +5,8 @@
   position: fixed;
   top: 15vh;
   left: 5vw;
-  background: rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.56);
   border-radius: 5px;
 }
 
@@ -94,4 +95,3 @@
 .disable {
   display: none;
 }
-oaozao

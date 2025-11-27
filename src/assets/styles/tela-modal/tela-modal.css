@@ -63,6 +63,7 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
+  backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.56);
   top: 0;
   display: flex;
