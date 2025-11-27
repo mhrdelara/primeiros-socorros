@@ -44,4 +44,4 @@ server.get("/recomendacao", (req, res) =>
   res.sendFile(__dirname + "/pages/recomendacao.html")
 );
 
-server.listen(3000, () => console.log("Servidor rodando na porta 3001"));
+server.listen(3000, () => console.log("Servidor rodando na porta 3000"));
