@@ -2,16 +2,16 @@
   let cropper = null;
 
   document.addEventListener("DOMContentLoaded", () => {
-    const fotos = document.querySelectorAll(".foto-perfil");
+    const foto = document.querySelectorAll(".foto-perfil");
     const input = document.getElementById("img");
 
-    if (!fotos.length || !input) return;
+    if (!foto.length || !input) return;
 
     const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
     const saved = usuario.foto_perfil || localStorage.getItem("fotoPerfil");
-    if (saved) fotos.forEach((f) => (f.src = saved));
+    if (saved) foto.forEach((f) => (f.src = saved));
 
-    fotos.forEach((f) => {
+    foto.forEach((f) => {
       f.style.cursor = "pointer";
       f.addEventListener("click", () => input.click());
     });
@@ -21,12 +21,12 @@
       if (!file) return;
 
       const reader = new FileReader();
-      reader.onload = (e) => abrirCropUI(e.target.result, fotos);
+      reader.onload = (e) => abrirCropUI(e.target.result, foto);
       reader.readAsDataURL(file);
     });
   });
 
-  function abrirCropUI(src, fotos) {
+  function abrirCropUI(src, foto) {
     const overlay = document.createElement("div");
     overlay.className = "cropper-overlay";
 
@@ -61,7 +61,7 @@
       const canvas = cropper.getCroppedCanvas({ width: 500, height: 500 });
       const base64 = canvas.toDataURL("image/png");
 
-      atualizarFoto(base64, fotos);
+      atualizarFoto(base64, foto);
 
       cropper.destroy();
       overlay.remove();
@@ -80,8 +80,8 @@
     });
   }
 
-  function atualizarFoto(base64, fotos) {
-    fotos.forEach((f) => (f.src = base64));
+  function atualizarFoto(base64, foto) {
+    foto.forEach((f) => (f.src = base64));
     localStorage.setItem("fotoPerfil", base64);
 
     const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
@@ -89,7 +89,7 @@
     localStorage.setItem("usuario", JSON.stringify(usuario));
 
     if (usuario.id) {
-      fetch(`/usuario/${usuario.id}/foto`, {
+      fetch(`/usuario/${usuario.id}/foto_perfil`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ foto_perfil: base64 }),
