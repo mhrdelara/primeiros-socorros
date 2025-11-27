@@ -182,8 +182,8 @@ header img {
   justify-content: center;
   align-items: center;
   background-color: rgba(245, 245, 243, 1);
-  width: 283px;
-  height: 40px;
+  width: 300px;
+  height: 45px;
   border-radius: 50px;
   box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
   -webkit-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
@@ -191,7 +191,7 @@ header img {
 }
 
 #reanimacao p {
-  font-size: 15px;
+  font-size: 17.5px;
 }
 
 #span {

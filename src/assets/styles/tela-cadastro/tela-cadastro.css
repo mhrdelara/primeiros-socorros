@@ -114,11 +114,11 @@ main {
 
 .informacoes h1 {
   background: white;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .input {
-  font-size: 16px;
+  font-size: 18px;
   height: 20px;
   border: none;
   background: none;
@@ -162,7 +162,7 @@ main {
   align-items: center;
   justify-content: center;
   background: rgb(230, 217, 200);
-  width: 189px;
+  width: 210px;
   height: 44px;
   border-radius: 100px;
   border: none;
@@ -174,13 +174,13 @@ main {
 #concluir p {
   background: rgba(230, 46, 27, 1);
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 100px;
 }
 
 #login p {
   background: rgb(230, 217, 200);
-  font-size: 16px;
+  font-size: 19px;
   border-radius: 100px;
 }
 
