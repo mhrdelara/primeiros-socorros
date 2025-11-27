@@ -9,8 +9,8 @@ function converterDataBR(data) {
 
 rotaUsuario.get("/", async (req, res) => {
   try {
-    const usuarios = await db.usuario.findMany();
-    res.json(usuarios);
+    const usuario = await db.usuario.findMany();
+    res.json(usuario);
   } catch (e) {
     console.error("GET /usuario error:", e);
     res
@@ -133,6 +133,29 @@ rotaUsuario.put("/:id", async (req, res) => {
     });
 
     await db.usuario.update({ where: { id }, data });
+    const usuario = await db.usuario.findUnique({
+      where: {
+        id,
+      },
+    });
+    res.json(usuario);
+  } catch (e) {
+    console.error("PUT /usuario/:id erro:", e);
+    res
+      .status(500)
+      .json({ erro: "Falha ao atualizar usuário", detalhe: e.message });
+  }
+});
+
+rotaUsuario.put("/:id/foto_perfil", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    let dados_antigos = await db.usuario.findUnique({ where: { id } });
+
+    dados_antigos.foto_perfil = req.body.foto_perfil;
+
+    await db.usuario.update({ where: { id }, dados_antigos });
     const usuario = await db.usuario.findUnique({
       where: {
         id,
