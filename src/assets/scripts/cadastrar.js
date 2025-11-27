@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Erro ao cadastrar usuário");
         return;
       }
+
       const usuarioCriado = await res.json();
       localStorage.setItem("usuario", JSON.stringify(usuarioCriado));
 
