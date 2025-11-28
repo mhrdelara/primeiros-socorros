@@ -1,13 +1,17 @@
 .back-modal-delete {
+  transform: translate(-50%, -50%);
   z-index: 99999;
-  width: 90vw;
-  height: 65vh;
+  width: 365px;
+  height: 560px;
   position: fixed;
-  top: 15vh;
-  left: 5vw;
+  top: 50%;
+  left: 50%;
   backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.56);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .confirm-modal-delete {
@@ -51,7 +55,7 @@
 }
 
 .delete-square p {
-  font-size: 4vw;
+  font-size: 20px;
 }
 
 .frame-btn-delete {
@@ -74,7 +78,7 @@
 
 #btnSimDelete p {
   color: rgba(230, 46, 27, 1);
-  font-size: 4vw;
+  font-size: 20px;
 }
 
 #btnNaoDelete {
@@ -89,5 +93,5 @@
 
 #btnNaoDelete p {
   color: rgb(255, 255, 255);
-  font-size: 4vw;
+  font-size: 20px;
 }
