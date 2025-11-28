@@ -53,10 +53,9 @@ main {
 }
 
 .dad-informations {
-  margin-top: 150px;
   background: white;
   transform: translateY(-10%);
-  gap: 40px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

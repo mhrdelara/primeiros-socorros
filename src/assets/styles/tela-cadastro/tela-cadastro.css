@@ -99,6 +99,7 @@ main {
 }
 
 .informacoes {
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -119,9 +120,27 @@ main {
 
 .input {
   font-size: 18px;
+  width: 90%;
   height: 20px;
   border: none;
   background: none;
+}
+
+#senha1 {
+  align-items: center;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+#ver-senha {
+  background: none;
+  width: 25px;
+}
+
+#desver-senha {
+  background: none;
+  width: 25px;
 }
 
 #dad-concluir {

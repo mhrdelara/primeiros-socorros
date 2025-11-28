@@ -21,6 +21,8 @@
 
     <script src="/scripts/fotoPerfil.js" defer></script>
     <script src="/scripts/cadastrar.js" defer></script>
+    <script src="/scripts/senha.js" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -120,13 +122,28 @@
 
           <div class="informacoes">
             <h1>Senha:</h1>
-            <input
-              type="password"
-              placeholder="Ex: abc123"
-              class="input"
-              id="senha"
-            />
-            <img src="" alt="" />
+            <div id="senha1">
+              <input
+                type="password"
+                placeholder="Ex: abc123"
+                class="input"
+                id="senha"
+              />
+              <img
+                onclick="mostrarSenha()"
+                id="ver-senha"
+                src="/images/icons/ver-senha.svg"
+                alt="Olho aberto"
+              />
+
+              <img
+                onclick="mostrarSenha()"
+                class="disable"
+                id="desver-senha"
+                src="/images/icons/desver-senha.svg"
+                alt="Olho aberto"
+              />
+            </div>
           </div>
 
           <div id="dad-concluir">

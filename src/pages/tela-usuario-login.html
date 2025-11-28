@@ -77,12 +77,28 @@
 
             <div class="informacoes">
               <h1>Senha:</h1>
-              <input
-                type="password"
-                placeholder="Ex: abc123"
-                class="input"
-                id="senha"
-              />
+              <div id="senha1">
+                <input
+                  type="password"
+                  placeholder="Ex: abc123"
+                  class="input"
+                  id="senha"
+                />
+                <img
+                  onclick="mostrarSenha()"
+                  id="ver-senha"
+                  src="/images/icons/ver-senha.svg"
+                  alt="Olho aberto"
+                />
+
+                <img
+                  onclick="mostrarSenha()"
+                  class="disable"
+                  id="desver-senha"
+                  src="/images/icons/desver-senha.svg"
+                  alt="Olho aberto"
+                />
+              </div>
             </div>
 
             <div id="mensagem"></div>
