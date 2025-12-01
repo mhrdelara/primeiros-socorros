@@ -59,9 +59,9 @@
 
     btnSalvar.addEventListener("click", () => {
       const canvas = cropper.getCroppedCanvas({ width: 500, height: 500 });
-      const base64 = canvas.toDataURL("image/png");
+      const fotoBase64 = canvas.toDataURL("image/png");
 
-      atualizarFoto(base64, foto);
+      atualizarFoto(fotoBase64, foto);
 
       cropper.destroy();
       overlay.remove();
@@ -80,19 +80,19 @@
     });
   }
 
-  function atualizarFoto(base64, foto) {
-    foto.forEach((f) => (f.src = base64));
-    localStorage.setItem("fotoPerfil", base64);
+  function atualizarFoto(fotoBase64, foto) {
+    foto.forEach((f) => (f.src = fotoBase64));
+    localStorage.setItem("fotoPerfil", fotoBase64);
 
     const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
-    usuario.foto_perfil = base64;
+    usuario.foto_perfil = fotoBase64;
     localStorage.setItem("usuario", JSON.stringify(usuario));
 
     if (usuario.id) {
       fetch(`/usuario/${usuario.id}/foto_perfil`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ foto_perfil: base64 }),
+        body: JSON.stringify({ foto_perfil: fotoBase64 }),
       });
     }
 
