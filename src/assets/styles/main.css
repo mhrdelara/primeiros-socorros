@@ -18,3 +18,11 @@ input {
   font-family: "Poppins", sans-serif;
   font-style: normal;
 }
+
+.disable {
+  display: none;
+}
+
+#disable {
+  display: none;
+}
