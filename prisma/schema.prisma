@@ -14,6 +14,7 @@ model Usuario {
   data_nascimento DateTime
   email           String
   crm             String
+  uf              String
   funcao          String
   matricula       String
   foto_perfil     String
