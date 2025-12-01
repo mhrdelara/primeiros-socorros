@@ -40,13 +40,14 @@ rotaUsuario.post("/", async (req, res) => {
     data_nascimento,
     email,
     crm,
+    uf,
     funcao,
     matricula,
     foto_perfil,
     senha,
   } = req.body || {};
 
-  if (!nome_completo || !email || !crm || !senha || !data_nascimento) {
+  if (!nome_completo || !email || !crm || !uf || !senha || !data_nascimento) {
     return res.status(400).json({ erro: "Campos obrigatórios faltando" });
   }
 
@@ -68,6 +69,7 @@ rotaUsuario.post("/", async (req, res) => {
         data_nascimento: dataISO,
         email,
         crm,
+        uf,
         funcao: funcao || "Não informado",
         matricula: matricula || crm,
         foto_perfil: foto_perfil || "",
@@ -107,6 +109,7 @@ rotaUsuario.put("/:id", async (req, res) => {
       "data_nascimento",
       "email",
       "crm",
+      "uf",
       "funcao",
       "matricula",
       "foto_perfil",
@@ -166,7 +169,7 @@ rotaUsuario.put("/:id/foto_perfil", async (req, res) => {
     console.error("PUT /usuario/:id erro:", e);
     res
       .status(500)
-      .json({ erro: "Falha ao atualizar usuário", detalhe: e.message });
+      .json({ erro: "Falha ao atualizar foto de perfil", detalhe: e.message });
   }
 });
 
