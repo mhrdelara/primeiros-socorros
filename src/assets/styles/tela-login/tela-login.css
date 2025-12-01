@@ -1,4 +1,4 @@
-* {
+body {
   background-color: rgba(245, 245, 239, 1);
 }
 
@@ -63,6 +63,7 @@ main {
 }
 
 .informacoes {
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -76,16 +77,61 @@ main {
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
+#informacoes_crm {
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+
+#barra {
+  background: white;
+}
+
+#uf {
+  padding-left: 15px;
+}
+
 .informacoes h1 {
   background: white;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .input {
-  font-size: 16px;
+  font-size: 18px;
+  width: 90%;
   height: 20px;
   border: none;
   background: none;
+}
+
+#crm {
+  width: 60%;
+  padding-right: 15px;
+}
+
+.input {
+  font-size: 18px;
+  width: 90%;
+  height: 20px;
+  border: none;
+  background: none;
+}
+
+#senha1 {
+  align-items: center;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+#ver-senha {
+  background: none;
+  width: 25px;
+}
+
+#desver-senha {
+  background: none;
+  width: 25px;
 }
 
 #dad-concluir {
@@ -115,7 +161,6 @@ main {
   border-radius: 100px;
   border: none;
   text-decoration: none;
-  color: black;
   margin-bottom: 10px;
   background: rgba(230, 46, 27, 1);
 }
@@ -123,7 +168,7 @@ main {
 #concluir p {
   background: rgba(230, 46, 27, 1);
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 100px;
 }
 

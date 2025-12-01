@@ -2,15 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const formLogin = document.getElementById("form-login");
   const nomeCompletoInput = document.getElementById("nome_completo");
   const crmInput = document.getElementById("crm");
+  const ufInput = document.getElementById("");
   const emailInput = document.getElementById("email");
   const senhaInput = document.getElementById("senha");
 
   let mensagem = document.getElementById("mensagem");
   if (!mensagem) {
-    mensagem = document.createElement("p");
     mensagem.id = "mensagem";
-    mensagem.style.marginTop = "10px";
     formLogin.appendChild(mensagem);
+
+    main.innerHTML = `
+    <p style="color:#777; text-align:center; width:100%; margin-top:10px;">
+    </p>
+  `;
+    return;
   }
 
   formLogin.addEventListener("submit", async (e) => {
@@ -56,9 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     } catch (err) {
       console.error("Erro ao logar:", err);
-      mensagem.textContent = "Erro ao tentar logar";
-      mensagem.style.color = "red";
-      mensagem.style.background = "white";
+      mensagem.style.color = "";
+      mensagem.style.background = "";
+
+      main.innerHTML = `
+    <p background="white"; style="color:red; text-align:center; width:100%; margin-top:10px;">
+    Erro ao tentar logar
+    </p>
+  `;
+      return;
     }
   });
 });

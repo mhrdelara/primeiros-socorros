@@ -7,9 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputs = document.querySelectorAll(".input");
     const values = Array.from(inputs).map((i) => i.value.trim());
 
-    const [nome_completo, data_nascimento, crm, funcao, email, senha] = values;
+    const [nome_completo, data_nascimento, crm, uf, funcao, email, senha] =
+      values;
 
-    if (!nome_completo || !email || !crm || !senha || !data_nascimento) {
+    if (
+      !nome_completo ||
+      !data_nascimento ||
+      !crm ||
+      !uf ||
+      !funcao ||
+      !email ||
+      !senha
+    ) {
       alert("Preencha todos os campos obrigatórios.");
       return;
     }
@@ -30,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       data_nascimento: dataBR,
       email,
       crm,
+      uf,
       funcao,
       matricula: crm,
       foto_perfil: fotoBase64,

@@ -1,4 +1,4 @@
-* {
+body {
   background-color: rgba(245, 245, 239, 1);
 }
 
@@ -113,6 +113,20 @@ main {
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
+#informacoes_crm {
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+
+#barra {
+  background: white;
+}
+
+#uf {
+  padding-left: 15px;
+}
+
 .informacoes h1 {
   background: white;
   font-size: 20px;
@@ -124,6 +138,11 @@ main {
   height: 20px;
   border: none;
   background: none;
+}
+
+#crm {
+  width: 60%;
+  padding-right: 15px;
 }
 
 #senha1 {
