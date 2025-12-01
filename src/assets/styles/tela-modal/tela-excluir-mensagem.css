@@ -30,3 +30,7 @@
 .mensage p {
   font-size: 20px;
 }
+
+.disable {
+  display: none;
+}
