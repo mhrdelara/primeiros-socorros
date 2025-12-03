@@ -1,5 +1,5 @@
 header {
-  background-color: rgba(245, 245, 239, 1);
+  background: rgb(230, 217, 200);
   width: 100vw;
   height: 160px;
   display: flex;
@@ -149,7 +149,7 @@ header img {
   flex-direction: column;
   width: 305px;
   height: 240px;
-  background: rgba(245, 245, 239, 1);
+  background: rgb(230, 217, 200);
   align-items: center;
 }
 
