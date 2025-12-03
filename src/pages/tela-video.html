@@ -21,14 +21,14 @@
     <script src="/scripts/fotoPerfil.js" defer></script>
     <script src="/scripts/recomendacaoLike.js" defer></script>
     <script src="/scripts/telaVideo.js" defer></script>
+    <script src="/scripts/voltarVideo.js" defer></script>
 
     <title>Vídeos</title>
   </head>
   <body>
-    <a href="/recomendacao?query=" id="dad-arrow">
+    <a onclick="voltarVideo(event)" href="/recomendacao?query=" id="dad-arrow">
       <img id="arrow" src="/images/icons/arrow_back.svg" alt="Voltar" />
     </a>
-
     <main>
       <div class="dad-video">
         <div id="video"></div>
