@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           titulo,
-          titulo,
           descricao,
           urlVideo,
           id_usuario: usuario.id,
