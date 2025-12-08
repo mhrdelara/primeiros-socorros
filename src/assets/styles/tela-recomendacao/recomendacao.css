@@ -231,7 +231,6 @@ header img {
 
 .quadrado {
   width: 85vw;
-  height: 55px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
