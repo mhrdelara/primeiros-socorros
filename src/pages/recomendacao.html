@@ -68,6 +68,112 @@
     </header>
 
     <div class="back-modal-delete disable" onclick="closeAllModals()"></div>
+    <div class="confirm-modal-delete disable">
+      <div class="modal-content-delete">
+        <div class="delete-square">
+          <p>Excluir conta?</p>
+        </div>
+
+        <div class="frame-btn-delete">
+          <button id="btnSimDelete" onclick="showModalMensage()">
+            <p>Sim</p>
+          </button>
+          <button id="btnNaoDelete"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-modal-exit disable" onclick="closeAllModals()"></div>
+    <div class="confirm-modal-exit disable">
+      <div class="modal-content-exit">
+        <div class="exit-square">
+          <p>Sair da conta?</p>
+        </div>
+
+        <div class="frame-btn-exit">
+          <button id="btnSimExit"><p>Sim</p></button>
+          <button id="btnNaoExit"><p>Não</p></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mensage-modal-delete disable">
+      <div class="mensage">
+        <p>Conta excluída com sucesso</p>
+      </div>
+    </div>
+
+    <div class="modal disable">
+      <div class="header-modal">
+        <div class="foto-container" id="foto-container-modal">
+          <img
+            class="foto-perfil"
+            id="foto-perfil-modal"
+            src="/images/icons/3d_avatar_1.svg"
+            alt="Foto de perfil"
+          />
+          <div id="dad-editar-foto">
+            <img
+              id="editar-foto"
+              src="/images/icons/editar-foto.svg"
+              alt="Editar foto de perfil"
+            />
+          </div>
+          <input
+            class="disable"
+            type="file"
+            id="img"
+            accept="image"
+            name="img"
+          />
+        </div>
+      </div>
+
+      <div class="dad-card">
+        <div id="card">
+          <h1>Nome de usuário</h1>
+          <p id="nome_completo">@joaosilva</p>
+        </div>
+      </div>
+
+      <div class="dad-card">
+        <a href="/tela-postagem" id="post-content">
+          <div class="card">
+            <h1>Postar conteúdo</h1>
+            <img src="/images/icons/camera.svg" alt="Postagem de conteúdos" />
+          </div>
+        </a>
+      </div>
+
+      <div class="dad-card">
+        <a href="/tela-alterar-usuario" id="edit-account">
+          <div class="card">
+            <h1>Editar conta</h1>
+            <img src="/images/icons/editar-conta.svg" alt="Editar conta" />
+          </div>
+        </a>
+      </div>
+
+      <div class="dad-card">
+        <button id="delete-account" onclick="showModalDelete()">
+          <div class="card">
+            <h1>Excluir conta</h1>
+            <img src="/images/icons/excluir-conta.svg" alt="Excluir conta" />
+          </div>
+        </button>
+      </div>
+
+      <div class="dad-card">
+        <button id="exit" onclick="showModalExit()">
+          <div id="card1">
+            <h1>Sair</h1>
+            <img src="/images/icons/exit.svg" alt="Sair da conta" />
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="back-modal disable" onclick="closeAllModals()"></div>
 
     <main>
       <div class="dad-search">
