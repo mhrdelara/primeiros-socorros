@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const { db } = require("../db");
+const jwt = require("jsonwebtoken");
+const { SEGURANCA_CODIGO } = require("../autenticar");
 const rotaUsuario = Router();
 
 function converterDataBR(data) {
@@ -77,7 +79,8 @@ rotaUsuario.post("/", async (req, res) => {
       },
     });
 
-    res.json(usuarioCriado);
+    const token = jwt.sign(usuarioCriado, SEGURANCA_CODIGO);
+    res.json({ usuarioCriado, token });
   } catch (e) {
     console.error("Erro criando usuário:", e);
     return res.status(500).json({
