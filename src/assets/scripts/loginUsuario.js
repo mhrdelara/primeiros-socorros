@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const formLogin = document.getElementById("form-login");
-  const nomeCompletoInput = document.getElementById("nome_completo");
-  const crmInput = document.getElementById("crm");
-  const ufInput = document.getElementById("");
   const emailInput = document.getElementById("email");
   const senhaInput = document.getElementById("senha");
 
@@ -21,12 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const nome_completo = nomeCompletoInput.value.trim();
-    const crm = crmInput.value.trim();
     const email = emailInput.value.trim();
     const senha = senhaInput.value.trim();
 
-    if (!nome_completo || !crm || !email || !senha) {
+    if (!email || !senha) {
       mensagem.textContent = "Preencha todas as informações";
       mensagem.style.color = "red";
       return;
@@ -36,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome_completo, crm, email, senha }),
+        body: JSON.stringify({ email, senha }),
       });
 
       const data = await res.json();

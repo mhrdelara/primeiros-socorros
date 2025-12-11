@@ -77,36 +77,9 @@ main {
   -moz-box-shadow: 0px 4px 4px 0px rgba(215, 215, 207, 0.6);
 }
 
-#informacoes_crm {
-  background: white;
-  display: flex;
-  flex-direction: row;
-}
-
-#barra {
-  background: white;
-}
-
-#uf {
-  padding-left: 15px;
-}
-
 .informacoes h1 {
   background: white;
   font-size: 20px;
-}
-
-.input {
-  font-size: 18px;
-  width: 90%;
-  height: 20px;
-  border: none;
-  background: none;
-}
-
-#crm {
-  width: 60%;
-  padding-right: 15px;
 }
 
 .input {
@@ -181,6 +154,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 120px;
   gap: 40px;
   flex-direction: column;
 }

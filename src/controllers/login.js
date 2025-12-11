@@ -5,13 +5,13 @@ const { SEGURANCA_CODIGO } = require("../autenticar");
 const rotaLogin = Router();
 
 rotaLogin.post("/", async (req, res) => {
-  const { nome_completo, crm, email, senha } = req.body;
+  const { email, senha } = req.body;
 
   if (!nome_completo || !crm || !email || !senha) {
     return res.status(400).json({ erro: "Preencha todas as informações" });
   }
 
-  console.log({ nome_completo, crm, email, senha });
+  console.log({ email, senha });
 
   try {
     const usuario = await db.usuario.findFirst({
